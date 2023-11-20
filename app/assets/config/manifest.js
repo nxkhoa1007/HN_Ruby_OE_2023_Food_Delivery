@@ -2,3 +2,10 @@
 //= link_directory ../stylesheets .css
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
+//= link vendors/@coreui/chartjs/js/coreui-chartjs.js
+//= link vendors/@coreui/coreui/js/coreui.bundle.min.js
+//= link vendors/@coreui/utils/js/coreui-utils.js
+//= link vendors/chart.js/js/chart.min.js
+//= link vendors/simplebar/js/simplebar.min.js
+//= link vendors/@coreui/icons/svg/free.svg
+//= link admin/style.css
