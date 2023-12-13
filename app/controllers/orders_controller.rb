@@ -3,7 +3,8 @@ class OrdersController < ApplicationController
   before_action :load_order, only: %i(update)
   before_action :check_status_order, only: %i(update)
   def index
-    @pagy, @orders = pagy Order.includes(:order_items).newest,
+    @pagy, @orders = pagy Order.includes(:order_items)
+                               .current_user_orders(current_user.id).newest,
                           items: Settings.digit_6
   end
 
@@ -67,7 +68,8 @@ class OrdersController < ApplicationController
       product = Product.find(cart_item["product_id"])
       @order_item = @order.order_items.new(
         product_id: product.id,
-        quantity: cart_item["quantity"]
+        quantity: cart_item["quantity"],
+        cost: cart_item["price"]
       )
       @order_item.save!
     end

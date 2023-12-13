@@ -25,11 +25,11 @@ class Product < ApplicationRecord
   validates :image, content_type:
     {
       in: %w(image/jpeg image/gif image/png),
-      message: "must be a valid image format"
+      message: I18n.t("text.image_format")
     }, size:
     {
-      less_than: 5.megabytes,
-      message: "should be less than 5MB"
+      less_than: Settings.digit_5.megabytes,
+      message: I18n.t("text.image_size")
     }
   validates :cost, presence: true, numericality:
     {

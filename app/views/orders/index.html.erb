@@ -20,7 +20,13 @@
                 </tr>
               </thead>
               <tbody>
-                <%= render @orders %>
+                <% if @orders.any? %>
+                  <%= render @orders %>
+                <% else %>
+                  <tr>
+                    <td colspan="6"><%= t("text.no_order") %></td>
+                  <tr>
+                <% end %>
               </tbody>
             </table>
             <%== pagy_bootstrap_nav @pagy %>

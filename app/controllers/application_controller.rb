@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     end
     return if @cart_items
 
-    flash[:danger] = t("alert.error_cart")
+    flash[:error] = t("alert.error_cart")
     redirect_to root_path
   end
 

@@ -63,7 +63,7 @@ module ApplicationHelper
   end
 
   def order_total order
-    total_value = order.reduce(0){|a, e| a + e.quantity * e.product.cost}
+    total_value = order.reduce(0){|a, e| a + e.quantity * e.cost}
     format_cost(total_value)
   end
 

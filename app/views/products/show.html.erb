@@ -13,10 +13,10 @@
             <%= form_tag add_to_cart_path, method: :post, remote: true do %>
               <div class="d-flex">
                 <%= text_field_tag 'quantity', Settings.digit_1, class: 'form-control input-number me-3', id: 'input-numb', type: 'number', style: 'max-width: 3rem' %>
-                <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                <%= button_tag class: "btn btn-outline-dark flex-shrink-0", type: "submit" , disabled: (@product.status.to_sym == :unavailable) do %>
                   <i class="bi-cart-fill me-1"></i>
                   <%= t("text.add_to_cart") %>
-                </button>
+                <% end %>
               </div>
             <% end %>
           </div>
