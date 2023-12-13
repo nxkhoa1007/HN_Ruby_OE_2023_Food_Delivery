@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   namespace :admin do
     scope "(:locale)", locale: /en|vi/ do
       root "home#index"
@@ -10,9 +11,18 @@ Rails.application.routes.draw do
     get "signup", to: "users#new"
     post "signup", to: "users#create"
     resources :account_activations, only: :edit
-    get 'login', to:"sessions#new"
-    post 'login', to:"sessions#create"
-    get 'logout', to:"sessions#destroy"
+    get "login", to:"sessions#new"
+    post "login", to:"sessions#create"
+    get "logout", to:"sessions#destroy"
+    get "cart", to:"cart#show"
+    resources :cart do
+      member do
+        post :update_quantity, action: :update_quantity
+      end
+    end
+    post "add_to_cart/:id", to: "cart#create", as: "add_to_cart"
+    delete "cart_destroy/:id", to: "cart#destroy", as: "cart_destroy"
+    delete "cart_destroy_all", to: "cart#destroy_all"
     resources :categories do
       resources :products, only: %i(show)
     end

@@ -1,3 +1,4 @@
+<% provide :title, @product.name %>
 <section class="py-5">
   <div class="container px-4 px-lg-5 my-5">
       <div class="row gx-4 gx-lg-5 align-items-center">
@@ -9,11 +10,15 @@
           </div>
           <p class="lead"><%= @product.description %></p>
           <div class="d-flex">
-            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-            <button class="btn btn-outline-dark flex-shrink-0" type="button">
-              <i class="bi-cart-fill me-1"></i>
-              <%= t("text.add_to_cart") %>
-            </button>
+            <%= form_tag add_to_cart_path, method: :post, remote: true do %>
+              <div class="d-flex">
+                <%= text_field_tag 'quantity', Settings.digit_1, class: 'form-control input-number me-3', id: 'input-numb', type: 'number', style: 'max-width: 3rem' %>
+                <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                  <i class="bi-cart-fill me-1"></i>
+                  <%= t("text.add_to_cart") %>
+                </button>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
