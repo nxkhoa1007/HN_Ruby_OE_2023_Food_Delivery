@@ -76,7 +76,9 @@ en:
     search: "Search"
     add_product: "Add Product"
     edit_product: "Edit Product"
+    update_order: "Update Order"
     add: "Add"
+    confirm: "Confirm"
     cancel: "Cancel"
     edit: "Edit"
     delete: "Delete"
@@ -89,6 +91,21 @@ en:
       status: "Status"
       image: "Image"
       quantity:  "Quantity"
+    order:
+      order_code: "Order code"
+      created_at: "Created at"
+      status: "Status"
+      type: "Payment type"
+      total: "Total"
+      status_processing: "Processing"
+      status_confirmed: "Confirmed"
+      status_shipping: "Shipping"
+      status_delivered: "Delivered"
+      status_canceled: "Canceled"
+    user_info:
+      name: "Name"
+      address: "Address"
+      phoneNum: "Phone Number"
     back_to_home: "Back to home"
     delete_all_cart: "Delete all cart item"
     summary: "Summary"
@@ -103,6 +120,8 @@ en:
     proceed_to_order: "Proceed to order"
     cod: "Cash on delivery"
     bank: "Credit card"
+    customer_info: "Customer info"
+    order_info: "Order info"
   alert:
     account_created_successful: "Account created successfully, Please check your email to activate account"
     account_activated: "Account activated"
@@ -111,6 +130,8 @@ en:
     product_add_successful: "Product added successfully"
     product_update_successful: "Product updated successfully"
     product_delete_successful: "Product deleted successfully"
+    order_update_successful: "Order updated successfully"
+    cannot_update_delivered_order: "Cannot update delivered or canceled orders"
     error: "Error"
     error_category: "Not found category"
     error_product: "Not found product"
@@ -158,6 +179,7 @@ en:
       order:
         type_payment: "Type payment"
         note: "Note"
+        status: "Status"
   pagy:
     nav:
       prev: 'Prev'

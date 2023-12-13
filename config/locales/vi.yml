@@ -45,8 +45,10 @@ vi:
     search: "Tìm kiếm"
     add_product: "Thêm sản phẩm"
     edit_product: "Chỉnh sửa sản phẩm"
+    update_order: "Cập nhật đơn hàng"
     add: "Thêm"
     cancel: "Huỷ"
+    confirm: "Xác nhận"
     edit: "Sửa"
     delete: "Xoá"
     not_found_product: "Sản phẩm không tồn tại"
@@ -58,6 +60,21 @@ vi:
       status: "Tình trạng"
       image: "Hình ảnh"
       quantity:  "Số lượng"
+    order:
+      order_code: "Mã đơn hàng"
+      created_at: "Ngày tạo"
+      status: "Tình trạng"
+      type: "Phương thức thanh toán"
+      total: "Tổng"
+      status_processing: "Chờ xác nhận"
+      status_confirmed: "Đã xác nhận"
+      status_shipping: "Đang vận chuyển"
+      status_delivered: "Đã nhận hàng"
+      status_canceled: "Đã huỷ"
+    user_info:
+      name: "Tên"
+      address: "Địa chỉ"
+      phoneNum: "Số điện thoại"
     back_to_home: "Quay về cửa hàng"
     delete_all_cart: " Xoá toàn bộ giỏ hàng"
     summary: "Tóm tắt đơn hàng"
@@ -72,6 +89,8 @@ vi:
     proceed_to_order: "Tiến hành đặt hàng"
     cod: "Thanh toán khi nhận hàng"
     bank: "Thẻ tín dụng/ghi nợ"
+    customer_info: "Thông tin khách hàng"
+    order_info: "Thông tin đơn hàng"
   alert:
     account_created_successful: "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản"
     account_activated: "Kích hoạt tài khoản thành công"
@@ -80,6 +99,8 @@ vi:
     product_add_successful: "Thêm sản phẩm thành công"
     product_update_successful: "Cập nhật sản phẩm thành công"
     product_delete_successful: "Xoá sản phẩm thành công"
+    order_update_successful: "Cập nhật trạng thái đơn hàng thành công"
+    cannot_update_delivered_order: "Không thể cập nhật các đơn hàng đã giao hoặc đã huỷ"
     error: "Có lỗi xảy ra"
     error_category: "Không tìm thấy danh mục"
     error_product: "Không tìm thấy sản phẩm"
@@ -126,6 +147,7 @@ vi:
       order:
         type_payment: "Phương thức thanh toán"
         note: "Ghi chú"
+        status: "Trạng thái đơn hàng"
   pagy:
     nav:
       prev: 'Trước'

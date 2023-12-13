@@ -5,6 +5,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "attributes": {
       "order": {
         "note": "Note",
+        "status": "Status",
         "type_payment": "Type payment"
       },
       "product": {
@@ -49,6 +50,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "account_created_successful": "Account created successfully, Please check your email to activate account",
     "can_not_revert": "You won't be able to revert this!",
     "cancel": "Cancel",
+    "cannot_update_delivered_order": "Cannot update delivered or canceled orders",
     "cart_add_success": "Cart added successfully",
     "cart_delete_success": "Cart item deleted successfully",
     "error": "Error",
@@ -62,6 +64,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "not_found_user": "Not found user",
     "ok": "Yes",
     "order_sucsess": "Order successfully",
+    "order_update_successful": "Order updated successfully",
     "product_add_successful": "Product added successfully",
     "product_delete_successful": "Product deleted successfully",
     "product_update_successful": "Product updated successfully",
@@ -77903,6 +77906,8 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "cart": "Cart",
     "checkout": "Checkout",
     "cod": "Cash on delivery",
+    "confirm": "Confirm",
+    "customer_info": "Customer info",
     "dashboard": "Dashboard",
     "delete": "Delete",
     "delete_all_cart": "Delete all cart item",
@@ -77927,6 +77932,19 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "no_product_in_cart": "No product in cart",
     "not_found_product": "Product not found",
     "notification": "Notification",
+    "order": {
+      "created_at": "Created at",
+      "order_code": "Order code",
+      "status": "Status",
+      "status_canceled": "Canceled",
+      "status_confirmed": "Confirmed",
+      "status_delivered": "Delivered",
+      "status_processing": "Processing",
+      "status_shipping": "Shipping",
+      "total": "Total",
+      "type": "Payment type"
+    },
+    "order_info": "Order info",
     "order_management": "Order management",
     "other": "Other",
     "password": "Password",
@@ -77953,7 +77971,13 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "summary": "Summary",
     "title": "KFood",
     "total": "Total",
-    "unavailable": "Unavailable"
+    "unavailable": "Unavailable",
+    "update_order": "Update Order",
+    "user_info": {
+      "address": "Address",
+      "name": "Name",
+      "phoneNum": "Phone Number"
+    }
   },
   "time": {
     "am": "am",

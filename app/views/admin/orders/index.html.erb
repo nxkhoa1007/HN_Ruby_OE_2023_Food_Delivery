@@ -1,0 +1,33 @@
+<%= provide :title, t("text.order_management") %>
+<div class="card mb-4">
+  <div class="card-header"><strong><%= t"text.order_management" %></strong></div>
+  <div class="card-body">
+      <div class="tab-content rounded-bottom">
+        <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1000">
+          <div class="d-flex justify-content-between mb-2">
+            <form class="d-flex">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="<%= t"text.search" %>">
+              </div>
+            </form>
+          </div>
+          <table class="table table-bordered">
+            <thead class="table-light">
+              <tr>
+                <th scope="col"><%= t"text.order.order_code" %></th>
+                <th scope="col"><%= t"text.order.created_at" %></th>
+                <th scope="col"><%= t"text.order.type" %></th>
+                <th scope="col"><%= t"text.order.status" %></th>
+                <th scope="col"><%= t"text.order.total" %></th>
+              </tr>
+            </thead>
+            <% if @orders.any? %>
+              <%= render @orders %>
+            <% end %>
+          </table>
+          <%== pagy_bootstrap_nav @pagy %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

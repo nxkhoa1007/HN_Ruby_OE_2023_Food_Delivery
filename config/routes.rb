@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     scope "(:locale)", locale: /en|vi/ do
       root "home#index"
       resources :products
+      resources :orders, only: %i(index edit update)
     end
   end
   scope "(:locale)", locale: /en|vi/ do

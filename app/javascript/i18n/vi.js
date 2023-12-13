@@ -5,6 +5,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "attributes": {
       "order": {
         "note": "Ghi chú",
+        "status": "Trạng thái đơn hàng",
         "type_payment": "Phương thức thanh toán"
       },
       "product": {
@@ -48,6 +49,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "account_created_successful": "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản",
     "can_not_revert": "Bạn sẽ không thể hoàn tác lại quá trình!",
     "cancel": "Không",
+    "cannot_update_delivered_order": "Không thể cập nhật các đơn hàng đã giao hoặc đã huỷ",
     "cart_add_success": "Thêm sản phầm vào giỏ hàng thành công",
     "cart_delete_success": "Xoá giỏ hàng thành công",
     "error": "Có lỗi xảy ra",
@@ -60,6 +62,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "not_found_user": "Không tìm thấy người dùng",
     "ok": "Có",
     "order_sucsess": "Đơn hàng của bạn đã được đặt",
+    "order_update_successful": "Cập nhật trạng thái đơn hàng thành công",
     "product_add_successful": "Thêm sản phẩm thành công",
     "product_delete_successful": "Xoá sản phẩm thành công",
     "product_update_successful": "Cập nhật sản phẩm thành công",
@@ -893,6 +896,8 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "cart": "Giỏ hàng",
     "checkout": "Thanh toán",
     "cod": "Thanh toán khi nhận hàng",
+    "confirm": "Xác nhận",
+    "customer_info": "Thông tin khách hàng",
     "dashboard": "Bảng điều khiển",
     "delete": "Xoá",
     "delete_all_cart": " Xoá toàn bộ giỏ hàng",
@@ -917,6 +922,19 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "no_product_in_cart": "Bạn chưa thêm sản phẩm nào vào giỏ hàng",
     "not_found_product": "Sản phẩm không tồn tại",
     "notification": "Thông báo",
+    "order": {
+      "created_at": "Ngày tạo",
+      "order_code": "Mã đơn hàng",
+      "status": "Tình trạng",
+      "status_canceled": "Đã huỷ",
+      "status_confirmed": "Đã xác nhận",
+      "status_delivered": "Đã nhận hàng",
+      "status_processing": "Chờ xác nhận",
+      "status_shipping": "Đang vận chuyển",
+      "total": "Tổng",
+      "type": "Phương thức thanh toán"
+    },
+    "order_info": "Thông tin đơn hàng",
     "order_management": "Quản lý đơn hàng",
     "other": "Khác",
     "password": "Mật khẩu",
@@ -943,7 +961,13 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "summary": "Tóm tắt đơn hàng",
     "title": "KFood",
     "total": "Tổng",
-    "unavailable": "Đã hết"
+    "unavailable": "Đã hết",
+    "update_order": "Cập nhật đơn hàng",
+    "user_info": {
+      "address": "Địa chỉ",
+      "name": "Tên",
+      "phoneNum": "Số điện thoại"
+    }
   },
   "time": {
     "am": "sáng",
