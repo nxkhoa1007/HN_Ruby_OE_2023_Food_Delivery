@@ -1,5 +1,12 @@
 class OrdersController < ApplicationController
   before_action :check_login, :load_user_info
+  before_action :load_order, only: %i(update)
+  before_action :check_status_order, only: %i(update)
+  def index
+    @pagy, @orders = pagy Order.includes(:order_items).newest,
+                          items: Settings.digit_6
+  end
+
   def new
     @order = Order.new
   end
@@ -22,6 +29,16 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update
+    if @order.cancel_order
+      flash[:success] = t("alert.cancel_sucsess")
+      redirect_to orders_path
+    else
+      flash[:error] = t("alert.error")
+      render :index, status: :unprocessable_entity
+    end
+  end
+
   def order_params
     params.require(:order)
           .permit :type_payment, :note
@@ -36,6 +53,13 @@ class OrdersController < ApplicationController
 
   def load_user_info
     @user_info = current_user.user_infos.default_info.first
+  end
+
+  def check_status_order
+    return if @order.status.to_sym == :processing
+
+    flash[:error] = t("alert.cancel_fail")
+    redirect_to orders_path
   end
 
   def create_order_item
@@ -59,5 +83,13 @@ class OrdersController < ApplicationController
       end
     end
     Rails.logger.error("Error: #{text}")
+  end
+
+  def load_order
+    @order = Order.includes(:order_items).find_by id: params[:id]
+    return if @order
+
+    flash[:error] = t("error")
+    redirect_to orders_path
   end
 end

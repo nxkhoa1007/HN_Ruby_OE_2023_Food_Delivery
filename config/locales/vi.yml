@@ -1,5 +1,5 @@
 vi:
-  hello: "Hello mấy cưng"
+  hello: "Xin chào"
   title: "KFOOD - ADMIN"
   text:
     logo: "KFOOD"
@@ -49,6 +49,7 @@ vi:
     add: "Thêm"
     cancel: "Huỷ"
     confirm: "Xác nhận"
+    close: "Đóng"
     edit: "Sửa"
     delete: "Xoá"
     not_found_product: "Sản phẩm không tồn tại"
@@ -66,6 +67,7 @@ vi:
       status: "Tình trạng"
       type: "Phương thức thanh toán"
       total: "Tổng"
+      note: "Ghi chú"
       status_processing: "Chờ xác nhận"
       status_confirmed: "Đã xác nhận"
       status_shipping: "Đang vận chuyển"
@@ -91,6 +93,7 @@ vi:
     bank: "Thẻ tín dụng/ghi nợ"
     customer_info: "Thông tin khách hàng"
     order_info: "Thông tin đơn hàng"
+    order_history: "Lịch sử đặt hàng"
   alert:
     account_created_successful: "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản"
     account_activated: "Kích hoạt tài khoản thành công"
@@ -107,6 +110,7 @@ vi:
     error_cart: "Không tìm thấy giỏ hàng"
     error_cart_item: "Không tìm thấy sản phẩm trong giỏ hàng"
     you_sure: "Bạn chắc chắn muốn xoá chứ?"
+    you_sure_cancel: "Bạn chắc chắn muốn huỷ đơn chứ?"
     can_not_revert: "Bạn sẽ không thể hoàn tác lại quá trình!"
     ok: "Có"
     cancel: "Không"
@@ -114,6 +118,8 @@ vi:
     cart_delete_success: "Xoá giỏ hàng thành công"
     error_quantity: "Vui lòng nhập số lượng từ 1 đến 99"
     order_sucsess: "Đơn hàng của bạn đã được đặt"
+    cancel_sucsess: "Huỷ đơn hàng thành công"
+    cancel_fail: "Chỉ có thể huỷ các đơn hàng chờ xác nhận"
   user_mailer:
     account_activation:
       subject: "Kích hoạt tài khoản"

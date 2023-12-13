@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    return unless logged_in?
+
+    redirect_to root_path
   end
 
   def create

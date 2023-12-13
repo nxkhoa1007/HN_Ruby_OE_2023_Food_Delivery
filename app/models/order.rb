@@ -16,6 +16,10 @@ class Order < ApplicationRecord
     update_column :order_code, generate_order_code(id)
   end
 
+  def cancel_order
+    update_column :status, :canceled
+  end
+
   private
 
   def generate_order_code order_id

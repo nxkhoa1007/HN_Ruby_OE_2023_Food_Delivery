@@ -49,6 +49,8 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "account_created_successful": "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản",
     "can_not_revert": "Bạn sẽ không thể hoàn tác lại quá trình!",
     "cancel": "Không",
+    "cancel_fail": "Chỉ có thể huỷ các đơn hàng chờ xác nhận",
+    "cancel_sucsess": "Huỷ đơn hàng thành công",
     "cannot_update_delivered_order": "Không thể cập nhật các đơn hàng đã giao hoặc đã huỷ",
     "cart_add_success": "Thêm sản phầm vào giỏ hàng thành công",
     "cart_delete_success": "Xoá giỏ hàng thành công",
@@ -66,7 +68,8 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "product_add_successful": "Thêm sản phẩm thành công",
     "product_delete_successful": "Xoá sản phẩm thành công",
     "product_update_successful": "Cập nhật sản phẩm thành công",
-    "you_sure": "Bạn chắc chắn muốn xoá chứ?"
+    "you_sure": "Bạn chắc chắn muốn xoá chứ?",
+    "you_sure_cancel": "Bạn chắc chắn muốn huỷ đơn chứ?"
   },
   "date": {
     "abbr_day_names": [
@@ -637,7 +640,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
       ]
     }
   },
-  "hello": "Hello mấy cưng",
+  "hello": "Xin chào",
   "helpers": {
     "select": {
       "prompt": "Vui lòng chọn"
@@ -895,6 +898,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "cancel": "Huỷ",
     "cart": "Giỏ hàng",
     "checkout": "Thanh toán",
+    "close": "Đóng",
     "cod": "Thanh toán khi nhận hàng",
     "confirm": "Xác nhận",
     "customer_info": "Thông tin khách hàng",
@@ -924,6 +928,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "notification": "Thông báo",
     "order": {
       "created_at": "Ngày tạo",
+      "note": "Ghi chú",
       "order_code": "Mã đơn hàng",
       "status": "Tình trạng",
       "status_canceled": "Đã huỷ",
@@ -934,6 +939,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
       "total": "Tổng",
       "type": "Phương thức thanh toán"
     },
+    "order_history": "Lịch sử đặt hàng",
     "order_info": "Thông tin đơn hàng",
     "order_management": "Quản lý đơn hàng",
     "other": "Khác",

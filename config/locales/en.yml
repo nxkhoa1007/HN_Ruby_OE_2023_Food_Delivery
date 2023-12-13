@@ -30,7 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: "Hello"
   title: "KFOOD - ADMIN"
   text:
     logo: "KFOOD"
@@ -78,6 +78,7 @@ en:
     edit_product: "Edit Product"
     update_order: "Update Order"
     add: "Add"
+    close: "Close"
     confirm: "Confirm"
     cancel: "Cancel"
     edit: "Edit"
@@ -97,6 +98,7 @@ en:
       status: "Status"
       type: "Payment type"
       total: "Total"
+      note: "Note"
       status_processing: "Processing"
       status_confirmed: "Confirmed"
       status_shipping: "Shipping"
@@ -122,6 +124,7 @@ en:
     bank: "Credit card"
     customer_info: "Customer info"
     order_info: "Order info"
+    order_history: "Order history"
   alert:
     account_created_successful: "Account created successfully, Please check your email to activate account"
     account_activated: "Account activated"
@@ -138,6 +141,7 @@ en:
     error_cart: "Not found cart"
     error_cart_item: "Not found cart item"
     you_sure: "Are you sure to delete?"
+    you_sure_cancel: "Are you sure to cancel?"
     can_not_revert: "You won't be able to revert this!"
     ok: "Yes"
     cancel: "Cancel"
@@ -145,6 +149,8 @@ en:
     cart_delete_success: "Cart item deleted successfully"
     error_quantity: "Please select a quantity between 1 and 99"
     order_sucsess: "Order successfully"
+    cancel_sucsess: "Cancel successfully"
+    cancel_fail: "Can only cancel processing order"
   user_mailer:
     account_activation:
       subject: "Account Activation"
