@@ -2,7 +2,7 @@
   <td><%= link_to order.order_code, "#","data-bs-toggle": "modal", "data-bs-target": "#modal-order-#{order.id}" , remote: true %></td>
   <td><%= format_time(order.created_at) %></td>
   <td><%= display_type_payment(order.type_payment) %></td>
-  <td class="fw-bolder"><%= display_order_status(order.status) %></td>
+  <td class="fw-bolder"><%= display_order_status_text(order.status) %></td>
   <td><%= order_total(order.order_items) %></td>
   <td>
     <%= link_to t("text.cancel"), order_path(order), class: "text-danger", data: { "turbo-method": :put, turbo_confirm: t("alert.you_sure_cancel") } %>

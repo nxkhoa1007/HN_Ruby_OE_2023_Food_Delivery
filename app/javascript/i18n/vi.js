@@ -640,6 +640,20 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
       ]
     }
   },
+  "form": {
+    "product": {
+      "cost": "Giá*",
+      "description": "Mô tả*",
+      "image": "Hình ảnh*",
+      "name": "Tên sản phẩm*"
+    },
+    "user": {
+      "email": "Địa chỉ email*",
+      "name": "Tên*",
+      "password": "Mật khẩu*",
+      "password_confirmation": "Nhập lại mật khẩu*"
+    }
+  },
   "hello": "Xin chào",
   "helpers": {
     "select": {
@@ -918,6 +932,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "image_size": "Phải nhỏ hơn 5MB",
     "in_past": "phải là ở quá khứ",
     "invalid_email_password": "Email hoặc mật khẩu không chính xác",
+    "loading": "Đang tải",
     "log_out": "Đăng xuất",
     "login": "Đăng nhập",
     "logo": "KFOOD",

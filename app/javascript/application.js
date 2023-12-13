@@ -10,3 +10,4 @@ import 'i18n/vi'
 window.I18n = I18n
 I18n.locale = document.querySelector('body').getAttribute('data-locale');
 import 'custom/toastr'
+import 'custom/script'

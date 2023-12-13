@@ -35,6 +35,7 @@ en:
   text:
     logo: "KFOOD"
     title: "KFood"
+    loading: "Loading"
     admin_home: "Admin Home"
     account: "Account"
     notification: "Notification"
@@ -200,3 +201,14 @@ en:
       prev: 'Prev'
       next: 'Next'
       gap: '...'
+  form:
+    user:
+      name: "Name*"
+      email: "Email address*"
+      password: "Password*"
+      password_confirmation: "Password Confirmation*"
+    product:
+      image: "Image*"
+      name: "Name*"
+      cost: "Cost*"
+      description: "Description*"

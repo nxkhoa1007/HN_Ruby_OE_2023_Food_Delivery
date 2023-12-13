@@ -2,6 +2,7 @@ class Admin::ProductsController < Admin::MasterController
   before_action :load_product, except: %i(index new create)
   def index
     @pagy, @products = pagy Product.sort_by_name, items: Settings.page_10
+    store_location
   end
 
   def new
@@ -14,7 +15,7 @@ class Admin::ProductsController < Admin::MasterController
     @product.image.attach params.dig(:product, :image)
     if @product.save
       flash[:success] = t("alert.product_add_successful")
-      redirect_to admin_products_path
+      redirect_back_or session[:forwarding_url] || admin_products_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +26,7 @@ class Admin::ProductsController < Admin::MasterController
   def update
     if @product.update product_params
       flash[:success] = t("alert.product_update_successful")
-      redirect_to admin_products_path
+      redirect_back_or session[:forwarding_url] || admin_products_path
     else
       flash[:error] = t("alert.error")
       render :edit, status: :unprocessable_entity
@@ -38,7 +39,7 @@ class Admin::ProductsController < Admin::MasterController
     else
       flash[:error] = t("alert.error")
     end
-    redirect_to admin_products_path
+    redirect_back_or session[:forwarding_url] || admin_products_path
   end
 
   def product_params
@@ -50,7 +51,7 @@ class Admin::ProductsController < Admin::MasterController
   private
 
   def load_product
-    @product = Product.friendly.find params[:id]
+    @product = Product.friendly.find_by(slug: params[:id])
     return if @product
 
     flash[:danger] = t("error")

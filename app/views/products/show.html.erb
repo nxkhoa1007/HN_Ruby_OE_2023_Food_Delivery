@@ -28,14 +28,15 @@
 <section class="px-5 pb-5 bg-light">
   <div class="container px-4 px-lg-5 mt-5">
     <h2 class="fw-bolder mb-4"><%= t "text.related_product" %></h2>
-    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
-    <% if @products_related.any? %>
-      <% @products_related.each do |product| %>
-        <%= render partial: "products/product", locals: { product: product, category: @category} %>
+    <div class="row gx-4 gx-lg-5 row-cols-4">
+      <% if @products.any? %>
+        <% @products.each do |product| %>
+          <%= render partial: "products/product", locals: { product: product} %>
+        <% end %>
+      <% else %>
+        <span><%= t "text.no_product" %></span>
       <% end %>
-    <% else %>
-      <span><%= t "text.no_product" %></span>
-    <% end %>
     </div>
+    <%= render partial: "shared/next_page" %>
   </div>
 </section>

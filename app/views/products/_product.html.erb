@@ -1,5 +1,6 @@
 <div class="col mb-5">
   <div class="card h-100">
+    <%= status_badge(product.status) %>
     <%= image_tag product.image.variant(:display_user), class: "card-img-top" if product.image.attached? %>
     <div class="card-body p-4">
       <div class="text-center card-info">

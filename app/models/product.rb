@@ -5,6 +5,8 @@ class Product < ApplicationRecord
 
   enum status: {unavailable: 0, available: 1}
 
+  before_validation :remove_commas_from_price
+
   belongs_to :category
   has_many :order_items, dependent: :destroy
   has_one_attached :image do |attachable|
@@ -21,8 +23,9 @@ class Product < ApplicationRecord
       Settings.digit_600
     ]
   end
+
   validates :name, presence: true, length: {maximum: Settings.digit_50}
-  validates :image, content_type:
+  validates :image, presence: true, content_type:
     {
       in: %w(image/jpeg image/gif image/png),
       message: I18n.t("text.image_format")
@@ -40,6 +43,7 @@ class Product < ApplicationRecord
   validates :description, presence: true,
                        length: {maximum: Settings.digit_255},
                        allow_nil: true
+
   scope :sort_by_name, ->{order(name: :asc)}
   scope :exclude_current, ->(id){where.not(id:)}
   scope :newest, ->{order(created_at: :desc)}
@@ -52,5 +56,9 @@ class Product < ApplicationRecord
 
   def should_generate_new_friendly_id?
     name_changed? || super
+  end
+
+  def remove_commas_from_price
+    self.cost = cost_before_type_cast.gsub(",", "").to_i if cost.present?
   end
 end

@@ -77641,6 +77641,20 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       ]
     }
   },
+  "form": {
+    "product": {
+      "cost": "Cost*",
+      "description": "Description*",
+      "image": "Image*",
+      "name": "Name*"
+    },
+    "user": {
+      "email": "Email address*",
+      "name": "Name*",
+      "password": "Password*",
+      "password_confirmation": "Password Confirmation*"
+    }
+  },
   "hello": "Hello",
   "helpers": {
     "select": {
@@ -77928,6 +77942,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "image_size": "must be less than 5MB",
     "in_past": "must be in the past",
     "invalid_email_password": "Invalid email or password",
+    "loading": "Loading",
     "log_out": "Log out",
     "login": "Login",
     "logo": "KFOOD",

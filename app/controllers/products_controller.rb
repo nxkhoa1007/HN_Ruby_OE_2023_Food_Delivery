@@ -6,8 +6,11 @@ class ProductsController < ApplicationController
 
   def show
     @category = Category.friendly.find_by(slug: params[:category_id])
-    @products_related = @category.products.includes(:category)
-                                 .exclude_current(@product.id)
+    @pagy, @products = pagy_countless @category
+                       .products.includes(:category)
+                       .exclude_current(@product.id),
+                                      items: Settings.digit_4
+    render "shared/scrollable_list" if params[:page]
     return if @category
 
     flash[:error] = t("alert.error_category")
