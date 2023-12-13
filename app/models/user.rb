@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :activation_token
+  attr_accessor :activation_token, :remember_token
 
   enum gender: {male: 0, female: 1, other: 2}
   enum role: {admin: 0, user: 1}
@@ -54,6 +54,22 @@ class User < ApplicationRecord
 
   def activate
     update_columns activated: true, activated_at: Time.zone.now
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    update_column :remember_digest, User.digest(remember_token)
+  end
+
+  def authenticated? attributed, token
+    digest = send "#{attributed}_digest"
+    return false unless digest
+
+    BCrypt::Password.new(digest).is_password?(token)
+  end
+
+  def forget
+    update_column :remember_digest, nil
   end
 
   private

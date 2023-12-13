@@ -2,6 +2,7 @@ gender_male: 'male'
 gender_female: 'female'
 gender_other: 'other'
 role_user: 1
+remember_checked: "1"
 VALID_EMAIL_REGEX: '\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z'
 digit_50: 50
 digit_6: 6
