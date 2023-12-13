@@ -13,17 +13,17 @@
     </li>
     <li class="nav-title"><%= t("text.management")%></li>
     <li class="nav-item">
-      <a class="nav-link" href="colors.html">
+      <%= link_to admin_products_path, class: "nav-link" do %>
         <svg class="nav-icon">
           <use xlink:href="<%= image_path('vendors/@coreui/icons/svg/free.svg#cil-list') %>"></use>
-        </svg> <%= t("text.product_management")%>
-      </a>
+        </svg><%= t("text.product_management") %>
+      <% end %>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="typography.html">
         <svg class="nav-icon">
           <use xlink:href="<%= image_path('vendors/@coreui/icons/svg/free.svg#cil-list') %>"></use>
-        </svg> <%= t("text.order_management")%>
+        </svg> <%= t("text.order_management") %>
       </a>
     </li>
   </ul>

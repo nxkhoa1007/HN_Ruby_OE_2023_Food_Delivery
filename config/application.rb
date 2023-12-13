@@ -16,6 +16,8 @@ module RailsTutorial
     config.i18n.default_locale = :vi
     config.time_zone = 'Asia/Ho_Chi_Minh'
     config.active_record.default_timezone = :local
+    config.active_storage.variant_processor = :mini_magick
+    config.middleware.use I18n::JS::Middleware
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

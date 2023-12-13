@@ -1,0 +1,10 @@
+<tr>
+  <td><%= image_tag product.image.variant(:display) if product.image.attached? %></td>
+  <td><%= product.name %></td>
+  <td class="fw-bolder"><%= format_cost(product.cost) %></td>
+  <td><%= status_text(product.status) %></td>
+  <td class="d-flex">
+    <%= link_to t("text.edit"), edit_admin_product_path(product), class: "btn btn-primary" %>
+    <%= link_to t("text.delete"), admin_product_path(product), class: "btn btn-danger text-white", data: { "turbo-method": :delete, turbo_confirm: t("alert.you_sure") } %>
+  </td>
+</tr>

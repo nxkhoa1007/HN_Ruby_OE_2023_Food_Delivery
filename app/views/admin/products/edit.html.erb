@@ -1,0 +1,10 @@
+<%= provide :title, t("text.edit_product") %>
+<%= provide :button_text, t("text.edit") %>
+<div class="card mb-4">
+  <div class="card-header fw-bold"><%= t"text.edit_product" %></div>
+  <div class="card-body">
+    <div class="tab-content rounded-bottom">
+      <%= render "form" , { :url => admin_product_path} %>
+    </div>
+  </div>
+</div>
