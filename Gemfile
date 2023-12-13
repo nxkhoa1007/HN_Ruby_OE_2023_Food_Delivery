@@ -29,6 +29,7 @@ gem "jbuilder"
 
 gem "rails-i18n"
 
+gem "sassc-rails"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

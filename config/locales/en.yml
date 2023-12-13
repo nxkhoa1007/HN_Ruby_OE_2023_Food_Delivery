@@ -31,3 +31,16 @@
 
 en:
   hello: "Hello world"
+  title: "KFOOD - ADMIN"
+  text:
+    title: "KFood"
+    admin_home: "Admin Home"
+    account: "Account"
+    notification: "Notification"
+    settings: "Settings"
+    sign_out: "Sign out"
+    home: "Home"
+    dashboard: "Dashboard"
+    management: "Management"
+    product_management: "Product management"
+    order_management: "Order management"

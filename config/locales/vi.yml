@@ -1,2 +1,15 @@
 vi:
   hello: "Hello mấy cưng"
+  title: "KFOOD - ADMIN"
+  text:
+    title: "KFood"
+    admin_home: "Trang chủ Admin"
+    account: "Tài khoản"
+    notification: "Thông báo"
+    settings: "Cài đặt"
+    sign_out: "Đăng xuất"
+    home: "Trang chủ"
+    dashboard: "Bảng điều khiển"
+    management: "Quản lý"
+    product_management: "Quản lý sản phẩm"
+    order_management: "Quản lý đơn hàng"

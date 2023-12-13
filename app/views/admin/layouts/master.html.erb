@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title><%= full_title yield :title %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "admin/style", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <%= render "admin/layouts/sidebar" %>
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+      <%= render "admin/layouts/header" %>
+      <div class="body flex-grow-1 px-3">
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
