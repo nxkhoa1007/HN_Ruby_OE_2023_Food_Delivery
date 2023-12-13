@@ -137,12 +137,12 @@ class CartController < ApplicationController
 
   def add_new_item product
     session[:cart] << {
-      "user_id": current_user.id,
-      "product_id": product.id,
-      "product_image": url_for(product.image),
-      "product_name": product.name,
-      "quantity": params[:quantity].to_i,
-      "price": product.cost
+      "user_id" => current_user.id,
+      "product_id" => product.id,
+      "product_image" => url_for(product.image),
+      "product_name" => product.name,
+      "quantity" => params[:quantity].to_i,
+      "price" => product.cost
     }
   end
 end

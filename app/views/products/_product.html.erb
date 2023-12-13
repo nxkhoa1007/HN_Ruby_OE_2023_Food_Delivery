@@ -3,7 +3,7 @@
     <%= image_tag product.image.variant(:display_user), class: "card-img-top" if product.image.attached? %>
     <div class="card-body p-4">
       <div class="text-center card-info">
-        <h6><%= link_to product.name, category_product_path(category, product), class: "fw-bolder text-decoration-none" %></h6>
+        <h6><%= link_to product.name, category_product_path(product.category, product), class: "fw-bolder text-decoration-none" %></h6>
         <b class="text-danger"><%= format_cost(product.cost)%></b>
       </div>
     </div>

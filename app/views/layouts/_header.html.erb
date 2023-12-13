@@ -6,28 +6,19 @@
     </button>
     <div class="collapse navbar-collapse row justify-content-center" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-3">
-        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!"><%= t "text.home" %></a></li>
+        <li class="nav-item"><%= link_to t("text.home"), root_path, class: "nav-link active" %></li>
         <li class="nav-item"><a class="nav-link" href="#!"><%= t "text.about" %></a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><%= t "text.shop" %></a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#!"><%= t "text.all_product" %></a></li>
+            <li><%= link_to t("text.all_product"), categories_path, class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#!"><%= t "text.hot_product" %></a></li>
+            <li><a class="dropdown-item" href="#!"><%= t "text.hot" %></a></li>
             <li><a class="dropdown-item" href="#!"><%= t "text.new_product" %></a></li>
           </ul>
         </li>
       </ul>
-      <form class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search col-5">
-        <div class="input-group">
-          <input type="text" class="form-control bg-light small" placeholder="<%= t "text.search" %>" aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-dark" type="button">
-                <i class="bi bi-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
+      <%= render partial:"shared/search_form", locals: { results: [] } %>
       <div class="col-4">
         <% if logged_in? %>
           <%= link_to cart_path, class: "btn btn-outline-dark" do %>

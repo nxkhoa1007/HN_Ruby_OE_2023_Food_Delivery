@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   extend FriendlyId
+
   friendly_id :name, use: :slugged
 
   enum status: {unavailable: 0, available: 1}
@@ -41,6 +42,11 @@ class Product < ApplicationRecord
                        allow_nil: true
   scope :sort_by_name, ->{order(name: :asc)}
   scope :exclude_current, ->(id){where.not(id:)}
+  scope :newest, ->{order(created_at: :desc)}
+  scope :best_sellers, ->{order(sold: :desc)}
+  scope :price_desc, ->{order(cost: :desc)}
+  scope :price_asc, ->{order(cost: :asc)}
+  scope :search_by_name, ->(query){where("name LIKE ?", "%#{query}%")}
 
   private
 

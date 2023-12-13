@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
   before_action :load_product, only: %i(show)
+  before_action :product_query, only: %i(index suggestions)
+
+  def index; end
 
   def show
     @category = Category.friendly.find(params[:category_id])
@@ -11,7 +14,25 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  def suggestions
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream:
+          turbo_stream.update("suggestions", partial: "shared/suggestions",
+                              locals: {results: @products})
+      end
+    end
+  end
+
   private
+
+  def product_query
+    @products = if params[:query].blank?
+                  Product.all.sort_by_name
+                else
+                  Product.search_by_name(params[:query]).sort_by_name
+                end
+  end
 
   def load_product
     @product = Product.friendly.find params[:id]
@@ -19,9 +40,5 @@ class ProductsController < ApplicationController
 
     flash[:danger] = t("alert.error_product")
     redirect_to root_path
-  end
-
-  def admin_user
-    redirect_to root_path unless current_user.admin?
   end
 end
