@@ -1,0 +1,19 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css');
+@import 'custom-variables';
+.banner {
+  position: relative;
+  background-image: url("bg.jpeg");
+  background-size: cover;
+}
+#myBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: $gray-color;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 18px;
+}

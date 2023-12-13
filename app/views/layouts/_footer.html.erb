@@ -1,0 +1,7 @@
+<button id="myBtn" class="btn" title="Go to top">
+  <%= link_to({ locale: switch_locale}, class: "nav-link py-0" ) do %>
+    <div class="avatar avatar-md">
+      <%= image_tag(language_info.values.first, class: "lang-img") %>
+    </div>
+  <% end %>
+</button>
