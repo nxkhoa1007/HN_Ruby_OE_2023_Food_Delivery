@@ -1,0 +1,67 @@
+<% provide :title, t("text.checkout") %>
+<section class="h-100 h-custom mt-5">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+        <%= form_for @order, url: checkout_path do |f| %>
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-md-5 col-lg-4 order-md-last p-5">
+                <% if @cart_items.any? %>
+                  <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary"><%= t("text.cart") %></span>
+                    <span class="badge bg-primary rounded-pill"><%= @cart_items.size %></span>
+                  </h4>
+                  <ul class="list-group mb-3">
+                    <% @cart_items.each do |cart_item| %>
+                      <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                          <h6 class="my-0"><%= cart_item["product_name"] %></h6>
+                          <small class="text-muted"><%= t("text.product.quantity") %>: <%= cart_item["quantity"] %></small>
+                        </div>
+                        <span class="text-muted"><%= format_cost(cart_item["price"]) %></span>
+                      </li>
+                    <% end %>
+                    <li class="list-group-item d-flex justify-content-between">
+                      <span><%= t("text.total") %> (VND)</span>
+                      <strong><%= format_cost(subtotal_cart_value(@cart_items)) %></strong>
+                    </li>
+                  </ul>
+                <% end %>
+              </div>
+              <div class="col-md-7 col-lg-8 p-5">
+                <h4 class="mb-3"><%= t("text.billing_info") %></h4>
+                <div class="row g-3">
+                    <b><%= @user_info.name %>, <%= @user_info.phoneNum %> <span class="fw-normal p-3"><%= @user_info.address %></span></b>
+                    <div class="col-12">
+                      <%= f.label :note, class: "form-label fw-bold" %>
+                      <%= f.text_area :note,  class: "form-control" %>
+                      <%= display_error(@order, :note) %>
+                    </div>
+                  <hr class="my-4">
+                  <%= f.label :type_payment, class: "h4" %>
+                  <div class="mb-2">
+                  <div class="form-group">
+                    <div class="form-check">
+                      <%= f.label :type_payment, class:"radio-inline fw-normal" do %>
+                        <%= f.radio_button :type_payment, :cod , class: "form-check-input", checked: true %><%= t "text.cod" %>
+                      <% end %>
+                    </div>
+                    <div class="form-check">
+                      <%= f.label :type_payment, class:"form-check-label fw-normal" do %>
+                        <%= f.radio_button :type_payment, :bank , class: "form-check-input" %><%= t "text.bank" %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <hr class="my-4">
+                  <button class="w-100 btn btn-primary btn-lg" type="submit"><%= t("text.proceed_to_order") %></button>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

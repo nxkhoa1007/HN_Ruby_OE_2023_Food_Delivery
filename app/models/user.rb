@@ -4,7 +4,7 @@ class User < ApplicationRecord
   enum gender: {male: 0, female: 1, other: 2}
   enum role: {admin: 0, user: 1}
   has_many :orders, dependent: :destroy
-
+  has_many :user_infos, dependent: :destroy
   validate :check_dob_in_past
   validates :name, presence: true, length: {maximum: Settings.digit_50}
   validates :email, presence: true,

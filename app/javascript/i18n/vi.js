@@ -3,6 +3,10 @@ I18n.translations || (I18n.translations = {});
 I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
   "activerecord": {
     "attributes": {
+      "order": {
+        "note": "Ghi chú",
+        "type_payment": "Phương thức thanh toán"
+      },
       "product": {
         "category_id": "Danh mục",
         "cost": "Giá sản phẩm(VND)",
@@ -17,6 +21,11 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
         "name": "Tên",
         "password": "Mật khẩu",
         "password_confirmation": "Nhập lại mật khẩu"
+      },
+      "user_info": {
+        "address": "Địa chỉ",
+        "name": "Tên",
+        "phoneNum": "Số điện thoại"
       }
     },
     "errors": {
@@ -29,8 +38,9 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
       }
     },
     "models": {
-      "session": "Session",
-      "user": "User"
+      "session": "Phiên",
+      "user": "Người dùng",
+      "user_info": "Thông tin người dùng"
     }
   },
   "alert": {
@@ -49,6 +59,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "invalid_link": "Đường dẫn không tồn tại",
     "not_found_user": "Không tìm thấy người dùng",
     "ok": "Có",
+    "order_sucsess": "Đơn hàng của bạn đã được đặt",
     "product_add_successful": "Thêm sản phẩm thành công",
     "product_delete_successful": "Xoá sản phẩm thành công",
     "product_update_successful": "Cập nhật sản phẩm thành công",
@@ -874,11 +885,14 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "all_product": "Tất cả món ăn",
     "available": "Có sẵn",
     "back_to_home": "Quay về cửa hàng",
+    "bank": "Thẻ tín dụng/ghi nợ",
     "banner_text": "Đưa hương vị đến cửa nhà bạn, mọi lúc, mọi nơi!",
     "banner_title": "Ở đây chúng tôi có mọi thứ",
+    "billing_info": "Thông tin hoá đơn",
     "cancel": "Huỷ",
     "cart": "Giỏ hàng",
     "checkout": "Thanh toán",
+    "cod": "Thanh toán khi nhận hàng",
     "dashboard": "Bảng điều khiển",
     "delete": "Xoá",
     "delete_all_cart": " Xoá toàn bộ giỏ hàng",
@@ -906,6 +920,8 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "order_management": "Quản lý đơn hàng",
     "other": "Khác",
     "password": "Mật khẩu",
+    "payment": "Phương thức thanh toán",
+    "proceed_to_order": "Tiến hành đặt hàng",
     "product": {
       "cost": "Giá",
       "image": "Hình ảnh",

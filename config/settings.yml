@@ -4,6 +4,7 @@ gender_other: 'other'
 role_user: 1
 remember_checked: '1'
 VALID_EMAIL_REGEX: '\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z'
+VALID_PHONE_NUM: '/\A0\d{9}\z/'
 digit_600: 600
 digit_450: 450
 digit_300: 300
@@ -11,6 +12,7 @@ digit_255: 255
 digit_150: 150
 digit_100: 100
 digit_50: 50
+digit_10: 10
 digit_6: 6
 digit_8: 8
 digit_0: 0
