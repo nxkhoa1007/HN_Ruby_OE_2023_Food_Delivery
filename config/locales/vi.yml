@@ -9,7 +9,7 @@ vi:
     settings: "Cài đặt"
     sign_out: "Đăng xuất"
     home: "Trang chủ"
-    about: "Về chúng tôi"
+    about: "Giới thiệu"
     shop: "Cửa hàng"
     login: "Đăng nhập"
     register: "Đăng ký"
@@ -17,10 +17,40 @@ vi:
     add_to_cart: "Thêm vào giỏ hàng"
     new_product: "Mới"
     search: "Tìm kiếm"
-    hot_product: "Bán chạy "
+    hot_product: "Bán chạy"
     banner_title: "Ở đây chúng tôi có mọi thứ"
     banner_text: "Đưa hương vị đến cửa nhà bạn, mọi lúc, mọi nơi!"
     dashboard: "Bảng điều khiển"
     management: "Quản lý"
     product_management: "Quản lý sản phẩm"
     order_management: "Quản lý đơn hàng"
+    male: "Nam"
+    female: "Nữ"
+    other : "Khác"
+    register_account: "Đăng ký tài khoản"
+    remember_me: "Ghi nhớ tài khoản"
+    in_past: "phải là ở quá khứ"
+    had_account: "Đã có tài khoản?"
+  alert:
+    account_created_successful: "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản"
+    account_activated: "Kích hoạt tài khoản thành công"
+    not_found_user: "Không tìm thấy người dùng"
+    invalid_link: "Đường dẫn không tồn tại"
+  user_mailer:
+    account_activation:
+      subject: "Kích hoạt tài khoản"
+      content:
+        hi: "Xin chào"
+        description: "Chào mừng đến với KFOOD! Bấm vào đường dẫn phía dưới để kích hoạt tài khoản của bạn:"
+        activate: "Kích hoạt"
+  activerecord:
+    models:
+      user: "User"
+    attributes:
+      user:
+        name: "Tên"
+        email: "Địa chỉ email"
+        password: "Mật khẩu"
+        password_confirmation: "Nhập lại mật khẩu"
+        dob: "Ngày sinh"
+        gender: "Giới tính"

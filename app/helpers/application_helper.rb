@@ -11,4 +11,12 @@ module ApplicationHelper
   def language_info locale = I18n.locale.to_s.downcase
     {locale.to_sym => "admin/#{locale}.png"}
   end
+
+  def display_error object, attribute
+    return unless object.errors.include?(attribute)
+
+    content_tag(:small,
+                object.errors.full_messages_for(attribute)[0],
+                class: "text-danger")
+  end
 end
