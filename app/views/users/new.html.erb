@@ -1,0 +1,68 @@
+<% provide :title, t("text.register") %>
+<section class="py-5 bg-light">
+  <div class="container px-4 px-lg-5 mt-3">
+    <div class="row">
+      <div class="col-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-header bg-black">
+            <h3 class="text-center font-weight-light my-3 text-white"><%= t "text.register_account"%></h3>
+          </div>
+          <div class="card-body p-3 p-sm-5 fw-bold">
+            <%= form_with model: @user, url: signup_path do |f| %>
+              <div class="mb-2">
+                <%= f.label :name %>
+                <%= f.text_field :name, class: "form-control" %>
+                <%= display_error(@user, :name) %>
+              </div>
+              <div class="mb-2">
+                <%= f.label :email %>
+                <%= f.text_field :email, class: "form-control" %>
+                <%= display_error(@user, :email) %>
+              </div>
+              <div class="mb-2">
+                <%= f.label :password %>
+                <%= f.password_field :password, class: "form-control" %>
+                <%= display_error(@user, :password) %>
+              </div>
+              <div class="mb-2">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+                <%= display_error(@user, :password_confirmation) %>
+              </div>
+              <div class="mb-2">
+                <%= f.label :gender %>
+                <div class="form-group">
+                  <div class="form-check form-check-inline">
+                    <%= f.label :gender_male, class:"radio-inline fw-normal" do %>
+                      <%= f.radio_button :gender, :male , class: "form-check-input", checked: true %><%= t "text.male" %>
+                    <% end %>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <%= f.label :gender_female, class:"form-check-label fw-normal" do %>
+                      <%= f.radio_button :gender, :female , class: "form-check-input" %><%= t "text.female" %>
+                    <% end %>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <%= f.label :gender_other, class:"form-check-label fw-normal" do %>
+                      <%= f.radio_button :gender, :other , class: "form-check-input" %><%= t "text.other" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-2">
+                <%= f.label :dob %>
+                <%= f.date_field :dob, class: "form-control" %>
+                <%= display_error(@user, :dob) %>
+              </div>
+              <div class="d-grid">
+                  <%= f.button t("text.register"), type:"submit", class: "btn btn-dark btn-login fw-bold text-uppercase" %>
+              </div>
+              <hr class="my-4">
+              <div class="text-center"><%= t"text.had_account" %> <a href><%= t"text.login" %></a></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

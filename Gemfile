@@ -30,6 +30,17 @@ gem "jbuilder"
 gem "rails-i18n"
 
 gem "sassc-rails"
+
+gem "config"
+
+gem "bcrypt"
+
+gem "figaro"
+
+gem "jquery-rails"
+
+gem "toastr-rails"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

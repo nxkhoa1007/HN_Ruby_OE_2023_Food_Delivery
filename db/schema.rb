@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_11_061152) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_14_071100) do
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_11_061152) do
     t.date "dob"
     t.string "phoneNum"
     t.string "address"
-    t.integer "role"
+    t.integer "role", default: 1
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
