@@ -62,6 +62,13 @@ en:
     remember_me: "Remember me"
     in_past: "must be in the past"
     had_account: "Already have an account?"
+    no_account: "No account?"
+    email: "Email"
+    password: "Password"
+    invalid_email_password: "Invalid email or password"
+    remember_me: "Remember me"
+    cart: "Cart"
+    log_out: "Log out"
   alert:
     account_created_successful: "Account created successfully, Please check your email to activate account"
     account_activated: "Account activated"
@@ -77,6 +84,7 @@ en:
   activerecord:
     models:
       user: "User"
+      session: 'Session'
     attributes:
       user:
         name: "Name"

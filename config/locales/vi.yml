@@ -31,6 +31,13 @@ vi:
     remember_me: "Ghi nhớ tài khoản"
     in_past: "phải là ở quá khứ"
     had_account: "Đã có tài khoản?"
+    no_account: "Chưa có tài khoản?"
+    email: "Địa chỉ Email"
+    password: "Mật khẩu"
+    invalid_email_password: "Email hoặc mật khẩu không chính xác"
+    remember_me: "Duy trì đăng nhập"
+    cart: "Giỏ hàng"
+    log_out: "Đăng xuất"
   alert:
     account_created_successful: "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản"
     account_activated: "Kích hoạt tài khoản thành công"
@@ -46,6 +53,7 @@ vi:
   activerecord:
     models:
       user: "User"
+      session: 'Session'
     attributes:
       user:
         name: "Tên"
