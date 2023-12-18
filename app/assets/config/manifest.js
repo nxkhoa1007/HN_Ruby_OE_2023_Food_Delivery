@@ -9,3 +9,4 @@
 //= link vendors/simplebar/js/simplebar.min.js
 //= link vendors/@coreui/icons/svg/free.svg
 //= link admin/style.css
+//= link admin/custom.css

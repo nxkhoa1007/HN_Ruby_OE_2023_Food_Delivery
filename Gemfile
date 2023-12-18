@@ -44,6 +44,16 @@ gem "toastr-rails"
 gem "pry-rails"
 
 gem "faker"
+
+gem "image_processing", "1.12.2"
+
+gem "i18n-js", "~>3.9.2"
+
+gem "active_storage_validations", "0.9.8"
+
+gem "mini_magick"
+
+gem "pagy"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

@@ -69,11 +69,35 @@ en:
     remember_me: "Remember me"
     cart: "Cart"
     log_out: "Log out"
+    product_management: "Product management"
+    search: "Search"
+    add_product: "Add Product"
+    edit_product: "Edit Product"
+    add: "Add"
+    cancel: "Cancel"
+    edit: "Edit"
+    delete: "Delete"
+    not_found_product: "Product not found"
+    available: "Available"
+    unavailable: "Unavailable"
+    product:
+      name: "Name"
+      cost: "Cost"
+      status: "Status"
+      image: "Image"
   alert:
     account_created_successful: "Account created successfully, Please check your email to activate account"
     account_activated: "Account activated"
     not_found_user: "Not found user"
     invalid_activation_link: "Invalid activation link"
+    product_add_successful: "Product added successfully"
+    product_update_successful: "Product updated successfully"
+    product_delete_successful: "Product deleted successfully"
+    error: "Error"
+    you_sure: "Are you sure to delete?"
+    can_not_revert: "You won't be able to revert this!"
+    ok: "Yes"
+    cancel: "Cancel"
   user_mailer:
     account_activation:
       subject: "Account Activation"
@@ -84,6 +108,7 @@ en:
   activerecord:
     models:
       user: "User"
+      product: "Product"
       session: 'Session'
     attributes:
       user:
@@ -93,3 +118,14 @@ en:
         password_confirmation: "Retype Password"
         dob: "Date of birth"
         gender: "Gender"
+      product:
+        name: "Product name"
+        image: "Image"
+        description: "Description"
+        cost: "Cost(VND)"
+        category_id: "Category"
+  pagy:
+    nav:
+      prev: 'Prev'
+      next: 'Next'
+      gap: '...'

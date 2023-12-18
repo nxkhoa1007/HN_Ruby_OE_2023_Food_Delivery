@@ -38,11 +38,35 @@ vi:
     remember_me: "Duy trì đăng nhập"
     cart: "Giỏ hàng"
     log_out: "Đăng xuất"
+    product_management: "Quản lý sản phẩm"
+    search: "Tìm kiếm"
+    add_product: "Thêm sản phẩm"
+    edit_product: "Chỉnh sửa sản phẩm"
+    add: "Thêm"
+    cancel: "Huỷ"
+    edit: "Sửa"
+    delete: "Xoá"
+    not_found_product: "Sản phẩm không tồn tại"
+    available: "Có sẵn"
+    unavailable: "Đã hết"
+    product:
+      name: "Tên sản phẩm"
+      cost: "Giá"
+      status: "Tình trạng"
+      image: "Hình ảnh"
   alert:
     account_created_successful: "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản"
     account_activated: "Kích hoạt tài khoản thành công"
     not_found_user: "Không tìm thấy người dùng"
     invalid_link: "Đường dẫn không tồn tại"
+    product_add_successful: "Thêm sản phẩm thành công"
+    product_update_successful: "Cập nhật sản phẩm thành công"
+    product_delete_successful: "Xoá sản phẩm thành công"
+    error: "Có lỗi xảy ra"
+    you_sure: "Bạn chắc chắn muốn xoá chứ?"
+    can_not_revert: "Bạn sẽ không thể hoàn tác lại quá trình!"
+    ok: "Có"
+    cancel: "Không"
   user_mailer:
     account_activation:
       subject: "Kích hoạt tài khoản"
@@ -62,3 +86,14 @@ vi:
         password_confirmation: "Nhập lại mật khẩu"
         dob: "Ngày sinh"
         gender: "Giới tính"
+      product:
+        name: "Tên sản phẩm"
+        image: "Hình ảnh"
+        description: "Mô tả"
+        cost: "Giá sản phẩm(VND)"
+        category_id: "Danh mục"
+  pagy:
+    nav:
+      prev: 'Trước'
+      next: 'Sau'
+      gap: '...'

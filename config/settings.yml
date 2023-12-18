@@ -4,5 +4,13 @@ gender_other: 'other'
 role_user: 1
 remember_checked: "1"
 VALID_EMAIL_REGEX: '\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z'
+digit_255: 255
+digit_150: 150
+digit_100: 100
 digit_50: 50
 digit_6: 6
+min_cost: 1
+max_cost: 999999999
+status_in: 1
+status_out: 0
+page_10: 10
