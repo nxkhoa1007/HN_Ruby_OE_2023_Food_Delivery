@@ -47,6 +47,8 @@ class Admin::ProductsController < Admin::MasterController
                   :description, :category_id, :image
   end
 
+  private
+
   def load_product
     @product = Product.find_by id: params[:id]
     return if @product

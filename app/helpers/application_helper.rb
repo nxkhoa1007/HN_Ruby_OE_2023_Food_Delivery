@@ -20,4 +20,22 @@ module ApplicationHelper
                 object.errors.full_messages_for(attribute)[0],
                 class: "text-danger")
   end
+
+  def format_cost cost
+    "₫#{number_with_delimiter(cost, delimiter: '.', separator: ',')}"
+  end
+
+  def format_status status
+    content_tag(:span, status_text(status), class: status_class(status))
+  end
+
+  private
+
+  def status_text status
+    status == Settings.status_in ? t("text.available") : t("text.unavailable")
+  end
+
+  def status_class status
+    status == Settings.status_out ? "text-success" : "text-danger"
+  end
 end

@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   enum status: {unavailable: 0, available: 1}
 
   belongs_to :category
@@ -7,6 +10,14 @@ class Product < ApplicationRecord
     attachable.variant :display, resize_to_limit: [
       Settings.digit_150,
       Settings.digit_100
+    ]
+    attachable.variant :display_user, resize_to_limit: [
+      Settings.digit_450,
+      Settings.digit_300
+    ]
+    attachable.variant :display_user_info, resize_to_limit: [
+      Settings.digit_600,
+      Settings.digit_600
     ]
   end
   validates :name, presence: true, length: {maximum: Settings.digit_50}
@@ -29,4 +40,11 @@ class Product < ApplicationRecord
                        length: {maximum: Settings.digit_255},
                        allow_nil: true
   scope :sort_by_name, ->{order(name: :asc)}
+  scope :exclude_current, ->(id){where.not(id:)}
+
+  private
+
+  def should_generate_new_friendly_id?
+    name_changed? || super
+  end
 end
