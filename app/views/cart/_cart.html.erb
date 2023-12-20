@@ -1,0 +1,74 @@
+<div class="card-body p-0" id="cart_view">
+  <div class="row g-0">
+    <div class="col-lg-8">
+      <div class="p-5">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+          <h1 class="fw-bold mb-0 text-black"><%= t("text.cart") %></h1>
+        </div>
+        <div class="row mb-4 d-flex justify-content-between align-items-center">
+          <div class="row mb-4 d-flex justify-content-between align-items-center">
+            <div class="col-md-2 col-lg-2 col-xl-2 fw-bold"><%= t("text.product.image") %></div>
+            <div class="col-md-3 col-lg-3 col-xl-3 fw-bold"><%= t("text.product.name") %></div>
+            <div class="col-md-3 col-lg-3 col-xl-2 fw-bold"><%= t("text.product.quantity") %></div>
+            <div class="col-md-3 col-lg-2 col-xl-2 fw-bold"><%= t("text.product.cost") %></div>
+            <div class="col-md-1 col-lg-1 col-xl-1 fw-bold">#</div>
+            <hr class="my-4">
+            <% if @cart_items.any? %>
+              <% @cart_items.each do |cart_item| %>
+                <div class="col-md-2 col-lg-2 col-xl-2">
+                  <%= image_tag cart_item["product_image"], class: "img-fluid rounded-3" %>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3">
+                  <h6 class="text-black mb-0"><%= cart_item["product_name"] %></h6>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                  <%= form_tag update_quantity_cart_path(cart_item["product_id"]), method: :post, remote: true do %>
+                    <div class="d-flex">
+                      <%= text_field_tag 'quantity', cart_item["quantity"], class: 'form-control input-number', id: 'input-numb', type: 'number', style: 'max-width: 3rem' %>
+                      <button class="btn btn-outline-white" type="submit">
+                        <i class="bi bi-pencil-square"></i>
+                      </button>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2">
+                  <h6 class="mb-0" id="subtotal_item_<%=cart_item["product_id"]%>"><%= format_cost(cart_item["quantity"] * cart_item["price"]) %></h6>
+                </div>
+                <div class="col-md-1 col-lg-1 col-xl-1">
+                  <%= link_to cart_destroy_path(cart_item["product_id"]), data: {"turbo-method": :delete}, class: "text-decoration-none text-danger" do %>
+                    <i class="bi bi-trash-fill"></i>
+                  <% end %>
+                </div>
+                <hr class="my-4">
+              <% end %>
+            <% else %>
+              <div class="col-12"><%= t("text.no_product_in_cart") %></div>
+            <% end %>
+          </div>
+        </div>
+        <div class="pt-5">
+          <%= link_to t("text.delete_all_cart"), cart_destroy_all_path, data:{"turbo-method": :delete}, class: "text-decoration-none" %>
+          <h6 class="mb-0">
+            <%= link_to root_path, class: "text-decoration-none" do %>
+              <i class="bi bi-arrow-left"></i> <%= t("text.back_to_home") %>
+            <% end %>
+          </h6>
+        </div>
+      </div>
+    </div>
+    <% if @cart_items.any? %>
+      <div class="col-lg-4 bg-grey" id="cart-summary">
+        <div class="p-5">
+          <h3 class="fw-bold mb-5 mt-2 pt-1"><%= t('text.summary') %></h3>
+          <hr class="my-4">
+          <div class="d-flex justify-content-between mb-4">
+            <h5 class="text-uppercase"><%= t('text.product.cost') %></h5>
+            <h5 id="subtotal"><%= subtotal_cart_value(@cart_items) %></h5>
+          </div>
+          <button type="button" class="btn btn-dark btn-block btn-lg"
+            data-mdb-ripple-color="dark"><%= t('text.checkout') %></button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

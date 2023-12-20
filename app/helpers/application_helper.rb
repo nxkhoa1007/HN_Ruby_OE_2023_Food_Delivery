@@ -25,6 +25,16 @@ module ApplicationHelper
     "₫#{number_with_delimiter(cost, delimiter: '.', separator: ',')}"
   end
 
+  def subtotal_cart_value cart_items
+    subtotal_value = Settings.digit_0
+
+    cart_items.each do |item|
+      subtotal_value += item["price"] * item["quantity"]
+    end
+
+    format_cost(subtotal_value)
+  end
+
   def format_status status
     content_tag(:span, status_text(status), class: status_class(status))
   end
@@ -36,6 +46,6 @@ module ApplicationHelper
   end
 
   def status_class status
-    status == Settings.status_out ? "text-success" : "text-danger"
+    status == Settings.status_in ? "text-success" : "text-danger"
   end
 end
