@@ -67,6 +67,11 @@ vi:
     fast: "Nhanh"
     rapid: "Hoả tốc"
     no_product_in_cart: "Bạn chưa thêm sản phẩm nào vào giỏ hàng"
+    billing_info: "Thông tin hoá đơn"
+    payment: "Phương thức thanh toán"
+    proceed_to_order: "Tiến hành đặt hàng"
+    cod: "Thanh toán khi nhận hàng"
+    bank: "Thẻ tín dụng/ghi nợ"
   alert:
     account_created_successful: "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản"
     account_activated: "Kích hoạt tài khoản thành công"
@@ -87,6 +92,7 @@ vi:
     cart_add_success: "Thêm sản phầm vào giỏ hàng thành công"
     cart_delete_success: "Xoá giỏ hàng thành công"
     error_quantity: "Vui lòng nhập số lượng từ 1 đến 99"
+    order_sucsess: "Đơn hàng của bạn đã được đặt"
   user_mailer:
     account_activation:
       subject: "Kích hoạt tài khoản"
@@ -96,8 +102,9 @@ vi:
         activate: "Kích hoạt"
   activerecord:
     models:
-      user: "User"
-      session: 'Session'
+      user: "Người dùng"
+      session: "Phiên"
+      user_info: "Thông tin người dùng"
     attributes:
       user:
         name: "Tên"
@@ -112,6 +119,13 @@ vi:
         description: "Mô tả"
         cost: "Giá sản phẩm(VND)"
         category_id: "Danh mục"
+      user_info:
+        name: "Tên"
+        address: "Địa chỉ"
+        phoneNum: "Số điện thoại"
+      order:
+        type_payment: "Phương thức thanh toán"
+        note: "Ghi chú"
   pagy:
     nav:
       prev: 'Trước'

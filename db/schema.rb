@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_18_033627) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_21_000008) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -61,13 +61,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_18_033627) do
   create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "order_code"
     t.integer "type_payment"
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "note"
     t.integer "total"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_info_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+    t.index ["user_info_id"], name: "index_orders_on_user_info_id"
   end
 
   create_table "products", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -82,6 +84,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_18_033627) do
     t.string "slug"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["slug"], name: "index_products_on_slug"
+  end
+
+  create_table "user_infos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phoneNum"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "default_address"
+    t.index ["user_id"], name: "index_user_infos_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -106,6 +119,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_18_033627) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
+  add_foreign_key "orders", "user_infos"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
+  add_foreign_key "user_infos", "users"
 end

@@ -125,10 +125,6 @@ class CartController < ApplicationController
     redirect_to root_path
   end
 
-  def delete_all_item
-    session[:cart].reject!{|item| item["user_id"] == current_user.id}
-  end
-
   def find_cart_item product_id
     session[:cart].find do |item|
       item["product_id"] == product_id && item["user_id"] == current_user.id

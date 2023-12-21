@@ -98,6 +98,11 @@ en:
     fast: "Fast"
     rapid: "Rapid"
     no_product_in_cart: "No product in cart"
+    billing_info: "Billing Infomation"
+    payment: "Payment"
+    proceed_to_order: "Proceed to order"
+    cod: "Cash on delivery"
+    bank: "Credit card"
   alert:
     account_created_successful: "Account created successfully, Please check your email to activate account"
     account_activated: "Account activated"
@@ -118,6 +123,7 @@ en:
     cart_add_success: "Cart added successfully"
     cart_delete_success: "Cart item deleted successfully"
     error_quantity: "Please select a quantity between 1 and 99"
+    order_sucsess: "Order successfully"
   user_mailer:
     account_activation:
       subject: "Account Activation"
@@ -128,8 +134,9 @@ en:
   activerecord:
     models:
       user: "User"
-      product: "Product"
-      session: 'Session'
+      session: "Session"
+      order: "Order"
+      user_info: "User Info"
     attributes:
       user:
         name: "Name"
@@ -144,6 +151,13 @@ en:
         description: "Description"
         cost: "Cost(VND)"
         category_id: "Category"
+      user_info:
+        name: "Name"
+        address: "Address"
+        phoneNum: "Phone Number"
+      order:
+        type_payment: "Type payment"
+        note: "Note"
   pagy:
     nav:
       prev: 'Prev'

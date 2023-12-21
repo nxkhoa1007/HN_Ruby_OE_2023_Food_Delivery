@@ -3,6 +3,10 @@ I18n.translations || (I18n.translations = {});
 I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
   "activerecord": {
     "attributes": {
+      "order": {
+        "note": "Note",
+        "type_payment": "Type payment"
+      },
       "product": {
         "category_id": "Category",
         "cost": "Cost(VND)",
@@ -17,6 +21,11 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
         "name": "Name",
         "password": "Password",
         "password_confirmation": "Retype Password"
+      },
+      "user_info": {
+        "address": "Address",
+        "name": "Name",
+        "phoneNum": "Phone Number"
       }
     },
     "errors": {
@@ -29,9 +38,10 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       }
     },
     "models": {
-      "product": "Product",
+      "order": "Order",
       "session": "Session",
-      "user": "User"
+      "user": "User",
+      "user_info": "User Info"
     }
   },
   "alert": {
@@ -51,6 +61,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "invalid_link": "Đường dẫn không tồn tại",
     "not_found_user": "Not found user",
     "ok": "Yes",
+    "order_sucsess": "Order successfully",
     "product_add_successful": "Product added successfully",
     "product_delete_successful": "Product deleted successfully",
     "product_update_successful": "Product updated successfully",
@@ -77884,11 +77895,14 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "all_product": "All Product",
     "available": "Available",
     "back_to_home": "Back to home",
+    "bank": "Credit card",
     "banner_text": "Bringing flavors to your doorstep, anytime, anywhere!",
     "banner_title": "Here, we have everything.",
+    "billing_info": "Billing Infomation",
     "cancel": "Cancel",
     "cart": "Cart",
     "checkout": "Checkout",
+    "cod": "Cash on delivery",
     "dashboard": "Dashboard",
     "delete": "Delete",
     "delete_all_cart": "Delete all cart item",
@@ -77916,6 +77930,8 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "order_management": "Order management",
     "other": "Other",
     "password": "Password",
+    "payment": "Payment",
+    "proceed_to_order": "Proceed to order",
     "product": {
       "cost": "Cost",
       "image": "Image",

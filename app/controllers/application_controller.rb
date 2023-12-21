@@ -22,4 +22,8 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t("alert.error_cart")
     redirect_to root_path
   end
+
+  def delete_all_item
+    session[:cart].reject!{|item| item["user_id"] == current_user.id}
+  end
 end
