@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   before_action :check_login, :load_user_info
-
   def new
     @order = Order.new
   end
@@ -10,6 +9,7 @@ class OrdersController < ApplicationController
       @order = current_user.orders.new(order_params)
       @order.user_info = @user_info
       if @order.save
+        @order.save_order_code
         create_order_item
         delete_all_item
         flash[:success] = t("alert.order_sucsess")

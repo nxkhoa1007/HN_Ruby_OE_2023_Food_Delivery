@@ -1,0 +1,55 @@
+<%= provide :title, t("text.update_order") %>
+<div class="card mb-4">
+  <div class="card-header fw-bold"><%= t("text.update_order") %></div>
+  <div class="card-body">
+    <div class="tab-content rounded-bottom">
+      <%= form_for @order, url: admin_order_path do |f| %>
+        <div class="mb-3">
+          <div class="row g-3">
+            <div class="col-4 mb-3">
+              <strong class="d-block h5 mb-0"><%= t("text.customer_info") %></strong>
+              <div class="d-block mb-3">
+                <strong class="d-block mb-0"><%= t("text.user_info.name") %>:</strong>
+                <span><%= @order.user_info.name %></span>
+              </div>
+              <div class="d-block text-decoration-none mb-3">
+                <strong class="d-block mb-0"><%= t("text.user_info.phoneNum") %>:</strong>
+                <span><%= @order.user_info.phoneNum %></span>
+              </div>
+              <div class="d-block text-decoration-none mb-3">
+                <strong class="d-block mb-0"><%= t("text.user_info.address") %>:</strong>
+                <span><%= @order.user_info.address %></span>
+              </div>
+            </div>
+            <div class="col-6">
+              <strong class="d-block h4 mb-0"><%= t("text.order_info") %></strong>
+              <ul class="list-group mb-3">
+                <% @order.order_items.each do |order_item| %>
+                  <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0"><%= order_item.product.name %></h6>
+                      <small class="text-warning"><%= t("text.product.quantity") %>: <%= order_item.quantity %></small>
+                    </div>
+                    <span class="text-info"><%= format_cost(order_item.quantity*order_item.product.cost) %></span>
+                  </li>
+                <% end %>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span class="h5"><%= t("text.total") %> (VND)</span>
+                  <strong><%= order_total(@order.order_items) %></strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="mb-3 col-2">
+              <%= f.label :status, class: "form-label fw-bold" %>
+              <%= f.select :status, Order.statuses.keys.map { |s| [display_order_status(s), s] }, {}, class: "form-select"%>
+            </div>
+          </div>
+          <%= f.submit t("text.confirm"), class:"btn btn-success text-white" %>
+          <%= link_to t("text.cancel"), admin_orders_path ,class:"btn btn-danger text-white" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

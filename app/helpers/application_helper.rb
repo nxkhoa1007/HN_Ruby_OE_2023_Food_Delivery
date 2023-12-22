@@ -39,7 +39,33 @@ module ApplicationHelper
     content_tag(:span, status_text(status), class: status_class(status))
   end
 
-  private
+  def format_time time
+    time.strftime("%d-%m-%Y %H:%M:%S")
+  end
+
+  def display_order_status status
+    status_mappings = {
+      processing: t("text.order.status_processing"),
+      confirmed: t("text.order.status_confirmed"),
+      shipping: t("text.order.status_shipping"),
+      delivered: t("text.order.status_delivered"),
+      canceled: t("text.order.status_canceled")
+    }
+    status_mappings.fetch(status.to_sym, t("text.order.status_canceled"))
+  end
+
+  def display_type_payment type_payment
+    if type_payment.to_sym == :cod
+      t("text.cod")
+    else
+      t("text.bank")
+    end
+  end
+
+  def order_total order
+    total_value = order.reduce(0){|a, e| a + e.quantity * e.product.cost}
+    format_cost(total_value)
+  end
 
   def status_text status
     status == Settings.status_in ? t("text.available") : t("text.unavailable")
