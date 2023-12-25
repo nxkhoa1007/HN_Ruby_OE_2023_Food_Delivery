@@ -1,0 +1,21 @@
+<%= form_with url: products_path, method: :get,
+  class: "d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search col-5",
+  data:
+    { controller: "search",
+    action: "keyup->search#suggestions",
+    suggestions_url: search_suggestions_path,
+    } do |f| %>
+  <div class="input-group position-relative">
+    <%= f.text_field :query,
+      data:{search_target: "input", action: "blur->search#hideSuggestions"},
+      class: "form-control bg-light", placeholder:  t("text.search") , autocomplete:"off" %>
+    <div class="input-group-append">
+      <%= f.button type: "submit", class: "btn btn-dark" do %>
+        <i class="bi bi-search"></i>
+      <% end %>
+    </div>
+    <div id="suggestions" class="position-absolute w-100 top-100 bg-white" data-search-target="suggestions" data-action="mousedown->search#childClicked">
+      <%= render partial: "shared/suggestions", locals: {results: results} %>
+    </div>
+  </div>
+<% end %>

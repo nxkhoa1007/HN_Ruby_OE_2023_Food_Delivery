@@ -1,0 +1,9 @@
+<% if results.any? %>
+  <div class="position-absolute w-100 overflow-auto bg-white rounded">
+    <% results.each do |product| %>
+      <div class="p-2">
+         <h6><%= link_to product.name, category_product_path(product.category, product), class: "fw-bolder text-decoration-none" %></h6>
+      </div>
+    <% end %>
+  </div>
+<% end %>

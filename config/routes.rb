@@ -30,5 +30,7 @@ Rails.application.routes.draw do
     resources :categories do
       resources :products, only: %i(show)
     end
+    resources :products, only: %i(index)
+    post "search/suggestions", to: "products#suggestions", as: "search_suggestions"
   end
 end

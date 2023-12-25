@@ -1,0 +1,41 @@
+<% provide :title, t("text.shop") %>
+<section class="py-5 mt-5">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-2">
+        <div class="mb-3">
+          <label class="form-label fw-bold">Danh mục</label>
+          <div class="list-group">
+            <%= link_to t("text.all_category"), categories_path(params[:category_id]), class: "list-group-item list-group-item-action" %>
+            <% @categories.each do |category| %>
+              <%= link_to category.name, category_path(category), class: "list-group-item list-group-item-action" %>
+            <% end %>
+          </div>
+          <ul>
+        </div>
+      </div>
+      <div class="col-10">
+        <div class="px-3 py-2 border my-3 d-flex align-items-center">
+          <div class="fw-bold">Sắp xếp theo: </div>
+          <div class="d-flex justify-content-between">
+            <%= link_to t("text.newest"), path_for_sorting(sort_by: "newest"), class: "btn btn-outline-dark mx-2" %>
+            <%= link_to t("text.hot"), path_for_sorting(sort_by: "best_sellers"), class: "btn btn-outline-dark mx-2" %>
+            <div class="fillter-cost">
+              <a class="nav-link form-select" id="costDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><%= t("text.product.cost") %></a>
+              <ul class="dropdown-menu" aria-labelledby="costDropdown">
+                <li><%= link_to t("text.price_desc"), path_for_sorting(sort_by: "price_desc"), class: "btn text-center" %></li>
+                <li><%= link_to t("text.price_asc"), path_for_sorting(sort_by: "price_asc"), class: "btn text-center" %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4" id="product_view">
+          <%= render @products %>
+        </div>
+        <div>
+          <%== pagy_bootstrap_nav @pagy %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

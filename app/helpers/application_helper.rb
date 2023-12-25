@@ -74,4 +74,12 @@ module ApplicationHelper
   def status_class status
     status == Settings.status_in ? "text-success" : "text-danger"
   end
+
+  def path_for_sorting sort_by:
+    if @category.present?
+      category_path(@category, sort_by:)
+    else
+      categories_path(sort_by:)
+    end
+  end
 end
