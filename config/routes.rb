@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     post "add_to_cart/:id", to: "cart#create", as: "add_to_cart"
     delete "cart_destroy/:id", to: "cart#destroy", as: "cart_destroy"
     delete "cart_destroy_all", to: "cart#destroy_all"
+    resources :orders, only: %i(index update)
     get "checkout", to:"orders#new"
     post "checkout", to:"orders#create"
     resources :categories do

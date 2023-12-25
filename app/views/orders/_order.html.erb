@@ -1,0 +1,43 @@
+<tr>
+  <td><%= link_to order.order_code, "#","data-bs-toggle": "modal", "data-bs-target": "#modal-order-#{order.id}" , remote: true %></td>
+  <td><%= format_time(order.created_at) %></td>
+  <td><%= display_type_payment(order.type_payment) %></td>
+  <td class="fw-bolder"><%= display_order_status(order.status) %></td>
+  <td><%= order_total(order.order_items) %></td>
+  <td>
+    <%= link_to t("text.cancel"), order_path(order), class: "text-danger", data: { "turbo-method": :put, turbo_confirm: t("alert.you_sure_cancel") } %>
+  </td>
+</tr>
+<div class="modal fade" id="modal-order-<%= order.id %>" tabindex="-1" role="dialog" aria-labelledby="modal-order" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= t("text.order_info")%></h5>
+        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group">
+          <% order.order_items.each do |order_item| %>
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div>
+                <h6 class="my-0"><%= order_item.product.name %></h6>
+                <small class="text-warning"><%= t("text.product.quantity") %>: <%= order_item.quantity %></small>
+              </div>
+              <span class="text-info"><%= format_cost(order_item.quantity*order_item.product.cost) %></span>
+            </li>
+          <% end %>
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="h6"><%= t("text.order.note") %>: <%= order.note %></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="h6"><%= t("text.total") %> (VND)</span>
+            <strong><%= order_total(order.order_items) %></strong>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal"><%= t('text.close') %></button>
+      </div>
+    </div>
+  </div>
+</div>

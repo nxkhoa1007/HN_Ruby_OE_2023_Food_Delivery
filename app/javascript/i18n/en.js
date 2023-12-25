@@ -50,6 +50,8 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "account_created_successful": "Account created successfully, Please check your email to activate account",
     "can_not_revert": "You won't be able to revert this!",
     "cancel": "Cancel",
+    "cancel_fail": "Can only cancel processing order",
+    "cancel_sucsess": "Cancel successfully",
     "cannot_update_delivered_order": "Cannot update delivered or canceled orders",
     "cart_add_success": "Cart added successfully",
     "cart_delete_success": "Cart item deleted successfully",
@@ -68,7 +70,8 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "product_add_successful": "Product added successfully",
     "product_delete_successful": "Product deleted successfully",
     "product_update_successful": "Product updated successfully",
-    "you_sure": "Are you sure to delete?"
+    "you_sure": "Are you sure to delete?",
+    "you_sure_cancel": "Are you sure to cancel?"
   },
   "date": {
     "abbr_day_names": [
@@ -77638,7 +77641,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       ]
     }
   },
-  "hello": "Hello world",
+  "hello": "Hello",
   "helpers": {
     "select": {
       "prompt": "Please select"
@@ -77905,6 +77908,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "cancel": "Cancel",
     "cart": "Cart",
     "checkout": "Checkout",
+    "close": "Close",
     "cod": "Cash on delivery",
     "confirm": "Confirm",
     "customer_info": "Customer info",
@@ -77934,6 +77938,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "notification": "Notification",
     "order": {
       "created_at": "Created at",
+      "note": "Note",
       "order_code": "Order code",
       "status": "Status",
       "status_canceled": "Canceled",
@@ -77944,6 +77949,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       "total": "Total",
       "type": "Payment type"
     },
+    "order_history": "Order history",
     "order_info": "Order info",
     "order_management": "Order management",
     "other": "Other",

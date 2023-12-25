@@ -28,14 +28,22 @@
           </div>
         </div>
       </form>
-      <div class="col-4 text-end">
+      <div class="col-4">
         <% if logged_in? %>
           <%= link_to cart_path, class: "btn btn-outline-dark" do %>
             <i class="bi-cart-fill me-1"></i>
-              <%= t "text.cart" %>
+            <%= t "text.cart" %>
             <span class="badge bg-dark text-white ms-1 rounded-pill" id="user_cart_items"><%= @cart_items.size %></span>
           <% end %>
-          <%= link_to t("text.log_out"), logout_path , class: "btn btn-outline-dark" %>
+          <span class="dropdown py-2">
+              <button class="btn btn-outline-dark dropdown-toggle" id="dropdownMenuButton" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= current_user.name %>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to t("text.order_history"), orders_path , class: "dropdown-item" %>
+                <%= link_to t("text.log_out"), logout_path , class: "dropdown-item" %>
+              </div>
+          </span>
         <% else %>
           <%= link_to t("text.login"), login_path , class: "btn btn-outline-dark" %>
           <%= link_to t("text.register"), signup_path , class: "btn btn-outline-dark" %>

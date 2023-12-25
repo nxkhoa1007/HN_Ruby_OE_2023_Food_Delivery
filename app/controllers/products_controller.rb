@@ -20,4 +20,8 @@ class ProductsController < ApplicationController
     flash[:danger] = t("alert.error_product")
     redirect_to root_path
   end
+
+  def admin_user
+    redirect_to root_path unless current_user.admin?
+  end
 end
