@@ -11,6 +11,9 @@ class Order < ApplicationRecord
   validates :note, length: {maximum: Settings.digit_255}
 
   scope :newest, ->{order(created_at: :asc)}
+  scope :current_user_orders, ->(user_id){where(user_id:)}
+
+  before_save :set_default_status
 
   def save_order_code
     update_column :order_code, generate_order_code(id)
@@ -24,5 +27,9 @@ class Order < ApplicationRecord
 
   def generate_order_code order_id
     "#KF#{order_id.to_s.rjust(6, '0')}"
+  end
+
+  def set_default_status
+    self.status ||= :processing
   end
 end

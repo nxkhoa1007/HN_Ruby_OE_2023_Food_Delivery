@@ -9,7 +9,9 @@
     </div>
     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
       <div class="text-center">
-        <%= button_to t("text.add_to_cart"), add_to_cart_path(product,quantity: 1), data:{"turbo-method": :post}, class: "btn btn-outline-dark mt-auto" %>
+        <%= button_to t("text.add_to_cart"), add_to_cart_path(product,quantity: Settings.digit_1), data:{"turbo-method": :post},
+          class: "btn btn-outline-dark mt-auto", disabled: (product.status.to_sym == :unavailable)
+        %>
       </div>
     </div>
   </div>

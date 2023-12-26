@@ -27,7 +27,7 @@ class Admin::ProductsController < Admin::MasterController
       flash[:success] = t("alert.product_update_successful")
       redirect_to admin_products_path
     else
-      flash[:danger] = t("alert.error")
+      flash[:error] = t("alert.error")
       render :edit, status: :unprocessable_entity
     end
   end
@@ -36,7 +36,7 @@ class Admin::ProductsController < Admin::MasterController
     if @product.destroy
       flash[:success] = t("alert.product_delete_successful")
     else
-      flash[:danger] = t("alert.error")
+      flash[:error] = t("alert.error")
     end
     redirect_to admin_products_path
   end

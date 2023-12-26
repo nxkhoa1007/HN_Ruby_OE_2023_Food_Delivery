@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
       end
       log_in user
     else
-      flash[:warning] = t("text.account_not_activated")
+      flash[:error] = t("text.account_not_activated")
       render :new, status: :unprocessable_entity
     end
   end

@@ -5,12 +5,12 @@ class ProductsController < ApplicationController
   def index; end
 
   def show
-    @category = Category.friendly.find(params[:category_id])
+    @category = Category.friendly.find_by(slug: params[:category_id])
     @products_related = @category.products.includes(:category)
                                  .exclude_current(@product.id)
     return if @category
 
-    flash[:danger] = t("alert.error_category")
+    flash[:error] = t("alert.error_category")
     redirect_to root_path
   end
 
@@ -28,17 +28,17 @@ class ProductsController < ApplicationController
 
   def product_query
     @products = if params[:query].blank?
-                  Product.all.sort_by_name
+                  Product.sort_by_name
                 else
                   Product.search_by_name(params[:query]).sort_by_name
                 end
   end
 
   def load_product
-    @product = Product.friendly.find params[:id]
+    @product = Product.friendly.find_by(slug: params[:id])
     return if @product
 
-    flash[:danger] = t("alert.error_product")
+    flash[:error] = t("alert.error_product")
     redirect_to root_path
   end
 end

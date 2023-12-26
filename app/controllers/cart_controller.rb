@@ -7,21 +7,15 @@ class CartController < ApplicationController
 
   def create
     if existing_item = find_cart_item(@product.id)
-      increment_quantity(existing_item)
+      if check_total_quantity(existing_item)
+        increment_quantity(existing_item)
+        handle_successful_addition
+      else
+        handle_error_quantity
+      end
     else
       add_new_item(@product)
-    end
-    load_cart
-    respond_to do |format|
-      format.html{redirect_back(fallback_location: root_path)}
-      format.turbo_stream do
-        render turbo_stream: [
-          turbo_stream.update("user_cart_items", @cart_items.size),
-          turbo_stream.append("body", partial: "shared/alert",
-                locals: {message: t("alert.cart_add_success"),
-                         type: "success"})
-        ]
-      end
+      handle_successful_addition
     end
   end
 
@@ -72,29 +66,47 @@ class CartController < ApplicationController
   end
 
   private
+
   def check_login
     return if logged_in?
 
     redirect_to login_path
   end
 
+  def find_product
+    @product = Product.friendly.find params[:id]
+    return if @product
+
+    flash[:danger] = t("alert.error_product")
+    redirect_to root_path
+  end
+
+  def increment_quantity cart_item
+    cart_item["quantity"] += params[:quantity].to_i
+  end
+
+  def add_new_item product
+    session[:cart] << {
+      "user_id" => current_user.id,
+      "product_id" => product.id,
+      "product_image" => url_for(product.image),
+      "product_name" => product.name,
+      "quantity" => params[:quantity].to_i,
+      "price" => product.cost
+    }
+  end
+
   def check_quantity
     return unless params[:quantity].to_i <
                   Settings.digit_1 || params[:quantity].to_i > Settings.digit_99
 
-    respond_to do |format|
-      format.html{redirect_back(fallback_location: root_path)}
-      format.turbo_stream do
-        render turbo_stream:
-          turbo_stream.append("body", partial: "shared/alert", locals:
-                {message: t("alert.error_quantity"), type: "error"})
-      end
-    end
+    handle_error_quantity
   end
 
-  def delete_success_alert
-    turbo_stream.append("body", partial: "shared/alert",
-            locals: {message: t("alert.cart_delete_success"), type: "success"})
+  def check_total_quantity existing_item
+    true unless (existing_item["quantity"] + params[:quantity].to_i) <
+                Settings.digit_1 || (existing_item["quantity"] +
+                  params[:quantity].to_i) > Settings.digit_99
   end
 
   def update_total_cart_value
@@ -109,12 +121,9 @@ class CartController < ApplicationController
                         @cart_item["price"]))
   end
 
-  def find_product
-    @product = Product.friendly.find params[:id]
-    return if @product
-
-    flash[:danger] = t("alert.error_product")
-    redirect_to root_path
+  def delete_success_alert
+    turbo_stream.append("body", partial: "shared/alert",
+            locals: {message: t("alert.cart_delete_success"), type: "success"})
   end
 
   def load_cart_item
@@ -131,18 +140,37 @@ class CartController < ApplicationController
     end
   end
 
-  def increment_quantity cart_item
-    cart_item["quantity"] += params[:quantity].to_i
+  def handle_successful_addition
+    load_cart
+    respond_to do |format|
+      format.html{redirect_back(fallback_location: root_path)}
+      format.turbo_stream do
+        render_turbo_stream_success
+      end
+    end
   end
 
-  def add_new_item product
-    session[:cart] << {
-      "user_id" => current_user.id,
-      "product_id" => product.id,
-      "product_image" => url_for(product.image),
-      "product_name" => product.name,
-      "quantity" => params[:quantity].to_i,
-      "price" => product.cost
-    }
+  def handle_error_quantity
+    respond_to do |format|
+      format.html{redirect_back(fallback_location: root_path)}
+      format.turbo_stream do
+        render_turbo_stream_error_quantity
+      end
+    end
+  end
+
+  def render_turbo_stream_success
+    render turbo_stream: [
+      turbo_stream.update("user_cart_items", @cart_items.size),
+      turbo_stream.append("body", partial: "shared/alert",
+            locals: {message: t("alert.cart_add_success"), type: "success"})
+    ]
+  end
+
+  def render_turbo_stream_error_quantity
+    render turbo_stream: [
+      turbo_stream.append("body", partial: "shared/alert", locals:
+            {message: t("alert.error_quantity"), type: "error"})
+    ]
   end
 end

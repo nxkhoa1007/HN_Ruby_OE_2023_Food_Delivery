@@ -33,9 +33,9 @@ class Admin::OrdersController < Admin::MasterController
   end
 
   def check_status_order
-    return if [:delivered, :canceled].include?(@order.status.to_sym)
+    return unless [:delivered, :canceled].include?(@order.status.to_sym)
 
     flash[:error] = t("alert.cannot_update_delivered_order")
-    redirect_to orders_path
+    redirect_to admin_orders_path
   end
 end

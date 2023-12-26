@@ -1,6 +1,7 @@
 <tr>
   <td><%= image_tag product.image.variant(:display) if product.image.attached? %></td>
   <td><%= product.name %></td>
+  <td><%= product.category.name %></td>
   <td class="fw-bolder"><%= format_cost(product.cost) %></td>
   <td><%= status_text(product.status) %></td>
   <td class="d-flex">
