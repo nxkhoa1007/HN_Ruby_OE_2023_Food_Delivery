@@ -62,6 +62,23 @@ module ApplicationHelper
     end
   end
 
+  def display_order_status_text status
+    text = display_order_status(status)
+    classes = case status.to_sym
+              when :processing then "badge bg-secondary"
+              when :confirmed then "badge bg-primary"
+              when :shipping then "badge bg-info"
+              when :delivered then "badge bg-success"
+              else "badge bg-danger"
+              end
+    content_tag(:b, text, class: classes)
+  end
+
+  def status_badge status
+    content_tag(:div, status.to_sym == :unavailable ? status_text(status) : "",
+                class: "badge text-white bg-danger position-absolute")
+  end
+
   def order_total order
     total_value = order.reduce(0){|a, e| a + e.quantity * e.cost}
     format_cost(total_value)

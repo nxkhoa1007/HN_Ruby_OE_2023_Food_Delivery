@@ -4,6 +4,7 @@ vi:
   text:
     logo: "KFOOD"
     title: "KFood"
+    loading: "Đang tải"
     admin_home: "Trang chủ Admin"
     account: "Tài khoản"
     notification: "Thông báo"
@@ -168,3 +169,14 @@ vi:
       prev: 'Trước'
       next: 'Sau'
       gap: '...'
+  form:
+    user:
+      name: "Tên*"
+      email: "Địa chỉ email*"
+      password: "Mật khẩu*"
+      password_confirmation: "Nhập lại mật khẩu*"
+    product:
+      image: "Hình ảnh*"
+      name: "Tên sản phẩm*"
+      cost: "Giá*"
+      description: "Mô tả*"

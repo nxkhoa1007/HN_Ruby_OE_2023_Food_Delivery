@@ -10,9 +10,14 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_user
-    return unless logged_in?
-
     redirect_to root_path unless current_user.role.to_sym == :admin
+  end
+
+  def check_login
+    return if logged_in?
+
+    store_location
+    redirect_to login_path
   end
 
   def default_url_options

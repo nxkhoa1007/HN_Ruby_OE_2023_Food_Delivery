@@ -1,27 +1,31 @@
-<%= form_for @product, url: local_assigns[:url] do |f| %>
+<%= form_for @product, url: local_assigns[:url], id: "form" do |f| %>
   <div class="mb-3">
-    <%= f.label :image, class: "form-label fw-bold" %>
+    <%= f.label :image, t("form.product.image"), class: "form-label fw-bold" %>
     <%= f.file_field :image, class: "form-control" %>
     <%= display_error(@product, :image) %>
   </div>
   <div class="mb-3">
-    <%= f.label :name, class: "form-label fw-bold" %>
+    <%= f.label :name, t("form.product.name"), class: "form-label fw-bold" %>
     <%= f.text_field :name,  class: "form-control" %>
     <%= display_error(@product, :name) %>
   </div>
   <div class="mb-3">
-    <%= f.label :cost, class: "form-label fw-bold" %>
-    <%= f.text_field :cost,  class: "form-control" %>
+    <%= f.label :cost, t("form.product.cost"), class: "form-label fw-bold" %>
+    <%= f.text_field :cost,  class: "form-control", oninput: "formatNumberInput(this)", id: "cost"%>
     <%= display_error(@product, :cost) %>
   </div>
   <div class="mb-3">
-    <%= f.label :description, class: "form-label fw-bold" %>
+    <%= f.label :description, t("form.product.description"), class: "form-label fw-bold" %>
     <%= f.text_area :description, class: "form-control" %>
     <%= display_error(@product, :description) %>
   </div>
   <div class="mb-3">
     <%= f.label :category_id, class: "form-label fw-bold" %>
     <%= f.collection_select :category_id ,Category.all(), :id, :name, {}, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :status, class: "form-label fw-bold" %>
+    <%= f.collection_select :status ,[[:available, t("text.available")],[:unavailable, t("text.unavailable")]],:first,:last, {}, class: "form-control" %>
   </div>
   <div class="mb-3 text-end">
     <%= f.submit yield(:button_text), class:"btn btn-success text-white" %>

@@ -46,11 +46,6 @@ class OrdersController < ApplicationController
   end
 
   private
-  def check_login
-    return if logged_in?
-
-    redirect_to login_path
-  end
 
   def load_user_info
     @user_info = current_user.user_infos.default_info.first

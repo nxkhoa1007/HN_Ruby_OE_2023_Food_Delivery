@@ -1,9 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @categories = Category.includes(:products).sort_by_name
-    return if @categories
-
-    flash[:error] = t("alert.error_category")
-    redirect_to root_path
+    @pagy, @products = pagy_countless Product.newest, items: Settings.digit_8
+    render "shared/scrollable_list" if params[:page]
   end
 end

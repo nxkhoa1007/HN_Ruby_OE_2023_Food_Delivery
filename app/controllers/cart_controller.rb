@@ -67,12 +67,6 @@ class CartController < ApplicationController
 
   private
 
-  def check_login
-    return if logged_in?
-
-    redirect_to login_path
-  end
-
   def find_product
     @product = Product.friendly.find params[:id]
     return if @product
