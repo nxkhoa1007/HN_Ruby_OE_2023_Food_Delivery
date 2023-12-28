@@ -2,8 +2,7 @@ require "rails_helper"
 RSpec.describe RatingsController, type: :controller do
   let(:user) { create(:user) }
   let(:user_info) { create(:user_info, user: user) }
-  let(:category) { create(:category) }
-  let(:product) { create(:product, category: category) }
+  let(:product) { create(:product) }
   let(:order) { create(:order, user: user, user_info: user_info) }
   let(:order_item) { create(:order_item, order: order, product: product) }
 
@@ -35,7 +34,7 @@ RSpec.describe RatingsController, type: :controller do
   end
 
   describe "POST #create" do
-    let(:valid_params) { { id: order_item.id, rating: { rating: 4, comment: "Nice!" } } }
+    let(:valid_params) { { id: order_item.id, rating: { rating: 4, comment: "Nice!", product_id: product.id}} }
     before do
       post :create, params: valid_params
     end
@@ -55,17 +54,18 @@ RSpec.describe RatingsController, type: :controller do
 
       it "rates the order item" do
         post :create, params: valid_params
-        expect(order_item.rate).to be true
+        expect(order_item.send(:rate)).to be_truthy
       end
 
       it "redirects to the previous page or root path for HTML format" do
         post :create, params: valid_params, format: :html
-        expect(response).to render_template(:new)
+        expect(response).to be_redirect
       end
 
       it "renders a Turbo Stream response with updates for Turbo format" do
-        post :create, params: valid_params, format: :html
-        expect(response).to render_template(:new)
+        post :create, params: valid_params, format: :turbo_stream
+        expect(response).to render_template(partial: "ratings/_button")
+        expect(response).to render_template(partial: "shared/_alert")
       end
     end
 

@@ -159,13 +159,9 @@ en:
     ago: "%{time} ago"
     system: "System"
     new_order_noti: "You have new order"
-<<<<<<< HEAD
     mark_all_as_read: "Mark all as read"
     mark_as_read: "Mark as read"
     no_noti: "No notification"
-=======
-    mark_as_read: "Đánh dấu tất cả là đã đọc"
->>>>>>> Rspec registrations controller
   alert:
     account_created_successful: "Account created successfully, Please check your email to activate account"
     account_activated: "Account activated"

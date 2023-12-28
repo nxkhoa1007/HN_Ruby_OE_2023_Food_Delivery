@@ -3,6 +3,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+require "support/shared/load_cart_items"
+require "support/shared/delete_all_cart_item"
 include ApplicationHelper
 include NotificationsHelper
 include RatingsHelper

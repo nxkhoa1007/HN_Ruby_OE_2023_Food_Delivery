@@ -33,10 +33,6 @@ class ApplicationController < ActionController::Base
     @cart_items = session[:cart].select do |item|
       item["user_id"] == current_user.id
     end
-    return if @cart_items
-
-    flash[:error] = t("alert.error_cart")
-    redirect_to root_path
   end
 
   def delete_all_item
