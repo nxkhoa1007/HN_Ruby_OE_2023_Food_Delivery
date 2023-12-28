@@ -1,0 +1,9 @@
+<li class="nav-item">
+  <%= link_to t("text.my_account"), edit_user_registration_path , class: "nav-link #{'active' if current_page?(edit_user_registration_path)} fw-bold text-dark" %>
+</li>
+<li class="nav-item">
+  <%= link_to t("text.change_password"), users_change_password_path , class: "nav-link  #{'active' if current_page?(users_change_password_path)} fw-bold text-dark" %>
+</li>
+<li class="nav-item">
+  <%= link_to t("text.my_address"), address_user_path , class: "nav-link  #{'active' if current_page?(address_user_path)} fw-bold text-dark" %>
+</li>

@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include SessionsHelper
   include Pagy::Frontend
   def full_title page_title = ""
     base_title = t("text.title")

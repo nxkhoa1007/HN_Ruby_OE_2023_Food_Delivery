@@ -1,43 +1,49 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<% provide :title, t("text.my_account") %>
+<section class="h-100 h-custom mt-5">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+          <ul class="nav nav-tabs">
+            <%= render "shared/navigation" %>
+          </ul>
+          <div class="card-body p-3">
+          <%= form_for(resource, as: resource_name, url: users_update_profile_path, html: { method: :put }) do |f| %>
+            <div class="row justify-content-center">
+                <div class="col-4">
+                  <div class="mb-2">
+                    <%= f.label :name , t("form.user.name") %>
+                    <%= f.text_field :name, class: "form-control" %>
+                    <%= display_error(@user, :name) %>
+                  </div>
+                  <div class="mb-2">
+                    <%= f.label :email, t("form.user.email") %>
+                    <%= f.text_field :email, class: "form-control", disabled: true %>
+                    <%= display_error(@user, :email) %>
+                  </div>
+                  <div class="d-grid">
+                      <%= f.button t("text.edit"), type:"submit", class: "btn btn-dark btn-login fw-bold text-uppercase" %>
+                  </div>
+                </div>
+                <div class="col-4 ps-5">
+                  <div class="avatar-upload">
+                    <div class="avatar-edit">
+                        <%= f.file_field :avatar, id: "image-input", accept: Settings.accept_file %>
+                        <label for="image-input"></label>
+                    </div>
+                    <div class="avatar-preview">
+                      <%= image_tag current_user.avatar.variant(:user_info), id:"image-preview" if current_user.avatar.attached? %>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <%= t "text.upload_rule_html" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</section>

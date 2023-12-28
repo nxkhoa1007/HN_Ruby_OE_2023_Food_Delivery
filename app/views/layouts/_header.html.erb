@@ -27,11 +27,12 @@
           <% end %>
           <span class="dropdown py-2">
             <button class="btn btn-outline-dark dropdown-toggle" id="dropdownMenuButton" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.name %>
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= current_user.name %></span>
+              <%= image_tag current_user.avatar.variant(:display), class: "img-profile rounded-circle" if current_user.avatar.attached? %>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <%= link_to t("text.order_history"), orders_path , class: "dropdown-item" %>
-              <%= link_to t("text.my_account"), address_user_path , class: "dropdown-item" %>
+              <%= link_to t("text.my_account"), edit_user_registration_path , class: "dropdown-item" %>
               <%= button_to t("text.log_out"), destroy_user_session_path , method: :delete, class: "dropdown-item" %>
             </div>
           </span>
