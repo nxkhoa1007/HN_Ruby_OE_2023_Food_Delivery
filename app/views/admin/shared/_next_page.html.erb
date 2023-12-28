@@ -1,0 +1,10 @@
+<% if @noti_pagy.next %>
+  <%= turbo_frame_tag("noti-page-#{@noti_pagy.next}",
+      loading: :lazy,
+      autoscroll: true,
+      src: pagy_url_for(@noti_pagy, @noti_pagy.next),
+      target: "_top"
+    ) do %>
+    <div class="col-12 text-center"><%= t("text.loading")%></div>
+  <% end %>
+<% end %>

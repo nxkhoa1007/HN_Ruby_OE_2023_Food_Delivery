@@ -38,7 +38,9 @@ class ProductsController < ApplicationController
   end
 
   def load_product
-    @product = Product.friendly.find_by(slug: params[:id])
+    @product = Product.includes(:ratings).friendly.find_by(slug: params[:id])
+    @rating_pagy, @ratings = pagy @product.ratings, items: Settings.digit_5,
+      page_param: :_page
     return if @product
 
     flash[:error] = t("alert.error_product")

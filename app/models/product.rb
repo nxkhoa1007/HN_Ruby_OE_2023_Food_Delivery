@@ -9,6 +9,7 @@ class Product < ApplicationRecord
 
   belongs_to :category
   has_many :order_items, dependent: :destroy
+  has_many :ratings, dependent: :destroy
   has_one_attached :image do |attachable|
     attachable.variant :display, resize_to_limit: [
       Settings.digit_150,
