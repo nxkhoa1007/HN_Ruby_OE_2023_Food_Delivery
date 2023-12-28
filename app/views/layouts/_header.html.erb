@@ -6,16 +6,8 @@
     </button>
     <div class="collapse navbar-collapse row justify-content-center" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-3">
-        <li class="nav-item"><%= link_to t("text.home"), root_path, class: "nav-link active" %></li>
-        <li class="nav-item"><a class="nav-link" href="#!"><%= t "text.about" %></a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><%= t "text.shop" %></a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to t("text.all_product"), categories_path, class: "dropdown-item" %></li>
-            <li><a class="dropdown-item" href="#!"><%= t "text.hot" %></a></li>
-            <li><a class="dropdown-item" href="#!"><%= t "text.new_product" %></a></li>
-          </ul>
-        </li>
+        <li class="nav-item"><%= link_to t("text.home"), root_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to t("text.shop"), categories_path, class: "nav-link" %></li>
       </ul>
       <%= render partial:"shared/search_form", locals: { results: [] } %>
       <div class="col-4">

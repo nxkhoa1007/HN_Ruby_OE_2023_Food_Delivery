@@ -61,9 +61,13 @@ gem "devise"
 
 gem "ransack"
 
-gem "redis", "~> 3.0"
+gem "redis"
 
 gem "noticed"
+
+gem "sidekiq", "~> 7.0.7"
+
+gem "whenever", require: false
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

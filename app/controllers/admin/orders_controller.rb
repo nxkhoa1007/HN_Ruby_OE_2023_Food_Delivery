@@ -5,6 +5,7 @@ class Admin::OrdersController < Admin::MasterController
     @q = Order.includes(:order_items).ransack(params[:q])
     @pagy, @orders = pagy @q.result,
                           items: Settings.page_10
+    store_location
   end
 
   def edit
@@ -12,9 +13,9 @@ class Admin::OrdersController < Admin::MasterController
   end
 
   def update
-    if @order.update order_params
+    if @order.update_sold_product(order_params)
       flash[:success] = t("alert.order_update_successful")
-      redirect_to admin_orders_path
+      redirect_back_or session[:forwarding_url] || admin_orders_path
     else
       flash[:error] = t("alert.error")
       render :edit, status: :unprocessable_entity

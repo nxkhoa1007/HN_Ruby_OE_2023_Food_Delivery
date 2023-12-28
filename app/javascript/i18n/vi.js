@@ -1128,7 +1128,17 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
       },
       "subject": "Kích hoạt tài khoản"
     },
+    "daily_notification": {
+      "content_html": "<h2>Thông báo: Số lượng đơn hàng mới ngày hôm nay</h2> Xin chào<br/> Tổng cộng, cửa hàng đã nhận nhận được <strong>%{num_order}</strong> đơn hàng mới trong ngày hôm nay.<br/> Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi<br/> <p>Trân trọng,</p> <b>KFOOD</b> ",
+      "subject": "Báo cáo hằng ngày"
+    },
     "hi": "Xin chào %{user}",
+    "order_notification": {
+      "confirm": "Đơn hàng %{order_code} đã được xác nhận",
+      "confirm_content_html": "<h1>Xin chào %{name}</h1> <p>Đơn hàng <b>%{order_code}</b> của bạn đã được xác nhận và sẽ được vận chuyển trong thời gian sớm nhất. cảm ơn bạn vì đã mua hàng bên cửa hàng của chúng tôi</p> <p>KFOOD Admin</p>",
+      "success": "Đơn hàng %{order_code} đã được giao thành công",
+      "success_content_html": "<h1>Xin chào %{name}</h1> Đơn hàng <b>%{order_code}</b> của bạn đã được giao thành công.<br/> Nếu yêu thích hoặc có gì không hài lòng với sản phẩm, xin hãy để lại đánh giá, chúng tôi luôn trân trọng những ý kiến đóng góp của bạn để giúp cửa hàng luôn hoàn thiện hơn.<br/> <p>Trân trọng,</p> KFOOD Admin"
+    },
     "password_reset": {
       "content": {
         "change_password": "Đổi mật khẩu",
