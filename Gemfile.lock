@@ -364,6 +364,7 @@ GEM
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
       redis-client (>= 0.11.0)
+<<<<<<< HEAD
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -372,6 +373,8 @@ GEM
     simplecov-rcov (0.3.3)
       simplecov (>= 0.4.1)
     simplecov_json_formatter (0.1.4)
+=======
+>>>>>>> update-project-2
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -446,15 +449,21 @@ DEPENDENCIES
   rails_live_reload
   ransack
   redis
+<<<<<<< HEAD
   rspec-rails
+=======
+>>>>>>> update-project-2
   rubocop (~> 1.26)
   rubocop-checkstyle_formatter
   rubocop-rails (~> 2.14.0)
   sassc-rails
   selenium-webdriver
   sidekiq (~> 7.0.7)
+<<<<<<< HEAD
   simplecov
   simplecov-rcov
+=======
+>>>>>>> update-project-2
   sprockets-rails
   stimulus-rails
   toastr-rails

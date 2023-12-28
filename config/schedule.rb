@@ -20,6 +20,6 @@
 set :environment, :development
 env :PATH, ENV["PATH"]
 set :output, "#{path}/log/cronjob.log"
-every 1.days, at: "23:59 pm" do
+every 1.days, at: "23:59pm" do
   runner "DailyJob.perform_later"
 end

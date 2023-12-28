@@ -20,6 +20,7 @@ class Order < ApplicationRecord
 
   has_noticed_notifications
 
+  before_create :set_default_status
   after_save :send_order_notification
   after_create_commit{broadcast_notifications}
 
