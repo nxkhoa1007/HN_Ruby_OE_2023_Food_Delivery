@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     end
     resources :user_infos, except: %i(index show) do
       member do
-        post :set_default, action: :set_default
+        put :set_default, action: :set_default
       end
     end
     post "add_to_cart/:id", to: "cart#create", as: "add_to_cart"

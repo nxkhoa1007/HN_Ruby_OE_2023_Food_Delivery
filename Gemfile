@@ -68,15 +68,12 @@ gem "noticed"
 gem "sidekiq", "~> 7.0.7"
 
 gem "whenever", require: false
-<<<<<<< HEAD
 
 gem "rspec-rails"
 
 gem "simplecov-rcov"
 
 gem "simplecov"
-=======
->>>>>>> update-project-2
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -123,5 +120,6 @@ group :test do
   gem "factory_bot_rails"
   gem "rails-controller-testing"
   gem "selenium-webdriver"
+  gem "shoulda-matchers", "~> 6.0"
   gem "webdrivers"
 end

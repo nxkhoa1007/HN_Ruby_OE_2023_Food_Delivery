@@ -1,8 +1,10 @@
 class RatingsController < ApplicationController
   before_action :load_order, only: %i(new)
   before_action :load_order_item, only: %i(create)
+  before_action :authenticate_user!
   def new
     @rating = Rating.new
+    @order = Order.find_by id: params[:id]
     @order_items = @order.order_items
   end
 

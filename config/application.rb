@@ -14,7 +14,7 @@ module RailsTutorial
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.available_locales = [:en, :vi]
     config.i18n.default_locale = :vi
-    config.time_zone = 'Asia/Ho_Chi_Minh'
+    config.time_zone = 'Asia/Bangkok'
     config.active_record.default_timezone = :local
     config.active_storage.variant_processor = :mini_magick
     config.active_job.queue_adapter = :sidekiq
