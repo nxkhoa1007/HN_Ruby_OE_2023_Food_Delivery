@@ -18,6 +18,6 @@
   </div>
   <div class="modal-footer">
     <%= f.button t("text.confirm"), type:"submit", class: "btn btn-dark" %>
-    <%= link_to t("text.close"),"#", data: {controller: "modal", action:"modal#close"}, class: "btn btn-secondary"  %>
+    <%= link_to t("text.close"), "#", id:"close-btn", data: { controller: "modal", action: "modal#close", modal_id: "modal" }, class: "btn btn-secondary" %>
   </div>
 <% end %>

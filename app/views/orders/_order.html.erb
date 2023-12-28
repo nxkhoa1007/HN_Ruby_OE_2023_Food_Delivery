@@ -5,7 +5,15 @@
   <td class="fw-bolder"><%= display_order_status_text(order.status) %></td>
   <td><%= order_total(order.order_items) %></td>
   <td>
-    <%= link_to t("text.cancel"), order_path(order), class: "text-danger", data: { "turbo-method": :put, turbo_confirm: t("alert.you_sure_cancel") } %>
+    <% if order.status.to_sym == :delivered %>
+      <% if check_all_rated(order.order_items) %>
+        <button class="btn btn-warning text-white" disabled ><%=  t("text.rated") %></button>
+      <% else %>
+        <%= link_to t("text.rate"), new_rating_path(id: order), class: "btn btn-warning text-white" %>
+      <% end %>
+    <% else %>
+      <%= link_to t("text.cancel"), order_path(order), class: "btn btn-danger", data: { "turbo-method": :put, turbo_confirm: t("alert.you_sure_cancel") } %>
+    <% end %>
   </td>
 </tr>
 <div class="modal fade" id="modal-order-<%= order.id %>" tabindex="-1" role="dialog" aria-labelledby="modal-order" aria-hidden="true">
@@ -20,7 +28,7 @@
           <% order.order_items.each do |order_item| %>
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <h6 class="my-0"><%= order_item.product.name %></h6>
+                <h6 class="my-0"><%= order_item.product_name %></h6>
                 <small class="text-warning"><%= t("text.product.quantity") %>: <%= order_item.quantity %></small>
               </div>
               <span class="text-info"><%= format_cost(order_item.quantity*order_item.cost) %></span>

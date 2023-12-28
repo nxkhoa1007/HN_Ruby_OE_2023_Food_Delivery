@@ -120,6 +120,16 @@ vi:
     all: "Tất cả"
     filter: "Lọc"
     reset: "Đặt lại"
+    rate: "Đánh giá"
+    send_rate: "Gửi đánh giá"
+    rated: "Đã đánh giá"
+    back: "Quay lại"
+    total_rate_html: "(<b>%{rate}</b> <span class='star'><i class='bi bi-star-fill'></i></span> trên <b>%{total_rate}</b> đánh giá)"
+    no_rate: "(Chưa có đánh giá)"
+    ago: "%{time} trước"
+    system: "Hệ thống"
+    new_order_noti: "Bạn có một đơn hàng mới"
+    mark_as_read: "Đánh dấu tất cả là đã đọc"
   alert:
     account_created_successful: "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản"
     account_activated: "Kích hoạt tài khoản thành công"
@@ -149,8 +159,29 @@ vi:
     update_success: "Cập nhật thành công"
     password_changed_successfully: "Đổi mật khẩu thành công, xin hãy đăng nhập lại"
     limit_size: "Dung lượng file giới hạn là 1MB"
+    rate_product_success: "Đánh giá sản phẩm thành công"
   user_mailer:
     hi: "Xin chào %{user}"
+    daily_notification:
+      subject: "Báo cáo hằng ngày"
+      content_html: "<h2>Thông báo: Số lượng đơn hàng mới ngày hôm nay</h2>
+                        Xin chào<br/>
+                        Tổng cộng, cửa hàng đã nhận nhận được <strong>%{num_order}</strong> đơn hàng mới trong ngày hôm nay.<br/>
+                        Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi<br/>
+                        <p>Trân trọng,</p>
+                        <b>KFOOD</b>
+                        "
+    order_notification:
+      confirm: "Đơn hàng %{order_code} đã được xác nhận"
+      confirm_content_html: "<h1>Xin chào %{name}</h1>
+                             <p>Đơn hàng <b>%{order_code}</b> của bạn đã được xác nhận và sẽ được vận chuyển trong thời gian sớm nhất. cảm ơn bạn vì đã mua hàng bên cửa hàng của chúng tôi</p>
+                             <p>KFOOD Admin</p>"
+      success: "Đơn hàng %{order_code} đã được giao thành công"
+      success_content_html: "<h1>Xin chào %{name}</h1>
+                      Đơn hàng <b>%{order_code}</b> của bạn đã được giao thành công.<br/>
+                      Nếu yêu thích hoặc có gì không hài lòng với sản phẩm, xin hãy để lại đánh giá, chúng tôi luôn trân trọng những ý kiến đóng góp của bạn để giúp cửa hàng luôn hoàn thiện hơn.<br/>
+                      <p>Trân trọng,</p>
+                      KFOOD Admin"
     account_activation:
       subject: "Kích hoạt tài khoản"
       content:
@@ -189,6 +220,9 @@ vi:
         type_payment: "Phương thức thanh toán"
         note: "Ghi chú"
         status: "Trạng thái đơn hàng"
+      rating:
+        rating: "Đánh giá"
+        comment: "Nhận xét"
   pagy:
     nav:
       prev: 'Trước'

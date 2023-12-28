@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_02_060657) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_08_030835) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -47,6 +47,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_02_060657) do
     t.index ["slug"], name: "index_categories_on_slug"
   end
 
+  create_table "notifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "recipient_type", null: false
+    t.bigint "recipient_id", null: false
+    t.string "type"
+    t.json "params"
+    t.datetime "read_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["read_at"], name: "index_notifications_on_read_at"
+    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
+  end
+
   create_table "order_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "order_id", null: false
@@ -54,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_02_060657) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "cost"
+    t.boolean "rated", default: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_id", "order_id"], name: "index_order_items_on_product_id_and_order_id", unique: true
     t.index ["product_id"], name: "index_order_items_on_product_id"
@@ -85,6 +98,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_02_060657) do
     t.string "slug"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["slug"], name: "index_products_on_slug"
+  end
+
+  create_table "ratings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.string "comment", null: false
+    t.float "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_ratings_on_product_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "user_infos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -123,5 +147,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_02_060657) do
   add_foreign_key "orders", "user_infos"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
+  add_foreign_key "ratings", "products"
+  add_foreign_key "ratings", "users"
   add_foreign_key "user_infos", "users"
 end

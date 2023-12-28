@@ -7,7 +7,9 @@ class Admin::OrdersController < Admin::MasterController
                           items: Settings.page_10
   end
 
-  def edit; end
+  def edit
+    @order.notifications.mark_as_read!
+  end
 
   def update
     if @order.update order_params

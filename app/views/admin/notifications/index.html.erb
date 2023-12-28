@@ -1,0 +1,21 @@
+<%= provide :title, t("text.notification") %>
+<div class="card mb-4 container">
+  <div class="card-header d-flex justify-content-between">
+    <strong><%= t"text.notification" %></strong>
+    <%= button_to t("text.mark_as_read") , read_all_admin_notifications_path , method: :put , class:"btn btn-info text-white"%>
+  </div>
+  <div class="card-body">
+    <div id="notification-list">
+      <% if @notifications.any? %>
+        <% @notifications.each do |notification| %>
+          <%= render "notifications/notification", notification:notification %>
+        <% end %>
+      <% else %>
+        <div class="message text-wrap text-center">
+          (Không có thông báo)
+        </div>
+      <% end %>
+    </div>
+    <%= render partial: "admin/shared/next_page" %>
+  </div>
+</div>

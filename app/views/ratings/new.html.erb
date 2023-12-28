@@ -1,0 +1,32 @@
+
+<% provide :title, t("text.rate") %>
+<section class="h-100 h-custom mt-5">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-6">
+        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+          <div class="card-header">
+              <h3 class="fw-bold mb-0 text-black"><%= t("text.rate") %></h3>
+          </div>
+          <div class="card-body p-3">
+            <% @order_items.each do |order_item| %>
+              <%= form_with model: @rating, url: ratings_path(id: order_item), remote: true do |f| %>
+                <li class="list-group-item d-flex lh-sm mb-3">
+                  <%= image_tag order_item.product_image.variant(:display) if order_item.product.image.attached? %>
+                  <div class = "ms-2">
+                    <h6 class="my-0"><%= order_item.product.name %></h6>
+                    <small class="text-warning"><%= t("text.product.quantity") %>: <%= order_item.quantity %></small>
+                  </div>
+                </li>
+                <%= render partial:"ratings/button" , locals: { order_item: order_item, f: f} %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="card-footer text-end">
+            <%= link_to t("text.back"), orders_path, class: "btn btn-secondary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
