@@ -108,6 +108,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.5.0)
+    docile (1.4.0)
     domain_name (0.6.20231109)
     dry-configurable (1.1.0)
       dry-core (~> 1.0, < 2)
@@ -142,6 +144,11 @@ GEM
       dry-schema (>= 1.12, < 2)
       zeitwerk (~> 2.6)
     erubi (1.12.0)
+    factory_bot (6.4.5)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.3)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
     faker (3.2.2)
       i18n (>= 1.8.11, < 2)
     ffi (1.16.3)
@@ -253,6 +260,10 @@ GEM
       activesupport (= 7.0.7)
       bundler (>= 1.15.0)
       railties (= 7.0.7)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -295,6 +306,23 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.6)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.1.0)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.12.1)
     rubocop (1.56.0)
       base64 (~> 0.1.1)
       json (~> 2.3)
@@ -336,6 +364,14 @@ GEM
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
       redis-client (>= 0.11.0)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov-rcov (0.3.3)
+      simplecov (>= 0.4.1)
+    simplecov_json_formatter (0.1.4)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -389,6 +425,7 @@ DEPENDENCIES
   config
   debug
   devise
+  factory_bot_rails
   faker
   figaro
   friendly_id (~> 5.1.0)
@@ -404,16 +441,20 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.5)
+  rails-controller-testing
   rails-i18n
   rails_live_reload
   ransack
   redis
+  rspec-rails
   rubocop (~> 1.26)
   rubocop-checkstyle_formatter
   rubocop-rails (~> 2.14.0)
   sassc-rails
   selenium-webdriver
   sidekiq (~> 7.0.7)
+  simplecov
+  simplecov-rcov
   sprockets-rails
   stimulus-rails
   toastr-rails

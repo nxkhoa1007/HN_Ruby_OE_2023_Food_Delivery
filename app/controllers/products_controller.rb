@@ -6,15 +6,16 @@ class ProductsController < ApplicationController
 
   def show
     @category = Category.friendly.find_by(slug: params[:category_id])
-    @pagy, @products = pagy_countless @category
-                       .products.includes(:category)
-                       .exclude_current(@product.id),
-                                      items: Settings.digit_4
-    render "shared/scrollable_list" if params[:page]
-    return if @category
-
-    flash[:error] = t("alert.error_category")
-    redirect_to root_path
+    if @category
+      @pagy, @products = pagy_countless @category
+                         .products.includes(:category)
+                         .exclude_current(@product.id),
+                                        items: Settings.digit_4
+      render "shared/scrollable_list" if params[:page]
+    else
+      flash[:error] = t("alert.error_category")
+      redirect_to root_path
+    end
   end
 
   def suggestions
@@ -39,11 +40,12 @@ class ProductsController < ApplicationController
 
   def load_product
     @product = Product.includes(:ratings).friendly.find_by(slug: params[:id])
-    @rating_pagy, @ratings = pagy @product.ratings, items: Settings.digit_5,
+    if @product
+      @rating_pagy, @ratings = pagy @product.ratings, items: Settings.digit_5,
       page_param: :_page
-    return if @product
-
-    flash[:error] = t("alert.error_product")
-    redirect_to root_path
+    else
+      flash[:error] = t("alert.error_product")
+      redirect_to root_path
+    end
   end
 end
