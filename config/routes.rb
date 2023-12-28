@@ -10,6 +10,9 @@ Rails.application.routes.draw do
           put "read_all", to: "notifications#read_all"
         end
       end
+      authenticate :user, lambda{|u| u.role.to_sym == :admin } do
+        mount Sidekiq::Web => "/jobs"
+      end
     end
   end
   scope "(:locale)", locale: /en|vi/ do
@@ -35,7 +38,7 @@ Rails.application.routes.draw do
     end
     resources :user_infos, except: %i(index show) do
       member do
-        post :set_default, action: :set_default
+        put :set_default, action: :set_default
       end
     end
     post "add_to_cart/:id", to: "cart#create", as: "add_to_cart"

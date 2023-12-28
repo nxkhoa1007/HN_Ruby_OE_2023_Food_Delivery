@@ -20,12 +20,7 @@ class UserInfosController < ApplicationController
   end
 
   def set_default
-    if @user_info.set_as_default
-      handle_success_response
-    else
-      flash[:error] = t("alert.error")
-      redirect_to root_path
-    end
+    handle_success_response if @user_info.set_as_default
   end
 
   def update
@@ -52,14 +47,13 @@ class UserInfosController < ApplicationController
   def handle_success_response
     respond_to do |format|
       load_user_infos
-      format.html{redirect_back(fallback_location: root_path)}
-      turbo_stream.update("user_infos_list", @user_infos)
+      format.html{redirect_to address_user_path}
     end
   end
 
   def handle_error_response
     respond_to do |format|
-      format.html{render :new}
+      format.html{redirect_back(fallback_location: root_path)}
       format.turbo_stream do
         render turbo_stream: [
           turbo_stream.update("modal-form", partial: "form",
