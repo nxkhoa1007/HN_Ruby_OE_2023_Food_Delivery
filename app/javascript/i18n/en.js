@@ -16,6 +16,10 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
         "name": "Product name",
         "status": "Status"
       },
+      "rating": {
+        "comment": "Nhận xét",
+        "rating": "Đánh giá"
+      },
       "user": {
         "current_password": "Current password",
         "dob": "Date of birth",
@@ -75,6 +79,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "product_add_successful": "Product added successfully",
     "product_delete_successful": "Product deleted successfully",
     "product_update_successful": "Product updated successfully",
+    "rate_product_success": "Rating product successfully",
     "update_success": "Update successfully",
     "you_sure": "Are you sure to delete?",
     "you_sure_cancel": "Are you sure to cancel?"
@@ -78084,10 +78089,12 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "add_product": "Add Product",
     "add_to_cart": "Add to cart",
     "admin_home": "Admin Home",
+    "ago": "%{time} ago",
     "all": "All",
     "all_category": "All Categories",
     "all_product": "All Product",
     "available": "Available",
+    "back": "Go back",
     "back_to_home": "Back to home",
     "bank": "Credit card",
     "banner_text": "Bringing flavors to your doorstep, anytime, anywhere!",
@@ -78127,14 +78134,17 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "logo": "KFOOD",
     "male": "Male",
     "management": "Management",
+    "mark_as_read": "Đánh dấu tất cả là đã đọc",
     "my_account": "My account",
     "my_address": "My address",
+    "new_order_noti": "You have new order",
     "new_product": "New Product",
     "newest": "Newest",
     "no_account": "No account?",
     "no_order": "No Order",
     "no_product": "No Product",
     "no_product_in_cart": "No product in cart",
+    "no_rate": "(No rate)",
     "not_found_product": "Product not found",
     "notification": "Notification",
     "order": {
@@ -78169,6 +78179,8 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     },
     "product_management": "Product management",
     "rapid": "Rapid",
+    "rate": "Rate",
+    "rated": "Rated",
     "register": "Register",
     "register_account": "Register Account",
     "related_product": "Related Product",
@@ -78177,14 +78189,17 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "search": "Search",
     "search_result": "Search results",
     "send_email": "Send Email",
+    "send_rate": "Send rate",
     "set_default": "Set default",
     "settings": "Settings",
     "shipping": "Shipping",
     "shop": "Shop",
     "sign_out": "Sign out",
     "summary": "Summary",
+    "system": "System",
     "title": "KFood",
     "total": "Total",
+    "total_rate_html": "(<b>%{rate}</b> <span class='star'><i class='bi bi-star-fill'></i></span> on <b>%{total_rate}</b> rates)",
     "unavailable": "Sold out",
     "update_address": "Cập nhật địa chỉ",
     "update_new_password": "Update New Password",
@@ -78215,7 +78230,17 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       },
       "subject": "Kích hoạt tài khoản"
     },
+    "daily_notification": {
+      "content_html": "<h2>Notification: Number of New Orders Today</h2> Hello,<br/> In total, the store has received <strong>%{num_order}</strong> new orders today.<br/> Thank you for using our services.<br/> <p>Best regards,</p> <b>KFOOD</b>",
+      "subject": "Daily report"
+    },
     "hi": "Hi %{user}",
+    "order_notification": {
+      "confirm": "Order %{order_code} has been confirmed",
+      "confirm_content_html": "<h1>Hello %{name}</h1> <p>Your order <b>%{order_code}</b> has been confirmed and will be shipped as soon as possible. Thank you for shopping with us.</p> <p>KFOOD</p>",
+      "success": "Order %{order_code} has been successfully delivered",
+      "success_content_html": "<h1>Hello %{name}</h1> Your order <b>%{order_code}</b> has been successfully delivered.<br/> If you enjoyed our products or have any feedback, please leave a review. We appreciate your input to help us continuously improve our store.<br/> <p>Best regards,</p> KFOOD Admin"
+    },
     "password_reset": {
       "content": {
         "change_password": "Change password",

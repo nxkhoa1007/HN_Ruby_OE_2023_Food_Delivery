@@ -1,9 +1,18 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   namespace :admin do
     scope "(:locale)", locale: /en|vi/ do
       root "home#index"
       resources :products
       resources :orders, only: %i(index edit update)
+      resources :notifications, only: %i(index update) do
+        collection do
+          put "read_all", to: "notifications#read_all"
+        end
+      end
+      authenticate :user, lambda{|u| u.role.to_sym == :admin } do
+        mount Sidekiq::Web => "/jobs"
+      end
     end
   end
   scope "(:locale)", locale: /en|vi/ do
@@ -17,7 +26,6 @@ Rails.application.routes.draw do
       get "users/change_password" => "users/registrations#change"
       put "users/change_password" => "users/registrations#update_password"
     end
-
     get "cart", to:"cart#show"
     resources :cart do
       member do
@@ -30,7 +38,7 @@ Rails.application.routes.draw do
     end
     resources :user_infos, except: %i(index show) do
       member do
-        post :set_default, action: :set_default
+        put :set_default, action: :set_default
       end
     end
     post "add_to_cart/:id", to: "cart#create", as: "add_to_cart"
@@ -44,10 +52,12 @@ Rails.application.routes.draw do
     end
     get "checkout", to:"orders#new"
     post "checkout", to:"orders#create"
+    resources :ratings, only: %i(new create)
     resources :categories do
       resources :products, only: %i(show)
     end
     resources :products, only: %i(index)
     post "search/suggestions", to: "products#suggestions", as: "search_suggestions"
+    mount ActionCable.server => "/cable"
   end
 end

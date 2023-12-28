@@ -22,7 +22,7 @@
             <% end %>
           </div>
           <div class="modal-footer">
-            <%= link_to t("text.close"),"#", data: {controller: "modal", action:"modal#closeSelect"}, class: "btn btn-secondary"  %>
+            <%= link_to t("text.close"), "#", id:"close-btn", data: { controller: "modal", action: "modal#close", modal_id: "select-modal" }, class: "btn btn-secondary" %>
             <%= button_tag t("text.confirm"), type: "submit" , class: "btn btn-primary" %>
           </div>
         <% end %>
