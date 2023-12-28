@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       get "users/change_password" => "users/registrations#change"
       put "users/change_password" => "users/registrations#update_password"
     end
-
     get "cart", to:"cart#show"
     resources :cart do
       member do
@@ -44,6 +43,7 @@ Rails.application.routes.draw do
     end
     get "checkout", to:"orders#new"
     post "checkout", to:"orders#create"
+    resources :ratings, only: %i(new create)
     resources :categories do
       resources :products, only: %i(show)
     end

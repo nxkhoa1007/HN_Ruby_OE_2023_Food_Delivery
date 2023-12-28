@@ -1,27 +1,59 @@
 <% provide :title, @product.name %>
 <section class="py-5">
   <div class="container px-4 px-lg-5 my-5">
-      <div class="row gx-4 gx-lg-5 align-items-center">
-        <div class="col-md-6"><%= image_tag @product.image.variant(:display_user_info), class: "card-img-top mb-5 mb-md-0" if @product.image.attached? %></div>
-        <div class="col-md-6">
-          <h3 class="display-5 fw-bolder"><%= @product.name %></h3>
-          <div class="fs-5">
-            <%= format_status(@product.status) %>
-          </div>
-          <p class="lead"><%= @product.description %></p>
-          <div class="d-flex">
-            <%= form_tag add_to_cart_path, method: :post, remote: true do %>
-              <div class="d-flex">
-                <%= text_field_tag 'quantity', Settings.digit_1, class: 'form-control input-number me-3', id: 'input-numb', type: 'number', style: 'max-width: 3rem' %>
-                <%= button_tag class: "btn btn-outline-dark flex-shrink-0", type: "submit" , disabled: (@product.status.to_sym == :unavailable) do %>
-                  <i class="bi-cart-fill me-1"></i>
-                  <%= t("text.add_to_cart") %>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
+    <div class="row gx-4 gx-lg-5 align-items-center">
+      <div class="col-md-6"><%= image_tag @product.image.variant(:display_user_info), class: "card-img-top mb-5 mb-md-0" if @product.image.attached? %></div>
+      <div class="col-md-6">
+        <h3 class="display-5 fw-bolder"><%= @product.name %></h3>
+        <% if @ratings.any? %>
+          <h5><%= t "text.total_rate_html" , rate: average_rating(@ratings), total_rate: @ratings.size %></h5>
+        <% else %>
+          <h5><%= t "text.no_rate"  %></h5>
+        <% end %>
+        <h4 class="text-danger fw-italic"><%= format_cost(@product.cost) %></h4>
+        <div class="fs-5">
+          <%= format_status(@product.status) %>
+        </div>
+        <p class="lead"><%= @product.description %></p>
+        <div class="d-flex">
+          <%= form_tag add_to_cart_path, method: :post, remote: true do %>
+            <div class="d-flex">
+              <%= text_field_tag 'quantity', Settings.digit_1, class: 'form-control input-number me-3', id: 'input-numb', type: 'number', style: 'max-width: 3rem' %>
+              <%= button_tag class: "btn btn-outline-dark flex-shrink-0", type: "submit" , disabled: (@product.status.to_sym == :unavailable) do %>
+                <i class="bi-cart-fill me-1"></i>
+                <%= t("text.add_to_cart") %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
+    </div>
+    <div class="card bg-light mt-5">
+      <div class="card-body">
+        <h3 class="card-title mb-4"><%= t "text.rate" %> (<%= @ratings.size %>)</h3>
+        <% if @ratings.any? %>
+          <% @ratings.each do |rating| %>
+            <div class="d-flex mb-3">
+              <div class="flex-shrink-0"><%= image_tag rating.user.avatar.variant(:comment), class: "rounded-circle" if current_user.avatar.attached? %></div>
+              <div class="ms-3">
+                <div class="fw-bold"><%= rating.user.name %></div>
+                <div>
+                  <% 5.times do |i|%>
+                    <li data-index="<%= i+1 %>" style="color: <%= rating_color(rating.rating.to_i, i+1) %>" class="rating">&#9733;</li>
+                  <% end %>
+                </div>
+                <small class="text-muted"><%= format_time(rating.created_at)%></small>
+                <div><%= rating.comment %></div>
+              </div>
+            </div>
+          <% end %>
+          <%== pagy_bootstrap_nav @rating_pagy %>
+        <% else %>
+          <h5 class="text-center fw-bold"><%= t "text.no_rate"  %></h5>
+        <% end %>
+
+      </div>
+    </div>
   </div>
 </section>
 <!-- Related items section-->

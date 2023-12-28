@@ -4,14 +4,9 @@ export default class extends Controller {
   connect() {
   }
 
-  close(e){
+  close(e) {
     e.preventDefault();
-    const modal = document.getElementById("modal");
-    modal.innerHTML = "";
-  }
-  closeSelect(e){
-    e.preventDefault();
-    const selectModal = document.getElementById("select-modal");
-    selectModal.innerHTML = "";
+    const modal = $("#close-btn").data("modal-id");
+    $("#" + modal).empty();
   }
 }

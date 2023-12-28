@@ -1,0 +1,27 @@
+<div id="rate_<%= order_item.id %>">
+  <% if order_item.rated? %>
+    <div class="mb-3">
+      <button class="btn btn-primary" disabled><%= t "text.rated" %></button>
+    </div>
+  <% else %>
+    <div class="d-flex align-items-center">
+      <%= f.label :rating, class: "fw-bold me-2" %>
+      <% 5.times do |i|%>
+        <li id="<%= order_item.product.id %>-<%= i+1 %>"
+          data-index="<%= i+1 %>"
+          data-id=""
+          data-product_id="<%= order_item.product.id %>"
+          class="rating">&#9733;</li>
+      <% end %>
+      <%= f.hidden_field :product_id, value:order_item.product_id  %>
+      <%= f.hidden_field :rating, value: Settings.digit_5, id: "clickedIndexField" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :comment, class: "form-label fw-bold" %>
+      <%= f.text_area :comment, class:"form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.submit t("text.send_rate"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
