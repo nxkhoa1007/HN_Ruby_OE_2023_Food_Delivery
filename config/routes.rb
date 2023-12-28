@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   namespace :admin do
     scope "(:locale)", locale: /en|vi/ do
       root "home#index"
@@ -9,12 +8,10 @@ Rails.application.routes.draw do
   end
   scope "(:locale)", locale: /en|vi/ do
     root "home#index"
-    get "signup", to: "users#new"
-    post "signup", to: "users#create"
-    resources :account_activations, only: :edit
-    get "login", to:"sessions#new"
-    post "login", to:"sessions#create"
-    get "logout", to:"sessions#destroy"
+    devise_for :users, controllers:
+      { registrations: "users/registrations",
+        confirmations: "users/confirmations",
+        sessions: "users/sessions" }
     get "cart", to:"cart#show"
     resources :cart do
       member do

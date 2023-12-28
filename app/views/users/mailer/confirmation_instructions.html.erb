@@ -1,0 +1,3 @@
+<h3><%= t "user_mailer.hi", user: @resource.email %></h3>
+<p><%= t "user_mailer.account_activation.content.description"%> </p>
+<p><%= link_to t("user_mailer.account_activation.content.activate"), confirmation_url(@resource, confirmation_token: @token) %></p>

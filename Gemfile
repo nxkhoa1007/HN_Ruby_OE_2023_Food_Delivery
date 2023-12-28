@@ -56,6 +56,8 @@ gem "mini_magick"
 gem "pagy"
 
 gem "friendly_id", "~> 5.1.0"
+
+gem "devise"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

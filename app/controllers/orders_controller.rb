@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :check_login, :load_user_info
+  before_action :authenticate_user!, :load_user_info
   before_action :load_order, only: %i(update)
   before_action :check_status_order, only: %i(update)
   after_action :delete_session, only: %i(create)
