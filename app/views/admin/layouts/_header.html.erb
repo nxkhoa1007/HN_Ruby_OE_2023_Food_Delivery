@@ -15,7 +15,9 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <div class="avatar avatar-md"><%= image_tag("admin/8.jpg", class: "avatar-img") %></div>
+          <div class="avatar avatar-md">
+            <%= image_tag current_user.avatar.variant(:user_info), class: "avatar-img" if current_user.avatar.attached? %>
+          </div>
         </a>
         <div class="dropdown-menu dropdown-menu-end pt-0">
           <div class="dropdown-header bg-light py-2">

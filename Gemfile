@@ -59,6 +59,8 @@ gem "friendly_id", "~> 5.1.0"
 
 gem "devise"
 
+gem "ransack"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

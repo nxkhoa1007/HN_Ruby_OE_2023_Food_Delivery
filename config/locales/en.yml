@@ -147,6 +147,9 @@ en:
     order_info: "Order info"
     order_history: "Order history"
     upload_rule_html: "Limit size maximum: 1MB <br/> File extension: jpeg,png,jpg,webp,gif"
+    all: "All"
+    filter: "Filter"
+    reset: "Reset"
   alert:
     account_created_successful: "Account created successfully, Please check your email to activate account"
     account_activated: "Account activated"
@@ -208,6 +211,7 @@ en:
         description: "Description"
         cost: "Cost(VND)"
         category_id: "Category"
+        status: "Status"
       user_info:
         name: "Name"
         address: "Address"

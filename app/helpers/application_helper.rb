@@ -1,5 +1,4 @@
 module ApplicationHelper
-  include SessionsHelper
   include Pagy::Frontend
   def full_title page_title = ""
     base_title = t("text.title")
@@ -34,10 +33,6 @@ module ApplicationHelper
     end
 
     format_cost(subtotal_value)
-  end
-
-  def format_status status
-    content_tag(:span, status_text(status), class: status_class(status))
   end
 
   def format_time time
@@ -95,11 +90,13 @@ module ApplicationHelper
   end
 
   def status_text status
-    status == Settings.status_in ? t("text.available") : t("text.unavailable")
+    status.to_sym == :available ? t("text.available") : t("text.unavailable")
   end
 
-  def status_class status
-    status == Settings.status_in ? "text-success" : "text-danger"
+  def format_status status
+    css_class = status.to_sym == :available ? "text-success" : "text-danger"
+
+    content_tag(:span, status_text(status), class: css_class)
   end
 
   def path_for_sorting sort_by:

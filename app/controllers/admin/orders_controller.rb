@@ -2,7 +2,8 @@ class Admin::OrdersController < Admin::MasterController
   before_action :load_order, only: %i(edit update)
   before_action :check_status_order, only: %i(update)
   def index
-    @pagy, @orders = pagy Order.includes(:order_items).newest,
+    @q = Order.includes(:order_items).ransack(params[:q])
+    @pagy, @orders = pagy @q.result,
                           items: Settings.page_10
   end
 

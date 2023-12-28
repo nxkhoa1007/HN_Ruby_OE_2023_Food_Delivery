@@ -1,7 +1,8 @@
 class Admin::ProductsController < Admin::MasterController
   before_action :load_product, except: %i(index new create)
   def index
-    @pagy, @products = pagy Product.sort_by_name, items: Settings.page_10
+    @q = Product.ransack(params[:q])
+    @pagy, @products = pagy @q.result, items: Settings.page_10
     store_location
   end
 
@@ -45,7 +46,7 @@ class Admin::ProductsController < Admin::MasterController
   def product_params
     params.require(:product)
           .permit :name, :cost,
-                  :description, :category_id, :image
+                  :description, :category_id, :image, :status
   end
 
   private
