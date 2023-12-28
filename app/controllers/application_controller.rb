@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend
+  include RatingsHelper
+  include NotificationsHelper
   before_action :set_locale, :load_cart
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception

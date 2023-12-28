@@ -4,6 +4,7 @@ class Order < ApplicationRecord
                 delivered: 3, canceled: 4}
 
   has_many :order_items, dependent: :destroy
+  has_many :notifications, as: :recipient, dependent: :destroy
 
   belongs_to :user_info
   belongs_to :user
@@ -13,7 +14,10 @@ class Order < ApplicationRecord
   scope :newest, ->{order(created_at: :desc)}
   scope :current_user_orders, ->(user_id){where(user_id:)}
 
+  has_noticed_notifications
+
   before_save :set_default_status
+  after_create_commit{broadcast_notifications}
 
   def save_order_code
     update_column :order_code, generate_order_code(id)
@@ -40,5 +44,11 @@ class Order < ApplicationRecord
 
   def set_default_status
     self.status ||= :processing
+  end
+
+  def broadcast_notifications
+    OrderNotification.with(message: I18n.t("text.new_order_noti"))
+                     .deliver_later(self)
+    NotificationBroadcastJob.perform_now(notifications.first)
   end
 end

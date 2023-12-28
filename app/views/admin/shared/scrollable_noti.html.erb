@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "noti-page-#{@noti_pagy.page}" do %>
+  <div id="notification-list">
+    <% @notifications.each do |notification| %>
+      <%= render partial: "notifications/notification", locals: { notification: notification} %>
+    <% end %>
+  </div>
+  <%= render partial: "admin/shared/next_page" %>
+<% end %>

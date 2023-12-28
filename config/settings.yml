@@ -27,6 +27,7 @@ max_cost: 999999999
 status_in: 1
 status_out: 0
 page_10: 10
+page_11: 11
 accept_file: 'image/jpeg,image/gif,image/png,image/webp,image/jpg'
 color_checked: '#ffcc00'
 color_unchecked: '#ccc'

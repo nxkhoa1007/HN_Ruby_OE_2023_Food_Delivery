@@ -156,6 +156,12 @@ en:
     back: "Go back"
     total_rate_html: "(<b>%{rate}</b> <span class='star'><i class='bi bi-star-fill'></i></span> on <b>%{total_rate}</b> rates)"
     no_rate: "(No rate)"
+    ago: "%{time} ago"
+    system: "System"
+    new_order_noti: "You have new order"
+    mark_all_as_read: "Mark all as read"
+    mark_as_read: "Mark as read"
+    no_noti: "No notification"
   alert:
     account_created_successful: "Account created successfully, Please check your email to activate account"
     account_activated: "Account activated"

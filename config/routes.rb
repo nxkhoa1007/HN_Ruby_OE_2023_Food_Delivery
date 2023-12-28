@@ -4,6 +4,11 @@ Rails.application.routes.draw do
       root "home#index"
       resources :products
       resources :orders, only: %i(index edit update)
+      resources :notifications, only: %i(index update) do
+        collection do
+          put "read_all", to: "notifications#read_all"
+        end
+      end
     end
   end
   scope "(:locale)", locale: /en|vi/ do
@@ -49,5 +54,6 @@ Rails.application.routes.draw do
     end
     resources :products, only: %i(index)
     post "search/suggestions", to: "products#suggestions", as: "search_suggestions"
+    mount ActionCable.server => "/cable"
   end
 end

@@ -61,6 +61,9 @@ gem "devise"
 
 gem "ransack"
 
+gem "redis", "~> 3.0"
+
+gem "noticed"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
