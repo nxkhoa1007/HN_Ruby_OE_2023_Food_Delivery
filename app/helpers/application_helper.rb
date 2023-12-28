@@ -43,6 +43,15 @@ module ApplicationHelper
     time.strftime("%d-%m-%Y %H:%M:%S")
   end
 
+  def default_address user_info
+    if user_info.default_address?
+      content_tag(:span, t("text.default"),
+                  class: "text-danger border border-danger p-1")
+    else
+      ""
+    end
+  end
+
   def display_order_status status
     status_mappings = {
       processing: t("text.order.status_processing"),

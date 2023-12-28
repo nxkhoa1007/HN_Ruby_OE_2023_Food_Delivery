@@ -1,0 +1,23 @@
+<%= form_with model: @user_info, url: local_assigns[:url], remote: true do |f| %>
+  <div class="modal-body fw-bold">
+    <div class="mb-2">
+      <%= f.label :name , t("text.user_info.name") %>
+      <%= f.text_field :name, class: "form-control" %>
+      <%= display_error(@user_info, :name) %>
+    </div>
+    <div class="mb-2">
+      <%= f.label :phoneNum, t("text.user_info.phoneNum") %>
+      <%= f.text_field :phoneNum, class: "form-control" %>
+      <%= display_error(@user_info, :phoneNum) %>
+    </div>
+    <div class="mb-2">
+      <%= f.label :address, t("text.user_info.address") %>
+      <%= f.text_field :address, class: "form-control" %>
+      <%= display_error(@user_info, :address) %>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <%= f.button t("text.confirm"), type:"submit", class: "btn btn-dark" %>
+    <%= link_to t("text.close"),"#", data: {controller: "modal", action:"modal#close"}, class: "btn btn-secondary"  %>
+  </div>
+<% end %>

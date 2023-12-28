@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_25_081305) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_28_012015) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -62,7 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_25_081305) do
   create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "order_code"
     t.integer "type_payment"
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "note"
     t.integer "total"
     t.bigint "user_id"
@@ -77,7 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_25_081305) do
     t.string "name"
     t.text "description"
     t.integer "cost"
-    t.integer "status"
+    t.integer "status", default: 0
     t.integer "sold"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -94,7 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_25_081305) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "default_address"
+    t.boolean "default_address", default: false, null: false
     t.index ["user_id"], name: "index_user_infos_on_user_id"
   end
 

@@ -25,7 +25,7 @@
                     <% end %>
                     <li class="list-group-item d-flex justify-content-between">
                       <span><%= t("text.total") %> (VND)</span>
-                      <strong><%= format_cost(subtotal_cart_value(@cart_items)) %></strong>
+                      <strong><%= subtotal_cart_value(@cart_items) %></strong>
                     </li>
                   </ul>
                 <% end %>
@@ -33,7 +33,14 @@
               <div class="col-md-7 col-lg-8 p-5">
                 <h4 class="mb-3"><%= t("text.billing_info") %></h4>
                 <div class="row g-3">
-                    <b><%= @user_info.name %>, <%= @user_info.phoneNum %> <span class="fw-normal p-3"><%= @user_info.address %></span></b>
+                    <div id="user-info">
+                      <% if @user_info.present? %>
+                        <b><%= @user_info.name %>, <%= @user_info.phoneNum %> <span class="fw-normal p-3"><%= @user_info.address %></span></b>
+                        <%= link_to t("text.edit"), select_info_orders_path, data:{ turbo_frame: "select-modal"}, class:"text-decoration-none" %>
+                      <% else %>
+                        <%= link_to t("text.add_new_address"), new_user_info_path, data:{ turbo_frame: "modal"}, class:"text-decoration-none" %>
+                      <% end %>
+                    </div>
                     <div class="col-12">
                       <%= f.label :note, class: "form-label fw-bold" %>
                       <%= f.text_area :note,  class: "form-control" %>
