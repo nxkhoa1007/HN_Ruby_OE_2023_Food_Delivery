@@ -9,14 +9,16 @@ class Order < ApplicationRecord
   belongs_to :user_info
   belongs_to :user
 
+  delegate :name, to: :user, prefix: true
   validates :note, length: {maximum: Settings.digit_255}
 
   scope :newest, ->{order(created_at: :desc)}
+  scope :today, ->{where(created_at: Time.zone.today.all_day)}
   scope :current_user_orders, ->(user_id){where(user_id:)}
 
   has_noticed_notifications
 
-  before_save :set_default_status
+  after_save :send_order_notification
   after_create_commit{broadcast_notifications}
 
   def save_order_code
@@ -25,6 +27,15 @@ class Order < ApplicationRecord
 
   def cancel_order
     update_column :status, :canceled
+  end
+
+  def send_order_notification
+    case status.to_sym
+    when :confirmed
+      OrderMailer.order_confirm(self).deliver_later
+    when :delivered
+      OrderMailer.order_success(self).deliver_later
+    end
   end
 
   def self.ransackable_attributes _auth_object = nil
@@ -42,13 +53,13 @@ class Order < ApplicationRecord
     "#KF#{order_id.to_s.rjust(6, '0')}"
   end
 
-  def set_default_status
-    self.status ||= :processing
-  end
-
   def broadcast_notifications
-    OrderNotification.with(message: I18n.t("text.new_order_noti"))
-                     .deliver_later(self)
-    NotificationBroadcastJob.perform_now(notifications.first)
+    transaction do
+      OrderNotification.with(message: I18n.t("text.new_order_noti"))
+                       .deliver_later(self)
+      NotificationBroadcastJob.perform_later(notifications.first)
+    rescue StandardError => e
+      Rails.logger.error("Error: #{e.message}")
+    end
   end
 end

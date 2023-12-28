@@ -197,6 +197,25 @@ en:
     rate_product_success: "Rating product successfully"
   user_mailer:
     hi: "Hi %{user}"
+    daily_notification:
+      subject: "Daily report"
+      content_html: "<h2>Notification: Number of New Orders Today</h2>
+                      Hello,<br/>
+                      In total, the store has received <strong>%{num_order}</strong> new orders today.<br/>
+                      Thank you for using our services.<br/>
+                      <p>Best regards,</p>
+                      <b>KFOOD</b>"
+    order_notification:
+      confirm: "Order %{order_code} has been confirmed"
+      confirm_content_html: "<h1>Hello %{name}</h1>
+                             <p>Your order <b>%{order_code}</b> has been confirmed and will be shipped as soon as possible. Thank you for shopping with us.</p>
+                             <p>KFOOD</p>"
+      success: "Order %{order_code} has been successfully delivered"
+      success_content_html: "<h1>Hello %{name}</h1>
+                        Your order <b>%{order_code}</b> has been successfully delivered.<br/>
+                        If you enjoyed our products or have any feedback, please leave a review. We appreciate your input to help us continuously improve our store.<br/>
+                        <p>Best regards,</p>
+                        KFOOD Admin"
     account_activation:
       content:
         description: "Welcome to KFOOD! Click on the link below to activate your account:"

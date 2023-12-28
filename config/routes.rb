@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   namespace :admin do
     scope "(:locale)", locale: /en|vi/ do
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
         collection do
           put "read_all", to: "notifications#read_all"
         end
+      end
+      authenticate :user, lambda{|u| u.role.to_sym == :admin } do
+        mount Sidekiq::Web => "/jobs"
       end
     end
   end

@@ -22,7 +22,7 @@
               </div>
             </div>
             <div class="col-6">
-              <strong class="d-block h4 mb-0"><%= t("text.order_info") %></strong>
+              <strong class="d-block h4 mb-0"><%= t("text.order_info") %> <%= @order.order_code %></strong>
               <ul class="list-group mb-3">
                 <% @order.order_items.each do |order_item| %>
                   <li class="list-group-item d-flex justify-content-between lh-sm">
