@@ -1,6 +1,6 @@
 class UserInfo < ApplicationRecord
   belongs_to :user
-  has_many :orders, dependent: :nullify
+  has_many :orders, dependent: :restrict_with_error
   validates :name, presence: true, length: {maximum: Settings.digit_255}
   validates :address, presence: true, length: {maximum: Settings.digit_255}
   validates :phoneNum, presence: true, numericality: {only_integer: true},

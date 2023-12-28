@@ -12,7 +12,6 @@ class Admin::ProductsController < Admin::MasterController
 
   def create
     @product = Product.new product_params
-
     @product.image.attach params.dig(:product, :image)
     if @product.save
       flash[:success] = t("alert.product_add_successful")

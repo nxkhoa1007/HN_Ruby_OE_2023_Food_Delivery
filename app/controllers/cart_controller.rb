@@ -68,10 +68,10 @@ class CartController < ApplicationController
   private
 
   def find_product
-    @product = Product.friendly.find params[:id]
+    @product = Product.friendly.find_by slug: params[:id]
     return if @product
 
-    flash[:danger] = t("alert.error_product")
+    flash[:error] = t("alert.error_product")
     redirect_to root_path
   end
 
@@ -124,7 +124,7 @@ class CartController < ApplicationController
     @cart_item = find_cart_item(params[:id].to_i)
     return if @cart_item
 
-    flash[:danger] = t("alert.error_cart_item")
+    flash[:error] = t("alert.error_cart_item")
     redirect_to root_path
   end
 

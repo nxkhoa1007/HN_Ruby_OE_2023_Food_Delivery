@@ -129,13 +129,9 @@ vi:
     ago: "%{time} trước"
     system: "Hệ thống"
     new_order_noti: "Bạn có một đơn hàng mới"
-<<<<<<< HEAD
     mark_all_as_read: "Đánh dấu tất cả là đã đọc"
     mark_as_read: "Đã xem"
     no_noti: "Không có thông báo"
-=======
-    mark_as_read: "Đánh dấu tất cả là đã đọc"
->>>>>>> Rspec registrations controller
   alert:
     account_created_successful: "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản"
     account_activated: "Kích hoạt tài khoản thành công"

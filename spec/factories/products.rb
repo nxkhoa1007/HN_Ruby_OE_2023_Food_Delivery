@@ -9,5 +9,7 @@ FactoryBot.define do
         filename: "test.jpg",
         content_type: "image/jpeg")
     end
+    category
+    status { :unavailable}
   end
 end

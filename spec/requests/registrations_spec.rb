@@ -1,6 +1,7 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe Users::RegistrationsController, type: :controller do
+  include Devise::Test::ControllerHelpers
   let(:user) { create(:user) }
 
   before do
@@ -77,9 +78,8 @@ RSpec.describe Users::RegistrationsController, type: :controller do
     end
   end
   describe "#after_inactive_sign_up_path_for" do
-    it "redirects to the edit account path" do
+    it "redirects to the sign up path" do
       expect(controller.send(:after_inactive_sign_up_path_for, user)).to eq(new_user_registration_path(user))
     end
   end
-
 end
