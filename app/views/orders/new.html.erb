@@ -15,13 +15,19 @@
                   </h4>
                   <ul class="list-group mb-3">
                     <% @cart_items.each do |cart_item| %>
-                      <li class="list-group-item d-flex justify-content-between lh-sm">
-                        <div>
-                          <h6 class="my-0"><%= cart_item["product_name"] %></h6>
-                          <small class="text-muted"><%= t("text.product.quantity") %>: <%= cart_item["quantity"] %></small>
-                        </div>
-                        <span class="text-muted"><%= format_cost(cart_item["price"]) %></span>
-                      </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                          <%= f.fields_for :order_items do |order_item_form| %>
+                            <%= order_item_form.hidden_field :product_id, value: cart_item["product_id"] %>
+                            <%= order_item_form.hidden_field :quantity, value: cart_item["quantity"] %>
+                            <%= order_item_form.hidden_field :cost, value: cart_item["price"] %>
+                            <div>
+                              <h6 class="my-0"><%= cart_item["product_name"] %></h6>
+                              <small class="text-muted"><%= t("text.product.quantity") %>: <%= cart_item["quantity"] %></small>
+                            </div>
+                            <span class="text-muted"><%= format_cost(cart_item["price"]) %></span>
+                          <% end %>
+                        </li>
+
                     <% end %>
                     <li class="list-group-item d-flex justify-content-between">
                       <span><%= t("text.total") %> (VND)</span>
@@ -34,11 +40,31 @@
                 <h4 class="mb-3"><%= t("text.billing_info") %></h4>
                 <div class="row g-3">
                     <div id="user-info">
-                      <% if @user_info.present? %>
-                        <b><%= @user_info.name %>, <%= @user_info.phoneNum %> <span class="fw-normal p-3"><%= @user_info.address %></span></b>
-                        <%= link_to t("text.edit"), select_info_orders_path, data:{ turbo_frame: "select-modal"}, class:"text-decoration-none" %>
-                      <% else %>
-                        <%= link_to t("text.add_new_address"), new_user_info_path, data:{ turbo_frame: "modal"}, class:"text-decoration-none" %>
+                      <%= f.fields_for :user_info do |user_info_form| %>
+                        <% if @user_info.present? %>
+                          <%= user_info_form.hidden_field :user_id, value: current_user.id %>
+                          <%= user_info_form.hidden_field :name, value: @user_info.name %>
+                          <%= user_info_form.hidden_field :phoneNum, value: @user_info.phoneNum %>
+                          <%= user_info_form.hidden_field :address, value: @user_info.address %>
+                          <b><%= @user_info.name %>, <%= @user_info.phoneNum %> <span class="fw-normal p-3"><%= @user_info.address %></span></b>
+                          <%= link_to t("text.edit"), select_info_orders_path, data:{ turbo_frame: "select-modal"}, class:"text-decoration-none" %>
+                        <% else %>
+                          <div class="mb-2">
+                            <%= user_info_form.label :name , t("text.user_info.name"), class: "form-label fw-bold" %>
+                            <%= user_info_form.text_field :name, class: "form-control" %>
+                            <%= display_error(user_info_form.object, :name) %>
+                          </div>
+                          <div class="mb-2">
+                            <%= user_info_form.label :phoneNum, t("text.user_info.phoneNum"), class: "form-label fw-bold" %>
+                            <%= user_info_form.text_field :phoneNum, class: "form-control" %>
+                            <%= display_error(user_info_form.object, :phoneNum) %>
+                          </div>
+                          <div class="mb-2">
+                            <%= user_info_form.label :address, t("text.user_info.address"), class: "form-label fw-bold" %>
+                            <%= user_info_form.text_field :address, class: "form-control" %>
+                            <%= display_error(user_info_form.object, :address) %>
+                          </div>
+                        <% end %>
                       <% end %>
                     </div>
                     <div class="col-12">

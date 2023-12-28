@@ -8,11 +8,35 @@
             <div class="text-center">
               <h3 class="fw-bold mb-0 text-black"><%= t("text.order_history") %></h3>
             </div>
+            <%= search_form_for @q, url: orders_path, class:"d-flex align-items-end" do |f| %>
+              <div class="me-1">
+                <%= f.label :order_code_cont, t("text.order.order_code"), class: "form-label fw-bold" %>
+                <%= f.search_field :order_code_cont, class:"form-control" , placeholder: t("text.search") %>
+              </div>
+              <div class="me-1">
+                <%= f.label :status_eq, t("text.order.status"), class: "form-label fw-bold" %>
+                <%= f.select :status_eq, Order.statuses.map { |key, value| [display_order_status(key), value] }, { include_blank: t("text.all") } , class: "form-select" %>
+              </div>
+              <div class="me-1">
+                <%= f.label :type_payment_eq, t("text.order.type"), class: "form-label fw-bold" %>
+                <%= f.select :type_payment_eq, Order.type_payments.map { |key, value| [display_type_payment(key), value] }, { include_blank: t("text.all") } , class: "form-select" %>
+              </div>
+              <%= f.submit t("text.filter") , class:"btn btn-primary" %>
+              <%= link_to t("text.reset"), orders_path, class:"btn btn-dark ms-1" %>
+            <% end %>
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col"><%= t"text.order.order_code" %></th>
-                  <th scope="col"><%= t"text.order.created_at" %></th>
+                  <th scope="col">
+                    <%= sort_link(@q, :order_code, class:"text-decoration-none text-dark") do %>
+                      <%= t"text.order.order_code" %>
+                    <% end %>
+                  </th>
+                  <th scope="col">
+                    <%= sort_link(@q, :created_at, class:"text-decoration-none text-dark") do %>
+                      <%= t"text.order.created_at" %>
+                    <% end %>
+                  </th>
                   <th scope="col"><%= t"text.order.type" %></th>
                   <th scope="col"><%= t"text.order.status" %></th>
                   <th scope="col"><%= t"text.order.total" %></th>
