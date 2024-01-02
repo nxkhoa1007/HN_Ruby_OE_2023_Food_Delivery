@@ -32,6 +32,7 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <%= link_to t("text.order_history"), orders_path , class: "dropdown-item" %>
+                <%= link_to t("text.my_account"), account_user_path , class: "dropdown-item" %>
                 <%= link_to t("text.log_out"), logout_path , class: "dropdown-item" %>
               </div>
           </span>

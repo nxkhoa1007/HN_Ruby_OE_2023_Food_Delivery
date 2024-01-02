@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :check_login, :load_user_info
   before_action :load_order, only: %i(update)
   before_action :check_status_order, only: %i(update)
+  after_action :delete_session, only: %i(create)
   def index
     @pagy, @orders = pagy Order.includes(:order_items)
                                .current_user_orders(current_user.id).newest,
@@ -30,6 +31,20 @@ class OrdersController < ApplicationController
     end
   end
 
+  def select_info
+    @user_infos = current_user.user_infos.default_info_list
+  end
+
+  def update_info
+    session[:selected_address] = params[:selected_address]
+    respond_to do |format|
+      format.html{redirect_to checkout_path}
+      load_user_info
+      turbo_stream.replace("user-info", partial: "user_info",
+        locals: {user_info: @user_info})
+    end
+  end
+
   def update
     if @order.cancel_order
       flash[:success] = t("alert.cancel_sucsess")
@@ -48,7 +63,15 @@ class OrdersController < ApplicationController
   private
 
   def load_user_info
-    @user_info = current_user.user_infos.default_info.first
+    @user_info = if session[:selected_address]
+                   UserInfo.find_by id: session[:selected_address]
+                 else
+                   current_user.user_infos.default_info.first
+                 end
+  end
+
+  def delete_session
+    session.delete(:selected_address)
   end
 
   def check_status_order

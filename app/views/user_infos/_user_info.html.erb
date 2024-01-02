@@ -1,0 +1,18 @@
+<li class="list-group-item d-flex justify-content-between lh-sm py-4 border-bottom">
+  <div>
+    <h6><strong class="my-0"><%= user_info.name %></strong> | <%= user_info.phoneNum %></h6>
+    <span class="text-muted"><%= user_info.address %></span>
+    <div class="py-1"><%= default_address(user_info) %></div>
+  </div>
+  <div class="text-end">
+    <div class="mb-2">
+      <%= link_to t("text.edit"), edit_user_info_path(user_info), data:{ turbo_frame: "modal"}, class: "text-decoration-none me-2" %>
+      <% unless user_info.default_address? && @user_infos.count > Settings.digit_1 %>
+        <%= link_to t("text.delete"), user_info_path(user_info), data: { "turbo-method": :delete, turbo_confirm: t("alert.you_sure") } , class: "text-decoration-none" %>
+      <% end %>
+    </div>
+    <% unless user_info.default_address? %>
+      <%= button_to t("text.set_default"), set_default_user_info_path(user_info) , method: :post, class: "btn btn-sm btn-dark" %>
+    <% end %>
+  </div>
+</li>

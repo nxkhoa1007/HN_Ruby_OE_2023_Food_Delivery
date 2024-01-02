@@ -1,0 +1,32 @@
+<%= turbo_frame_tag "select-modal" do %>
+<div class="modal-background"></div>
+  <div class="modal d-block mt-5">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><%= t("text.change_address")%></h5>
+        </div>
+        <%= form_tag update_info_orders_path do %>
+          <div class="modal-body">
+            <% @user_infos.each do |user_info| %>
+              <li class="list-group-item d-flex justify-content-between lh-sm py-4 border-bottom">
+                <div>
+                  <h6>
+                    <%= radio_button_tag "selected_address", user_info.id, user_info === @user_info %>
+                    <strong class="my-0"><%= user_info.name %></strong> | <%= user_info.phoneNum %>
+                  </h6>
+                  <span class="text-muted"><%= user_info.address %></span>
+                  <div class="py-1"><%= default_address(user_info) %></div>
+                </div>
+              </li>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <%= link_to t("text.close"),"#", data: {controller: "modal", action:"modal#closeSelect"}, class: "btn btn-secondary"  %>
+            <%= button_tag t("text.confirm"), type: "submit" , class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

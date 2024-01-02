@@ -4,7 +4,7 @@ gender_other: 'other'
 role_user: 1
 remember_checked: '1'
 VALID_EMAIL_REGEX: '\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z'
-VALID_PHONE_NUM: '/\A0\d{9}\z/'
+VALID_PHONE_NUM: '\A0\d{9}\z'
 digit_600: 600
 digit_450: 450
 digit_300: 300
@@ -22,6 +22,6 @@ digit_1: 1
 digit_99: 99
 min_cost: 1
 max_cost: 999999999
-status_in: 'available'
-status_out: 'unavailable'
+status_in: 1
+status_out: 0
 page_10: 10

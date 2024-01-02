@@ -29,3 +29,24 @@
     -webkit-appearance: none;
     margin: 0;
 }
+.modal-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1040;
+  display: block;
+}
+@keyframes modal-show {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.modal.d-block {
+  animation: modal-show 0.3s ease-out;
+}
+.badge{
+  top: 0.5rem;
+  right: 0.5rem;
+}

@@ -15,6 +15,8 @@
     <!-- Navigation-->
     <%= render "layouts/header" %>
     <!-- Header-->
+    <%= turbo_frame_tag "modal", target: "_top" %>
+    <%= turbo_frame_tag "select-modal", target: "_top" %>
     <%= yield %>
     <!-- Footer-->
     <%= render "layouts/footer" %>

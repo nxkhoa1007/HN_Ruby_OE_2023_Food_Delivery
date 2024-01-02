@@ -21,10 +21,24 @@ Rails.application.routes.draw do
         post :update_quantity, action: :update_quantity
       end
     end
+    resource :user do
+      get "account", to:"users#edit"
+      get "address", to:"user_infos#index"
+    end
+    resources :user_infos, except: %i(index show) do
+      member do
+        post :set_default, action: :set_default
+      end
+    end
     post "add_to_cart/:id", to: "cart#create", as: "add_to_cart"
     delete "cart_destroy/:id", to: "cart#destroy", as: "cart_destroy"
     delete "cart_destroy_all", to: "cart#destroy_all"
-    resources :orders, only: %i(index update)
+    resources :orders, only: %i(index update) do
+      collection do
+        get :select_info, action: :select_info
+        post :update_info, action: :update_info
+      end
+    end
     get "checkout", to:"orders#new"
     post "checkout", to:"orders#create"
     resources :categories do
