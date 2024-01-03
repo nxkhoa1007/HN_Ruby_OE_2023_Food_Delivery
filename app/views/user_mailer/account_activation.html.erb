@@ -1,4 +1,0 @@
-<h1><%= t "user_mailer.account_activation.subject" %></h1>
-<p><%= t "user_mailer.account_activation.content.hi", user: @user.name %></p>
-<p><%= t "user_mailer.account_activation.content.description"%> </p>
-<%= link_to t("user_mailer.account_activation.content.activate"), edit_account_activation_url(id: @user.activation_token, email: @user.email) %>

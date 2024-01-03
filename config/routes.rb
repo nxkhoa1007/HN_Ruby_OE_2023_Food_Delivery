@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root "home#index"
     devise_for :users, controllers:
-      { registrations: "users/registrations",
-        sessions: "users/sessions"  }
+    { registrations: "users/registrations",
+      confirmations: "users/confirmations",
+      sessions: "users/sessions" }
     resources :account_activations, only: :edit
     get "cart", to:"cart#show"
     resources :cart do

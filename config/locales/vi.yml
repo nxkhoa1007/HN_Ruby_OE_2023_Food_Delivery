@@ -17,6 +17,12 @@ vi:
     notification: "Thông báo"
     settings: "Cài đặt"
     sign_out: "Đăng xuất"
+    forgot_password: "Quên mật khẩu"
+    send_email: "Gửi email"
+    change_password: "Đổi mật khẩu"
+    update_new_password: "Cập nhật mật khẩu mới"
+    register_account: "Đăng ký tài khoản"
+    confirm_account: "Xác nhận tài khoản"
     home: "Trang chủ"
     about: "Giới thiệu"
     shop: "Cửa hàng"
@@ -46,7 +52,6 @@ vi:
     male: "Nam"
     female: "Nữ"
     other : "Khác"
-    register_account: "Đăng ký tài khoản"
     remember_me: "Ghi nhớ tài khoản"
     in_past: "phải là ở quá khứ"
     had_account: "Đã có tài khoản?"
@@ -138,12 +143,16 @@ vi:
     cancel_sucsess: "Huỷ đơn hàng thành công"
     cancel_fail: "Chỉ có thể huỷ các đơn hàng chờ xác nhận"
   user_mailer:
+    hi: "Xin chào %{user}"
     account_activation:
       subject: "Kích hoạt tài khoản"
       content:
-        hi: "Xin chào"
         description: "Chào mừng đến với KFOOD! Bấm vào đường dẫn phía dưới để kích hoạt tài khoản của bạn:"
         activate: "Kích hoạt"
+    password_reset:
+      content:
+        description: "Ai đó đã gửi yêu cầu đổi lại mật khẩu. Nếu là bạn hãy bấm vào đường link bên dưới"
+        change_password: "Đổi mật khẩu"
   activerecord:
     models:
       user: "Người dùng"
