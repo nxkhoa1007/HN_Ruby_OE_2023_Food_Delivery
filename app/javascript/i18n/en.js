@@ -195,11 +195,80 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       "year": "Year"
     }
   },
+  "devise": {
+    "confirmations": {
+      "confirmed": "Your email address has been successfully confirmed.",
+      "send_instructions": "You will receive an email with instructions for how to confirm your email address in a few minutes.",
+      "send_paranoid_instructions": "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+    },
+    "failure": {
+      "already_authenticated": "You are already signed in.",
+      "inactive": "Your account is not activated yet.",
+      "invalid": "Invalid %{authentication_keys} or password.",
+      "invalid_token": "Mã xác nhận không chính xác.",
+      "last_attempt": "You have one more attempt before your account is locked.",
+      "locked": "Your account is locked.",
+      "not_found_in_database": "Invalid %{authentication_keys} or password.",
+      "timeout": "Your session expired. Please sign in again to continue.",
+      "unauthenticated": "You need to sign in or sign up before continuing.",
+      "unconfirmed": "You have to confirm your email address before continuing."
+    },
+    "mailer": {
+      "confirmation_instructions": {
+        "subject": "Confirmation instructions"
+      },
+      "email_changed": {
+        "subject": "Email Changed"
+      },
+      "password_change": {
+        "subject": "Password Changed"
+      },
+      "reset_password_instructions": {
+        "subject": "Reset password instructions"
+      },
+      "unlock_instructions": {
+        "subject": "Unlock instructions"
+      }
+    },
+    "omniauth_callbacks": {
+      "failure": "Could not authenticate you from %{kind} because \"%{reason}\".",
+      "success": "Successfully authenticated from %{kind} account."
+    },
+    "passwords": {
+      "no_token": "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.",
+      "send_instructions": "You will receive an email with instructions on how to reset your password in a few minutes.",
+      "send_paranoid_instructions": "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.",
+      "updated": "Your password has been changed successfully. You are now signed in.",
+      "updated_not_active": "Your password has been changed successfully."
+    },
+    "registrations": {
+      "destroyed": "Bye! Your account has been successfully cancelled. We hope to see you again soon.",
+      "signed_up": "Welcome! You have signed up successfully.",
+      "signed_up_but_inactive": "You have signed up successfully. However, we could not sign you in because your account is not yet activated.",
+      "signed_up_but_locked": "You have signed up successfully. However, we could not sign you in because your account is locked.",
+      "signed_up_but_unconfirmed": "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.",
+      "update_needs_confirmation": "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address.",
+      "updated": "Your account has been updated successfully.",
+      "updated_but_not_signed_in": "Your account has been updated successfully, but since your password was changed, you need to sign in again."
+    },
+    "sessions": {
+      "already_signed_out": "Signed out successfully.",
+      "login": "Đăng nhập",
+      "signed_in": "Signed in successfully.",
+      "signed_out": "Signed out successfully."
+    },
+    "unlocks": {
+      "send_instructions": "You will receive an email with instructions for how to unlock your account in a few minutes.",
+      "send_paranoid_instructions": "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.",
+      "unlocked": "Your account has been unlocked successfully. Please sign in to continue."
+    }
+  },
   "errors": {
     "connection_refused": "Oops! Failed to connect to the Web Console middleware.\nPlease make sure a rails development server is running.\n",
     "format": "%{attribute} %{message}",
     "messages": {
       "accepted": "must be accepted",
+      "already_confirmed": "was already confirmed, please try signing in",
       "aspect_ratio_is_not": "must have an aspect ratio of %{aspect_ratio}",
       "aspect_ratio_not_landscape": "must be a landscape image",
       "aspect_ratio_not_portrait": "must be a portrait image",
@@ -207,6 +276,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       "aspect_ratio_unknown": "has an unknown aspect ratio",
       "blank": "can't be blank",
       "confirmation": "doesn't match %{attribute}",
+      "confirmation_period_expired": "needs to be confirmed within %{period}, please request a new one",
       "content_type_invalid": "has an invalid content type",
       "dimension_height_equal_to": "height must be equal to %{length} pixel",
       "dimension_height_greater_than_or_equal_to": "height must be greater than or equal to %{length} pixel",
@@ -222,6 +292,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       "equal_to": "must be equal to %{count}",
       "even": "must be even",
       "exclusion": "is reserved",
+      "expired": "has expired, please request a new one",
       "file_size_out_of_range": "size %{file_size} is not between required range",
       "greater_than": "must be greater than %{count}",
       "greater_than_or_equal_to": "must be greater than or equal to %{count}",
@@ -235,6 +306,12 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       "model_invalid": "Validation failed: %{errors}",
       "not_a_number": "is not a number",
       "not_an_integer": "must be an integer",
+      "not_found": "not found",
+      "not_locked": "was not locked",
+      "not_saved": {
+        "one": "1 error prohibited this %{resource} from being saved:",
+        "other": "%{count} errors prohibited this %{resource} from being saved:"
+      },
       "odd": "must be odd",
       "other_than": "must be other than %{count}",
       "present": "must be blank",
@@ -77640,6 +77717,20 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
         "Your weapons, you will not need them.",
         "To answer power with power, the Jedi way this is not. In this war, a danger there is, of losing who we are."
       ]
+    }
+  },
+  "flash": {
+    "actions": {
+      "create": {
+        "notice": "%{resource_name} was successfully created."
+      },
+      "destroy": {
+        "alert": "%{resource_name} could not be destroyed.",
+        "notice": "%{resource_name} was successfully destroyed."
+      },
+      "update": {
+        "notice": "%{resource_name} was successfully updated."
+      }
     }
   },
   "form": {

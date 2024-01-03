@@ -1,23 +1,16 @@
 class User < ApplicationRecord
   attr_accessor :activation_token, :remember_token
 
-  enum gender: {male: 0, female: 1, other: 2}
+  ADDED_ATTRIBUTES = [:name, :email, :password, :password_confirmation,
+   :remember_me].freeze
+
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
   enum role: {admin: 0, user: 1}
   has_many :orders, dependent: :destroy
   has_many :user_infos, dependent: :destroy
-  validate :check_dob_in_past
   validates :name, presence: true, length: {maximum: Settings.digit_50}
-  validates :email, presence: true,
-                    length: {maximum: Settings.digit_50},
-                    uniqueness: {case_sensitive: false},
-                    format: {with: Regexp.new(Settings.VALID_EMAIL_REGEX)}
-  validates :password, presence: true,
-                       length: {minimum: Settings.digit_6,
-                                maximum: Settings.digit_50},
-                       allow_nil: true
-  validates :dob, presence: true
-
-  has_secure_password
 
   before_save :downcase_email
   before_create :create_activation_digest
@@ -35,12 +28,6 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
-  end
-
-  def check_dob_in_past
-    return unless dob.present? && dob > Time.zone.today
-
-    errors.add(:dob, I18n.t("text.in_past"))
   end
 
   def create_activation_digest
