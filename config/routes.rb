@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   end
   scope "(:locale)", locale: /en|vi/ do
     root "home#index"
-    get "signup", to: "users#new"
-    post "signup", to: "users#create"
+    devise_for :users, controllers: { registrations: "users/registrations" }
     resources :account_activations, only: :edit
     get "login", to:"sessions#new"
     post "login", to:"sessions#create"
