@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-  before_action :check_login
+  before_action :authenticate_user!
   before_action :find_product, only: %i(create)
   before_action :check_quantity, only: %i(update_quantity create)
   before_action :load_cart_item, only: %i(update_quantity destroy)

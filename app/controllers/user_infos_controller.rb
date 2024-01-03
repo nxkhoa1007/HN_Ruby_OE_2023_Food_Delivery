@@ -1,4 +1,5 @@
 class UserInfosController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_user_infos, only: %i(index)
   before_action :load_user_info,  except: %i(index new create)
   def index; end
