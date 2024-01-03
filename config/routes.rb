@@ -9,11 +9,10 @@ Rails.application.routes.draw do
   end
   scope "(:locale)", locale: /en|vi/ do
     root "home#index"
-    devise_for :users, controllers: { registrations: "users/registrations" }
+    devise_for :users, controllers:
+      { registrations: "users/registrations",
+        sessions: "users/sessions"  }
     resources :account_activations, only: :edit
-    get "login", to:"sessions#new"
-    post "login", to:"sessions#create"
-    get "logout", to:"sessions#destroy"
     get "cart", to:"cart#show"
     resources :cart do
       member do

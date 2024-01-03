@@ -32,7 +32,7 @@
               <use xlink:href="<%= image_path('vendors/@coreui/icons/svg/free.svg#cil-settings') %>"></use>
             </svg> <%= t("text.settings")%>
           </a>
-          <%= link_to logout_path, class: "dropdown-item" do %>
+          <%= button_to destroy_user_session_path , method: :delete , class: "dropdown-item" do %>
             <svg class="icon me-2">
               <use xlink:href="<%= image_path('vendors/@coreui/icons/svg/free.svg#cil-account-logout') %>"></use>
             </svg> <%= t("text.sign_out")%>
