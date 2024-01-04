@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
   include Pagy::Backend
   before_action :set_locale, :load_cart
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -21,13 +20,6 @@ class ApplicationController < ActionController::Base
 
   def admin_user
     redirect_to root_path unless current_user.role.to_sym == :admin
-  end
-
-  def check_login
-    return if logged_in?
-
-    store_location
-    redirect_to login_path
   end
 
   def default_url_options

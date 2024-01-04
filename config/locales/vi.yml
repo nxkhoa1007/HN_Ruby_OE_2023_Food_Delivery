@@ -116,6 +116,7 @@ vi:
     customer_info: "Thông tin khách hàng"
     order_info: "Thông tin đơn hàng"
     order_history: "Lịch sử đặt hàng"
+    upload_rule_html: "Dung lượng file tối đa: 1MB <br> Định dạng: jpeg,png,jpg,webp,gif"
   alert:
     account_created_successful: "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản"
     account_activated: "Kích hoạt tài khoản thành công"
@@ -142,6 +143,9 @@ vi:
     order_sucsess: "Đơn hàng của bạn đã được đặt"
     cancel_sucsess: "Huỷ đơn hàng thành công"
     cancel_fail: "Chỉ có thể huỷ các đơn hàng chờ xác nhận"
+    update_success: "Cập nhật thành công"
+    password_changed_successfully: "Đổi mật khẩu thành công, xin hãy đăng nhập lại"
+    limit_size: "Dung lượng file giới hạn là 1MB"
   user_mailer:
     hi: "Xin chào %{user}"
     account_activation:
@@ -162,6 +166,7 @@ vi:
       user:
         name: "Tên"
         email: "Địa chỉ email"
+        current_password: "Mật khẩu hiện tại"
         password: "Mật khẩu"
         password_confirmation: "Nhập lại mật khẩu"
         dob: "Ngày sinh"
@@ -191,6 +196,9 @@ vi:
       email: "Địa chỉ email*"
       password: "Mật khẩu*"
       password_confirmation: "Nhập lại mật khẩu*"
+      current_password: "Mật khẩu hiện tại"
+      new_password: "Mật khẩu mới"
+      retype_new_password: "Nhập lại mật khẩu mới"
     product:
       image: "Hình ảnh*"
       name: "Tên sản phẩm*"

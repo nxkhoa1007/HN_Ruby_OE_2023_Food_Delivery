@@ -2,6 +2,7 @@ gender_male: 'male'
 gender_female: 'female'
 gender_other: 'other'
 role_user: 1
+default_avatar: 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'
 remember_checked: '1'
 VALID_EMAIL_REGEX: '\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z'
 VALID_PHONE_NUM: '\A0\d{9}\z'
@@ -13,6 +14,7 @@ digit_150: 150
 digit_100: 100
 digit_50: 50
 digit_10: 10
+digit_25: 25
 digit_6: 6
 digit_5: 5
 digit_8: 8
@@ -25,3 +27,4 @@ max_cost: 999999999
 status_in: 1
 status_out: 0
 page_10: 10
+accept_file: 'image/jpeg,image/gif,image/png,image/webp,image/jpg'

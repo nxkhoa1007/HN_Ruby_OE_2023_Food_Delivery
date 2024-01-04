@@ -16,6 +16,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
         "name": "Product name"
       },
       "user": {
+        "current_password": "Current password",
         "dob": "Date of birth",
         "email": "Email",
         "gender": "Gender",
@@ -64,13 +65,16 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "error_quantity": "The quantity in the cart must be between 1 and 99",
     "invalid_activation_link": "Invalid activation link",
     "invalid_link": "Đường dẫn không tồn tại",
+    "limit_size": "Limit size is 1MB",
     "not_found_user": "Not found user",
     "ok": "Yes",
     "order_sucsess": "Order successfully",
     "order_update_successful": "Order updated successfully",
+    "password_changed_successfully": "Password changed successfully",
     "product_add_successful": "Product added successfully",
     "product_delete_successful": "Product deleted successfully",
     "product_update_successful": "Product updated successfully",
+    "update_success": "Update successfully",
     "you_sure": "Are you sure to delete?",
     "you_sure_cancel": "Are you sure to cancel?"
   },
@@ -77741,10 +77745,13 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
       "name": "Name*"
     },
     "user": {
+      "current_password": "Current password",
       "email": "Email address*",
       "name": "Name*",
+      "new_password": "New password",
       "password": "Password*",
-      "password_confirmation": "Password Confirmation*"
+      "password_confirmation": "Password confirmation*",
+      "retype_new_password": "Retype new password"
     }
   },
   "hello": "Hello",
@@ -78016,10 +78023,12 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "cancel": "Cancel",
     "cart": "Cart",
     "change_address": "Change Shipping Info",
+    "change_password": "Change Password",
     "checkout": "Checkout",
     "close": "Close",
     "cod": "Cash on delivery",
     "confirm": "Confirm",
+    "confirm_account": "Confirm Account",
     "customer_info": "Customer info",
     "dashboard": "Dashboard",
     "default": "Default",
@@ -78030,6 +78039,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "email": "Email",
     "fast": "Fast",
     "female": "Female",
+    "forgot_password": "Forgot your password",
     "had_account": "Already have an account?",
     "home": "Home",
     "hot": "Bestseller",
@@ -78091,6 +78101,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "remember_me": "Remember me",
     "search": "Search",
     "search_result": "Search results",
+    "send_email": "Send Email",
     "set_default": "Set default",
     "settings": "Settings",
     "shipping": "Shipping",
@@ -78101,7 +78112,9 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "total": "Total",
     "unavailable": "Sold out",
     "update_address": "Cập nhật địa chỉ",
+    "update_new_password": "Update New Password",
     "update_order": "Update Order",
+    "upload_rule_html": "Limit size maximum: 1MB <br/> File extension: jpeg,png,jpg,webp,gif",
     "user_info": {
       "address": "Address*",
       "name": "Name*",
@@ -78123,10 +78136,16 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "account_activation": {
       "content": {
         "activate": "Activate",
-        "description": "Welcome to KFOOD! Click on the link below to activate your account:",
-        "hi": "Hi"
+        "description": "Welcome to KFOOD! Click on the link below to activate your account:"
       },
-      "subject": "Account Activation"
+      "subject": "Kích hoạt tài khoản"
+    },
+    "hi": "Hi %{user}",
+    "password_reset": {
+      "content": {
+        "change_password": "Change password",
+        "description": "Someone has requested a link to change your password. You can do this through the link below:"
+      }
     }
   }
 });

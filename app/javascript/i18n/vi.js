@@ -16,6 +16,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
         "name": "Tên sản phẩm"
       },
       "user": {
+        "current_password": "Mật khẩu hiện tại",
         "dob": "Ngày sinh",
         "email": "Địa chỉ email",
         "gender": "Giới tính",
@@ -61,13 +62,16 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "error_product": "Không tìm thấy sản phẩm",
     "error_quantity": "Sô lượng trong giỏ hàng phải trong khoảng 1 và 99",
     "invalid_link": "Đường dẫn không tồn tại",
+    "limit_size": "Dung lượng file giới hạn là 1MB",
     "not_found_user": "Không tìm thấy người dùng",
     "ok": "Có",
     "order_sucsess": "Đơn hàng của bạn đã được đặt",
     "order_update_successful": "Cập nhật trạng thái đơn hàng thành công",
+    "password_changed_successfully": "Đổi mật khẩu thành công, xin hãy đăng nhập lại",
     "product_add_successful": "Thêm sản phẩm thành công",
     "product_delete_successful": "Xoá sản phẩm thành công",
     "product_update_successful": "Cập nhật sản phẩm thành công",
+    "update_success": "Cập nhật thành công",
     "you_sure": "Bạn chắc chắn muốn xoá chứ?",
     "you_sure_cancel": "Bạn chắc chắn muốn huỷ đơn chứ?"
   },
@@ -716,10 +720,13 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
       "name": "Tên sản phẩm*"
     },
     "user": {
+      "current_password": "Mật khẩu hiện tại",
       "email": "Địa chỉ email*",
       "name": "Tên*",
+      "new_password": "Mật khẩu mới",
       "password": "Mật khẩu*",
-      "password_confirmation": "Nhập lại mật khẩu*"
+      "password_confirmation": "Nhập lại mật khẩu*",
+      "retype_new_password": "Nhập lại mật khẩu mới"
     }
   },
   "hello": "Xin chào",
@@ -982,10 +989,12 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "cancel": "Huỷ",
     "cart": "Giỏ hàng",
     "change_address": "Thay đổi thông tin giao hàng",
+    "change_password": "Đổi mật khẩu",
     "checkout": "Thanh toán",
     "close": "Đóng",
     "cod": "Thanh toán khi nhận hàng",
     "confirm": "Xác nhận",
+    "confirm_account": "Xác nhận tài khoản",
     "customer_info": "Thông tin khách hàng",
     "dashboard": "Bảng điều khiển",
     "default": "Mặc định",
@@ -996,6 +1005,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "email": "Địa chỉ Email",
     "fast": "Nhanh",
     "female": "Nữ",
+    "forgot_password": "Quên mật khẩu",
     "had_account": "Đã có tài khoản?",
     "home": "Trang chủ",
     "hot": "Bán chạy",
@@ -1057,6 +1067,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "remember_me": "Duy trì đăng nhập",
     "search": "Tìm kiếm",
     "search_result": "Kết quả tìm kiếm",
+    "send_email": "Gửi email",
     "set_default": "Đặt làm mặc định",
     "settings": "Cài đặt",
     "shipping": "Vận chuyển",
@@ -1067,7 +1078,9 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "total": "Tổng",
     "unavailable": "Đã hết",
     "update_address": "Cập nhật địa chỉ",
+    "update_new_password": "Cập nhật mật khẩu mới",
     "update_order": "Cập nhật đơn hàng",
+    "upload_rule_html": "Dung lượng file tối đa: 1MB <br> Định dạng: jpeg,png,jpg,webp,gif",
     "user_info": {
       "address": "Địa chỉ*",
       "name": "Tên*",
@@ -1088,10 +1101,16 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "account_activation": {
       "content": {
         "activate": "Kích hoạt",
-        "description": "Chào mừng đến với KFOOD! Bấm vào đường dẫn phía dưới để kích hoạt tài khoản của bạn:",
-        "hi": "Xin chào"
+        "description": "Chào mừng đến với KFOOD! Bấm vào đường dẫn phía dưới để kích hoạt tài khoản của bạn:"
       },
       "subject": "Kích hoạt tài khoản"
+    },
+    "hi": "Xin chào %{user}",
+    "password_reset": {
+      "content": {
+        "change_password": "Đổi mật khẩu",
+        "description": "Ai đó đã gửi yêu cầu đổi lại mật khẩu. Nếu là bạn hãy bấm vào đường link bên dưới"
+      }
     }
   }
 });

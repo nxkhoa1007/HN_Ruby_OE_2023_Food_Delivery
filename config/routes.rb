@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   namespace :admin do
     scope "(:locale)", locale: /en|vi/ do
       root "home#index"
@@ -10,10 +9,15 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root "home#index"
     devise_for :users, controllers:
-    { registrations: "users/registrations",
-      confirmations: "users/confirmations",
-      sessions: "users/sessions" }
-    resources :account_activations, only: :edit
+      { registrations: "users/registrations",
+        confirmations: "users/confirmations",
+        sessions: "users/sessions" }
+    devise_scope :user do
+      put "users/update_profile" => "users/registrations#update_info"
+      get "users/change_password" => "users/registrations#change"
+      put "users/change_password" => "users/registrations#update_password"
+    end
+
     get "cart", to:"cart#show"
     resources :cart do
       member do
