@@ -117,6 +117,9 @@ vi:
     order_info: "Thông tin đơn hàng"
     order_history: "Lịch sử đặt hàng"
     upload_rule_html: "Dung lượng file tối đa: 1MB <br> Định dạng: jpeg,png,jpg,webp,gif"
+    all: "Tất cả"
+    filter: "Lọc"
+    reset: "Đặt lại"
   alert:
     account_created_successful: "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản"
     account_activated: "Kích hoạt tài khoản thành công"
@@ -177,6 +180,7 @@ vi:
         description: "Mô tả"
         cost: "Giá sản phẩm(VND)"
         category_id: "Danh mục"
+        status: "Tình trạng"
       user_info:
         name: "Tên"
         address: "Địa chỉ"

@@ -52,6 +52,15 @@ class Product < ApplicationRecord
   scope :price_asc, ->{order(cost: :asc)}
   scope :search_by_name, ->(query){where("name LIKE ?", "%#{query}%")}
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(category_id cost created_at description id name slug sold status
+    updated_at)
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    %w(category image_attachment image_blob order_items)
+  end
+
   private
 
   def should_generate_new_friendly_id?

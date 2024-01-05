@@ -23,6 +23,15 @@ class Order < ApplicationRecord
     update_column :status, :canceled
   end
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(created_at id note order_code status total type_payment updated_at
+      user_id user_info_id)
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    %w(order_items user user_info)
+  end
+
   private
 
   def generate_order_code order_id

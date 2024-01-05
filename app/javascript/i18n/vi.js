@@ -13,7 +13,8 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
         "cost": "Giá sản phẩm(VND)",
         "description": "Mô tả",
         "image": "Hình ảnh",
-        "name": "Tên sản phẩm"
+        "name": "Tên sản phẩm",
+        "status": "Tình trạng"
       },
       "user": {
         "current_password": "Mật khẩu hiện tại",
@@ -978,6 +979,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "add_product": "Thêm sản phẩm",
     "add_to_cart": "Thêm vào giỏ hàng",
     "admin_home": "Trang chủ Admin",
+    "all": "Tất cả",
     "all_category": "Tất cả danh mục",
     "all_product": "Tất cả món ăn",
     "available": "Có sẵn",
@@ -1005,6 +1007,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "email": "Địa chỉ Email",
     "fast": "Nhanh",
     "female": "Nữ",
+    "filter": "Lọc",
     "forgot_password": "Quên mật khẩu",
     "had_account": "Đã có tài khoản?",
     "home": "Trang chủ",
@@ -1065,6 +1068,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "register_account": "Đăng ký tài khoản",
     "related_product": "Sản phẩm liên quan",
     "remember_me": "Duy trì đăng nhập",
+    "reset": "Đặt lại",
     "search": "Tìm kiếm",
     "search_result": "Kết quả tìm kiếm",
     "send_email": "Gửi email",

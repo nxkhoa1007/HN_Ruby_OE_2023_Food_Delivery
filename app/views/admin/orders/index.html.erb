@@ -4,18 +4,37 @@
   <div class="card-body">
       <div class="tab-content rounded-bottom">
         <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1000">
-          <div class="d-flex justify-content-between mb-2">
-            <form class="d-flex">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="<%= t"text.search" %>">
+          <div class="d-flex mb-2">
+            <%= search_form_for @q, url: admin_orders_path, class:"d-flex align-items-end" do |f| %>
+              <div class="me-1">
+                <%= f.label :order_code_cont, t("text.order.order_code"), class: "form-label fw-bold" %>
+                <%= f.search_field :order_code_cont, class:"form-control" , placeholder: t("text.search") %>
               </div>
-            </form>
+              <div class="me-1">
+                <%= f.label :status_eq, t("text.order.status"), class: "form-label fw-bold" %>
+                <%= f.select :status_eq, Order.statuses.map { |key, value| [display_order_status(key), value] }, { include_blank: t("text.all") } , class: "form-select" %>
+              </div>
+              <div class="me-1">
+                <%= f.label :type_payment_eq, t("text.order.type"), class: "form-label fw-bold" %>
+                <%= f.select :type_payment_eq, Order.type_payments.map { |key, value| [display_type_payment(key), value] }, { include_blank: t("text.all") } , class: "form-select" %>
+              </div>
+              <%= f.submit t("text.filter") , class:"btn btn-primary" %>
+              <%= link_to t("text.reset"), admin_orders_path, class:"btn btn-dark ms-1" %>
+            <% end %>
           </div>
           <table class="table table-bordered">
             <thead class="table-light">
               <tr>
-                <th scope="col"><%= t"text.order.order_code" %></th>
-                <th scope="col"><%= t"text.order.created_at" %></th>
+                <th scope="col">
+                  <%= sort_link(@q, :order_code, class:"text-decoration-none text-dark") do %>
+                    <%= t"text.order.order_code" %>
+                  <% end %>
+                </th>
+                <th scope="col">
+                  <%= sort_link(@q, :created_at, class:"text-decoration-none text-dark") do %>
+                    <%= t"text.order.created_at" %>
+                  <% end %>
+                </th>
                 <th scope="col"><%= t"text.order.type" %></th>
                 <th scope="col"><%= t"text.order.status" %></th>
                 <th scope="col"><%= t"text.order.total" %></th>
