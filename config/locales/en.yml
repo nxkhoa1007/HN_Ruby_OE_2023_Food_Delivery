@@ -150,6 +150,12 @@ en:
     all: "All"
     filter: "Filter"
     reset: "Reset"
+    rate: "Rate"
+    send_rate: "Send rate"
+    rated: "Rated"
+    back: "Go back"
+    total_rate_html: "(<b>%{rate}</b> <span class='star'><i class='bi bi-star-fill'></i></span> on <b>%{total_rate}</b> rates)"
+    no_rate: "(No rate)"
   alert:
     account_created_successful: "Account created successfully, Please check your email to activate account"
     account_activated: "Account activated"
@@ -164,6 +170,8 @@ en:
     error: "Error"
     error_category: "Not found category"
     error_product: "Not found product"
+    error_order: "Order not found"
+    error_order_item: "Order item not found"
     error_cart: "Not found cart"
     error_cart_item: "Not found cart item"
     you_sure: "Are you sure to delete?"
@@ -180,6 +188,7 @@ en:
     update_success: "Update successfully"
     password_changed_successfully: "Password changed successfully"
     limit_size: "Limit size is 1MB"
+    rate_product_success: "Rating product successfully"
   user_mailer:
     hi: "Hi %{user}"
     account_activation:
@@ -220,6 +229,9 @@ en:
         type_payment: "Type payment"
         note: "Note"
         status: "Status"
+      rating:
+        rating: "Đánh giá"
+        comment: "Nhận xét"
   pagy:
     nav:
       prev: 'Prev'

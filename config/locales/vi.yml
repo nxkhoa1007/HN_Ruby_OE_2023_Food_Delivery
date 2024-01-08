@@ -120,6 +120,12 @@ vi:
     all: "Tất cả"
     filter: "Lọc"
     reset: "Đặt lại"
+    rate: "Đánh giá"
+    send_rate: "Gửi đánh giá"
+    rated: "Đã đánh giá"
+    back: "Quay lại"
+    total_rate_html: "(<b>%{rate}</b> <span class='star'><i class='bi bi-star-fill'></i></span> trên <b>%{total_rate}</b> đánh giá)"
+    no_rate: "(Chưa có đánh giá)"
   alert:
     account_created_successful: "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản"
     account_activated: "Kích hoạt tài khoản thành công"
@@ -133,6 +139,8 @@ vi:
     error: "Có lỗi xảy ra"
     error_category: "Không tìm thấy danh mục"
     error_product: "Không tìm thấy sản phẩm"
+    error_order: "Không tìm thấy đơn hàng"
+    error_order_item: "Không tìm thấy sản phẩm trong đơn hàng"
     error_cart: "Không tìm thấy giỏ hàng"
     error_cart_item: "Không tìm thấy sản phẩm trong giỏ hàng"
     you_sure: "Bạn chắc chắn muốn xoá chứ?"
@@ -149,6 +157,7 @@ vi:
     update_success: "Cập nhật thành công"
     password_changed_successfully: "Đổi mật khẩu thành công, xin hãy đăng nhập lại"
     limit_size: "Dung lượng file giới hạn là 1MB"
+    rate_product_success: "Đánh giá sản phẩm thành công"
   user_mailer:
     hi: "Xin chào %{user}"
     account_activation:
@@ -189,6 +198,9 @@ vi:
         type_payment: "Phương thức thanh toán"
         note: "Ghi chú"
         status: "Trạng thái đơn hàng"
+      rating:
+        rating: "Đánh giá"
+        comment: "Nhận xét"
   pagy:
     nav:
       prev: 'Trước'

@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   enum role: {admin: 0, user: 1}
+  has_many :ratings, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :user_infos, dependent: :destroy
   has_one_attached :avatar do |attachable|
@@ -16,6 +17,10 @@ class User < ApplicationRecord
     attachable.variant :user_info, resize_to_limit: [
       Settings.digit_150,
       Settings.digit_150
+    ]
+    attachable.variant :comment, resize_to_limit: [
+      Settings.digit_50,
+      Settings.digit_50
     ]
   end
 

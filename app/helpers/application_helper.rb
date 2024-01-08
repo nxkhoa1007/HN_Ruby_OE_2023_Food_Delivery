@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include RatingsHelper
   include Pagy::Frontend
   def full_title page_title = ""
     base_title = t("text.title")

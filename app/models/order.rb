@@ -10,7 +10,7 @@ class Order < ApplicationRecord
 
   validates :note, length: {maximum: Settings.digit_255}
 
-  scope :newest, ->{order(created_at: :asc)}
+  scope :newest, ->{order(created_at: :desc)}
   scope :current_user_orders, ->(user_id){where(user_id:)}
 
   before_save :set_default_status

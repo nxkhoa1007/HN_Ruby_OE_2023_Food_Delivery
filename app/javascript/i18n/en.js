@@ -16,6 +16,10 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
         "name": "Product name",
         "status": "Status"
       },
+      "rating": {
+        "comment": "Nhận xét",
+        "rating": "Đánh giá"
+      },
       "user": {
         "current_password": "Current password",
         "dob": "Date of birth",
@@ -75,6 +79,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "product_add_successful": "Product added successfully",
     "product_delete_successful": "Product deleted successfully",
     "product_update_successful": "Product updated successfully",
+    "rate_product_success": "Rating product successfully",
     "update_success": "Update successfully",
     "you_sure": "Are you sure to delete?",
     "you_sure_cancel": "Are you sure to cancel?"
@@ -78088,6 +78093,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "all_category": "All Categories",
     "all_product": "All Product",
     "available": "Available",
+    "back": "Go back",
     "back_to_home": "Back to home",
     "bank": "Credit card",
     "banner_text": "Bringing flavors to your doorstep, anytime, anywhere!",
@@ -78135,6 +78141,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "no_order": "No Order",
     "no_product": "No Product",
     "no_product_in_cart": "No product in cart",
+    "no_rate": "(No rate)",
     "not_found_product": "Product not found",
     "notification": "Notification",
     "order": {
@@ -78169,6 +78176,8 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     },
     "product_management": "Product management",
     "rapid": "Rapid",
+    "rate": "Rate",
+    "rated": "Rated",
     "register": "Register",
     "register_account": "Register Account",
     "related_product": "Related Product",
@@ -78177,6 +78186,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "search": "Search",
     "search_result": "Search results",
     "send_email": "Send Email",
+    "send_rate": "Send rate",
     "set_default": "Set default",
     "settings": "Settings",
     "shipping": "Shipping",
@@ -78185,6 +78195,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
     "summary": "Summary",
     "title": "KFood",
     "total": "Total",
+    "total_rate_html": "(<b>%{rate}</b> <span class='star'><i class='bi bi-star-fill'></i></span> on <b>%{total_rate}</b> rates)",
     "unavailable": "Sold out",
     "update_address": "Cập nhật địa chỉ",
     "update_new_password": "Update New Password",

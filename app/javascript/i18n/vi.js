@@ -16,6 +16,10 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
         "name": "Tên sản phẩm",
         "status": "Tình trạng"
       },
+      "rating": {
+        "comment": "Nhận xét",
+        "rating": "Đánh giá"
+      },
       "user": {
         "current_password": "Mật khẩu hiện tại",
         "dob": "Ngày sinh",
@@ -72,6 +76,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "product_add_successful": "Thêm sản phẩm thành công",
     "product_delete_successful": "Xoá sản phẩm thành công",
     "product_update_successful": "Cập nhật sản phẩm thành công",
+    "rate_product_success": "Đánh giá sản phẩm thành công",
     "update_success": "Cập nhật thành công",
     "you_sure": "Bạn chắc chắn muốn xoá chứ?",
     "you_sure_cancel": "Bạn chắc chắn muốn huỷ đơn chứ?"
@@ -983,6 +988,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "all_category": "Tất cả danh mục",
     "all_product": "Tất cả món ăn",
     "available": "Có sẵn",
+    "back": "Quay lại",
     "back_to_home": "Quay về cửa hàng",
     "bank": "Thẻ tín dụng/ghi nợ",
     "banner_text": "Đưa hương vị đến cửa nhà bạn, mọi lúc, mọi nơi!",
@@ -1030,6 +1036,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "no_order": "Không có đơn hàng nào",
     "no_product": "Không có sản phẩm",
     "no_product_in_cart": "Bạn chưa thêm sản phẩm nào vào giỏ hàng",
+    "no_rate": "(Chưa có đánh giá)",
     "not_found_product": "Sản phẩm không tồn tại",
     "notification": "Thông báo",
     "order": {
@@ -1064,6 +1071,8 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     },
     "product_management": "Quản lý sản phẩm",
     "rapid": "Hoả tốc",
+    "rate": "Đánh giá",
+    "rated": "Đã đánh giá",
     "register": "Đăng ký",
     "register_account": "Đăng ký tài khoản",
     "related_product": "Sản phẩm liên quan",
@@ -1072,6 +1081,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "search": "Tìm kiếm",
     "search_result": "Kết quả tìm kiếm",
     "send_email": "Gửi email",
+    "send_rate": "Gửi đánh giá",
     "set_default": "Đặt làm mặc định",
     "settings": "Cài đặt",
     "shipping": "Vận chuyển",
@@ -1080,6 +1090,7 @@ I18n.translations["vi"] = I18n.extend((I18n.translations["vi"] || {}), {
     "summary": "Tóm tắt đơn hàng",
     "title": "KFood",
     "total": "Tổng",
+    "total_rate_html": "(<b>%{rate}</b> <span class='star'><i class='bi bi-star-fill'></i></span> trên <b>%{total_rate}</b> đánh giá)",
     "unavailable": "Đã hết",
     "update_address": "Cập nhật địa chỉ",
     "update_new_password": "Cập nhật mật khẩu mới",
