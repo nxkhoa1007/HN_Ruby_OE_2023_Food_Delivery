@@ -13,3 +13,4 @@ import 'custom/toastr'
 import 'custom/script'
 import 'custom/image_upload'
 import 'custom/star_rating'
+import "channels"

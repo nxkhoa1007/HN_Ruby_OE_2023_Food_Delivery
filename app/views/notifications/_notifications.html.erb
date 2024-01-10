@@ -1,0 +1,23 @@
+<% unless current_page?(admin_notifications_path) %>
+  <li class="nav-item dropdown" >
+    <div class="nav-link show" id="noti-count" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+      <%= render "notifications/counter", counter: @unread_notifications.size %>
+    </div>
+    <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg pt-0" data-popper-placement="bottom-end">
+      <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold rounded-top d-flex justify-content-between">
+        <b><%= t "text.notification" %></b>
+        <%= link_to t("text.all"), admin_notifications_path, class: "text-decoration-none" %>
+      </div>
+      <div id="notification-list" class="overflow-auto noti-nav">
+        <% if @notifications.any? %>
+          <% @notifications.each do |notification| %>
+            <%= render "notifications/notification", notification:notification %>
+          <% end %>
+        <% else %>
+          <div class="message text-wrap text-center"><%= t("text.no_noti") %></div>
+        <% end %>
+        <%= render partial: "admin/shared/next_page" %>
+      </div>
+    </div>
+  </li>
+<% end %>

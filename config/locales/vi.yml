@@ -126,6 +126,12 @@ vi:
     back: "Quay lại"
     total_rate_html: "(<b>%{rate}</b> <span class='star'><i class='bi bi-star-fill'></i></span> trên <b>%{total_rate}</b> đánh giá)"
     no_rate: "(Chưa có đánh giá)"
+    ago: "%{time} trước"
+    system: "Hệ thống"
+    new_order_noti: "Bạn có một đơn hàng mới"
+    mark_all_as_read: "Đánh dấu tất cả là đã đọc"
+    mark_as_read: "Đã xem"
+    no_noti: "Không có thông báo"
   alert:
     account_created_successful: "Tạo tài khoản thành công, vui lòng kiểm tra email để xác thực tài khoản"
     account_activated: "Kích hoạt tài khoản thành công"

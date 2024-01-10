@@ -7,4 +7,8 @@ module RatingsHelper
   def check_all_rated order_items
     order_items.all?(&:rated?)
   end
+
+  def rating_color rating, index
+    rating >= index ? Settings.color_checked : Settings.color_unchecked
+  end
 end
