@@ -34,7 +34,7 @@
         <% if @ratings.any? %>
           <% @ratings.each do |rating| %>
             <div class="d-flex mb-3">
-              <div class="flex-shrink-0"><%= image_tag rating.user.avatar.variant(:comment), class: "rounded-circle" if current_user.avatar.attached? %></div>
+              <div class="flex-shrink-0"><%= image_tag rating.user.avatar.variant(:comment), class: "rounded-circle" if rating.user.avatar.attached? %></div>
               <div class="ms-3">
                 <div class="fw-bold"><%= rating.user.name %></div>
                 <div>

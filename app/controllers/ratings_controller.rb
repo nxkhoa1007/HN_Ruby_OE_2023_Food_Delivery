@@ -29,7 +29,7 @@ class RatingsController < ApplicationController
 
   def load_order_item
     @order_item = OrderItem.find_by id: params[:id]
-    return if @order_items
+    return if @order_item
 
     flash[:error] = t("alert.error_order_item")
     redirect_to root_path
