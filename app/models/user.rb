@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :ratings, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :user_infos, dependent: :destroy
+
   has_one_attached :avatar do |attachable|
     attachable.variant :display, resize_to_limit: [
       Settings.digit_25,
@@ -25,6 +26,7 @@ class User < ApplicationRecord
   end
 
   validates :name, presence: true, length: {maximum: Settings.digit_50}
+  scope :admin_user, ->{where(role: :admin)}
 
   before_save :downcase_email
   before_create :default_avatar
@@ -43,6 +45,11 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
+
   private
 
   def downcase_email
