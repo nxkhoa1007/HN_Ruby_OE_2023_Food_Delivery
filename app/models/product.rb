@@ -69,6 +69,8 @@ class Product < ApplicationRecord
   end
 
   def remove_commas_from_price
+    return if cost_before_type_cast.is_a? Integer
+
     self.cost = cost_before_type_cast.gsub(",", "").to_i if cost.present?
   end
 end

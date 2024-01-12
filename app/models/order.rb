@@ -9,6 +9,8 @@ class Order < ApplicationRecord
   belongs_to :user_info
   belongs_to :user
 
+  accepts_nested_attributes_for :user_info, :order_items
+
   delegate :name, to: :user, prefix: true
   validates :note, length: {maximum: Settings.digit_255}
 
@@ -45,6 +47,20 @@ class Order < ApplicationRecord
 
   def self.ransackable_associations _auth_object = nil
     %w(order_items user user_info)
+  end
+
+  def update_sold_product params
+    if update(params)
+      if params["status"].to_sym == :delivered
+        order_items.each do |order_item|
+          order_item.product.sold += order_item.quantity
+          order_item.product.save
+        end
+      end
+      true
+    else
+      false
+    end
   end
 
   private
