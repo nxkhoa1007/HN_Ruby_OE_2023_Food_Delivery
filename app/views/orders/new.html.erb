@@ -40,8 +40,8 @@
                 <div class="row g-3">
                     <div id="user-info">
                       <%= f.fields_for :user_info do |user_info_form| %>
-                        <%= user_info_form.hidden_field :user_id, value: current_user.id %>
                         <% if @user_info.present? %>
+                          <%= user_info_form.hidden_field :user_id, value: current_user.id %>
                           <%= user_info_form.hidden_field :name, value: @user_info.name %>
                           <%= user_info_form.hidden_field :phoneNum, value: @user_info.phoneNum %>
                           <%= user_info_form.hidden_field :address, value: @user_info.address %>
